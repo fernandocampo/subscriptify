@@ -1,2 +1,92 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dale seguimiento a tus suscripciones, pruebas y ofertas de por vida | Subscriptify</title>
+    <meta name="description" content="Con una mejor gestión de suscripciones ahorras dinero al cancelar suscripciones no usadas.">
+    <meta name="theme-color" content="#8e44ad">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="canonical" href="https://subscriptify.com/">
+</head>
+
+<body class="has-navbar-fixed-top">
+
+    <section class="hero is-medium" style="background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('background-image.webp'); background-size: cover">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title is-2">Nunca más te olvides de una renovación de suscripción</h1>
+                <h2 class="subtitle is-4">Recibe alertas antes de la renovación de las suscripciones.</h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="section content pb-0 mb-0">
+            <div class="columns">
+                <div class="column is-6 pt-5">
+                    <h2 class="title is-3">Nunca olvides una renovación automática</h2>
+                    <ol>
+                        <li>Agrega las suscripciones que pagas actualmente.</li>
+                        <li>Recibe recordatorios cuando estén a punto de vencer.</li>
+                        <li>Ahorra dinero cancelando servicios no usados a tiempo.</li>
+                    </ol>
+                    <h3 class="title is-5">Suscripciones con tiempo de prueba</h3>
+                    <p>Realiza un seguimiento de las inscripciones a pruebas y cuándo se te cobrarán. Recibe recordatorios para que puedas cancelar las pruebas que no quieres empezar a pagar. Subscriptify hace un seguimiento de los períodos de reembolso y te mandará recordatorios.</p>
+                </div>
+                <div class="column">
+                    <img class="introduction-screenshot" ><%= image_tag "dashboard.png" %>
+                </div>
+            </div>
+        </section>
+        <section class="section content pt-0 pb-0 mb-0">
+            <div class="columns">
+                <div class="column">
+                    <blockquote>
+                        <em>"Subscriptify me simplificó la gestión y visualización de todas mis suscripciones. Con sus avisos pude darme de baja de servicios que ya no usaba"</em><br><br> Juan Domingo
+                    </blockquote>
+                </div>
+                <div class="column">
+                    <blockquote>
+                        <em>"Web simple que cumple con lo que promete. Fácil de usar y tuvo impacto directo en tiempo y dinero"</em><br><br> ⭐⭐⭐⭐⭐ por Nicolás Hernández
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+        <section class="section content">
+            <div class="columns">
+                <div class="column">
+                    <img class="introduction-screenshot2" alt="Captura de pantalla" src="screenshot2.webp">
+                </div>
+                <div class="column pt-5">
+                    <h2 class="title is-3">Visualizar los cargos por meses</h2>
+                    <p>Ver el gasto total mensual que puedes tener en los próximos 12 meses.</p>
+                    <h3 class="title is-5">Categorizar suscripciones</h3>
+                    <p>Al asignar categorías a tus suscripciones podrás ver cómo se reparte el gasto entre ellas.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <ul>
+                        <li class="title is-6 mb-2">Producto</li>
+                        <li><a href="https://subscriptify.com/contact">Contacto</a></li>
+                        <li><a href="https://subscriptify.com/pages/terms">Términos de Servicio</a></li>
+                        <li><a href="https://subscriptify.com/pages/privacy">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h6 class="title is-6 mb-2">Subscriptify</h6>
+                    Desarrollado por Darío, Antonio y Fer.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
