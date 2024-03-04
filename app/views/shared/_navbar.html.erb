@@ -1,3 +1,4 @@
+<!--
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
@@ -36,3 +37,31 @@
     </div>
   </div>
 </div>
+ -->
+
+<nav class="navbar is-primary is-fixed-top">
+    <div class="container">
+        <div class="navbar-brand">
+            <%= link_to "#", class: "navbar-brand"  do %>
+              <%= image_tag "Logo.png" %>
+            <% end %>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <%# <a class="navbar-item" href="http://127.0.0.1:3000/contact">Contacto</a> %>
+            <button class="navbar-item navbar-burger is-hidden-desktop" data-target="menu" aria-label="menu" aria-expanded="false">
+                Menú
+            </button>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <%# <a class="button is-inverted is-outlined" href="http://127.0.0.1:3000/users/sign_in">Iniciar sesión</a> %>
+                        <%= link_to "Login", new_user_session_path, class: "button is-primary" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
