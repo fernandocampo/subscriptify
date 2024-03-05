@@ -1,6 +1,11 @@
 require "test_helper"
 
 class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
+<<<<<<< HEAD
+  # test "the truth" do
+  #   assert true
+  # end
+=======
   test "should get index" do
     get subscriptions_index_url
     assert_response :success
@@ -35,4 +40,5 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     get subscriptions_destroy_url
     assert_response :success
   end
+>>>>>>> 63974ae23995abd88c87f8fcc2c6126185217485
 end

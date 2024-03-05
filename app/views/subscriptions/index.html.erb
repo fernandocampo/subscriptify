@@ -1,3 +1,23 @@
 <h1>Subscriptions#index</h1>
-<p>Find me in app/views/subscriptions/index.html.erb</p>
 
+<div class="container text-center">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <% @subscriptions.each do |subscription| %>
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <p><%= subscription.company_name %></p>
+            <p><%= subscription.description %></p>
+            <p><%= subscription.url %></p>
+            <p><%= subscription.recurrent %></p>
+            <p><%= subscription.frequency %></p>
+            <p><%= subscription.payment_date %></p>
+            <p><%= subscription.price %></p>
+            <p><%= subscription.currency %></p>
+            <p><%= subscription.category %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
