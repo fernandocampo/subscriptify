@@ -1,6 +1,4 @@
 class SubscriptionsController < ApplicationController
-<<<<<<< HEAD
-=======
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -53,5 +51,4 @@ class SubscriptionsController < ApplicationController
       :category
     )
   end
->>>>>>> 63974ae23995abd88c87f8fcc2c6126185217485
 end
