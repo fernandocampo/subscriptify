@@ -1,0 +1,6 @@
+# config/meta.yml
+ meta_product_name: "Subscriptify"
+ meta_title: "Subscriptify - Don't forget yours subscriptions anymore"
+ meta_description: "Subscriptify is an app where you can managge yours subscriptions in a simple way"
+ meta_image: "Logo.png"
+ twitter_account: "@subscriptify"
