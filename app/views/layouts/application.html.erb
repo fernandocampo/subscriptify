@@ -31,9 +31,12 @@
 
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
-    <%= yield %>
+  <body>
+    <%= render "shared/navbar" %>
+    <br>
+    <div class="container" style="margin-top: 86px">
+        <%= yield %>
+        <%= render "shared/flashes" %>
+    </div>
   </body>
 </html>
