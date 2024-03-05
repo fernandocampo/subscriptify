@@ -1,14 +1,22 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-  height: 10px;
-}
+.navbar-custom {
+  background-color: #8e44ad;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; // Agrega un espacio alrededor del contenido de la barra de navegación
+  }
 
-.navbar-custom .navbar-brand img {
-  width: 150px;
-  height: 50px;
+  .navbar-logo {
+    width: 150px;
+    height: 50px;
+    margin: 0; // Elimina el margen para que el logo esté en la esquina izquierda
+    display: flex; // Alinear elementos internos horizontalmente
+    align-items: center; // Centrar verticalmente los elementos internos
+  }
+
+  .buttons {
+    display: flex; // Alinear botones horizontalmente
+  }
 }
