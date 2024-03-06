@@ -15,7 +15,7 @@
       <%= f.input :currency, collection: Subscription::CURRENCIES  %>
       <%= link_to "Next", "#", class: "btn btn-primary", data: {action: "click->change-class#stepTwo"} %>
     </div>
-    <div data-change-class-target="category" class="d-none">
+    <div data-change-class-target="category"  class="d-none">
       <%= f.input :category, collection: Subscription::CATEGORIES %>
       <%= f.button :submit %>
     </div>
