@@ -1,14 +1,61 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-  height: 10px;
+.navbar-custom {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #8e44ad;
+  max-height: 60px;
+  position: fixed;
+  overflow: auto;
+  width: 100%;
+
+  .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 5px 5px 5px;
+      margin-top: 0;
+
+  }
+
+  .logo-img {
+    display: flex;
+    justify-content: flex-start;
+    width: 120px;
+    height: 40px;
+    box-sizing: border-box;
+  }
+
+  .buttons {
+      display: flex; // Alinear botones horizontalmente
+  }
+  .button-login {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #ffffff;
+    color: #8e44ad;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    text-decoration: none;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-custom .navbar-brand img {
-  width: 150px;
-  height: 50px;
-}
+// -webkit-font-smoothing: antialiased;
+// text-rendering: optimizeLegibility;
+// text-size-adjust: 100%;
+// font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+// font-size: 1em;
+// font-weight: 400;
+// line-height: 1.5;
+// box-sizing: inherit;
+// align-items: stretch;
+// display: flex;
+// min-height: 3.25rem;
+// background-color: #8e44ad;
+// color: #fff;
+// left: 0;
+// position: fixed;
+// right: 0;
+// z-index: 30;
+// top: 0;
