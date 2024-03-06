@@ -14,7 +14,12 @@ class SubscriptionsController < ApplicationController
 
   def create
     @subscription = Subscription.new(subscription_params)
-    @subscription.save!
+    @subscription.user = current_user
+    if @subscription.save
+      redirect_to subscription_path(@subscription)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
