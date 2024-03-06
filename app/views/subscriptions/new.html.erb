@@ -1,2 +1,26 @@
 <h1>Subscriptions#new</h1>
-<p>Find me in app/views/subscriptions/new.html.erb</p>
+  <%= simple_form_for @subscription do |f| %>
+    <tr>
+      <td>
+        <%= f.input :company_name %>
+        <%= f.input :description %>
+      </td>
+      <td>
+        <%= f.input :url %>
+        <%= f.input :recurrent %>
+      </td>
+      <td>
+        <%= f.input :frequency %>
+        <%= f.input :payment_date, html5:true %>
+      </td>
+      <td>
+        <%= f.input :price %>
+        <%= f.input :currency %>
+      </td>
+      <td>
+        <%= f.input :category %>
+        <%= f.button :submit %>
+      </td>
+    </tr>
+<% end %>
+
