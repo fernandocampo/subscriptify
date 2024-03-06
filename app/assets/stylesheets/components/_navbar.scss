@@ -1,14 +1,43 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-  height: 10px;
+.navbar-custom {
+  background-color: #8e44ad;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-img {
+    width: 180px;
+    height: 60px;
+    margin: 0; // Elimina el margen para que el logo esté en la esquina izquierda
+    display: flex; // Alinear elementos internos horizontalmente
+    align-items: center; // Centrar verticalmente los elementos internos
+  }
+
+  .buttons {
+    display: flex; // Alinear botones horizontalmente
+  }
+
+  .login-button {
+    background-color: white;
+    border-color: #dbdbdb;
+    border-width: 1px;
+    color: #8e44ad;
+    cursor: pointer;
+    justify-content: center;
+    padding-bottom: calc(0.5em - 1px);
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: calc(0.5em - 1px);
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    border-radius: 4px;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.login-button:hover {
+    background-color: #f2f2f2; // Color de fondo cuando el botón se coloca sobre
+    color: #8e44ad; // Color de texto cuando el botón se coloca sobre
 }
-
-.navbar-custom .navbar-brand img {
-  width: 150px;
-  height: 50px;
 }
