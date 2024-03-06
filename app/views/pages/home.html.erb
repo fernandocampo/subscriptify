@@ -12,7 +12,7 @@
 
 <body class="has-navbar-fixed-top">
 
-    <section class="hero is-medium" style="background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('background-image.webp'); background-size: cover">
+    <section class="hero is-medium" style="background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url(<%= image_path('background-image.png') %>); background-size: cover">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title is-2">Nunca más te olvides de una renovación de suscripción</h1>
@@ -35,7 +35,7 @@
                     <p>Realiza un seguimiento de las inscripciones a pruebas y cuándo se te cobrarán. Recibe recordatorios para que puedas cancelar las pruebas que no quieres empezar a pagar. Subscriptify hace un seguimiento de los períodos de reembolso y te mandará recordatorios.</p>
                 </div>
                 <div class="column">
-                    <img class="introduction-screenshot" ><%= image_tag "dashboard.png" %>
+                    <img class="dashboard-img" ><%= image_tag "dashboard.png" %>
                 </div>
             </div>
         </section>
@@ -56,7 +56,7 @@
         <section class="section content">
             <div class="columns">
                 <div class="column">
-                    <img class="introduction-screenshot"><%= image_tag "metrics.png" %>
+                    <img class="metrics-img"><%= image_tag "metrics.png" %>
                 </div>
                 <div class="column pt-5">
                     <h2 class="title is-3">Visualizar los cargos por meses</h2>
