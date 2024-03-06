@@ -38,6 +38,11 @@ class SubscriptionsController < ApplicationController
     redirect_to subscriptions_path
   end
 
+  def stats
+    calculate_expenses
+  end
+
+
   private
 
   def set_subscription
@@ -56,4 +61,11 @@ class SubscriptionsController < ApplicationController
       :category
     )
   end
+
+  def calculate_expenses
+    @upcoming_expenses = Subscription.where('payment_date >= ?', Date.today).sum(:price)
+    @average_expenses_by_category = Subscription.group(:category).average(:price)
+    @current_month_expenses_by_category = Subscription.where(payment_date: Date.today.beginning_of_month..Date.today.end_of_month).group(:category).sum(:price)
+  end
+
 end
