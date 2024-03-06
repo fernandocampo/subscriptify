@@ -12,7 +12,6 @@ class Subscription < ApplicationRecord
   validates :currency, inclusion: { in: CURRENCIES }
 
   validates :company_name, presence: true
-  validates :recurrent, presence: true
   validates :frequency, presence: true
   validates :payment_date, presence: true
   validates :category, presence: true
