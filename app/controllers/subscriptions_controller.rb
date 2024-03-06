@@ -1,4 +1,4 @@
-class SusbscriptionsController < ApplicationController
+class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
 
   def index
