@@ -96,7 +96,6 @@ GEM
     bootstrap (5.3.2)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.8, < 3)
-    bootstrap-table-rails (1.20.2)
     builder (3.2.4)
     capybara (3.40.0)
       addressable
@@ -299,7 +298,6 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   bootstrap (~> 5.2)
-  bootstrap-table-rails
   capybara
   debug
   devise
