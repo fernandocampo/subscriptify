@@ -1,7 +1,6 @@
 <h1>Subscriptions#edit</h1>
 <p>Find me in app/views/subscriptions/edit.html.erb</p>
-<% @subscriptions.each do |subscription| %>
-  <%= simple_form_for subscription do |f| %>
+  <%= simple_form_for @subscription do |f| %>
     <tr>
       <td>
         <%= f.input :company_name %>
@@ -13,7 +12,7 @@
       </td>
       <td>
         <%= f.input :frequency %>
-        <%= f.input :payment_date %>
+        <%= f.input :payment_date, html5:true %>
       </td>
       <td>
         <%= f.input :price %>
@@ -21,8 +20,7 @@
       </td>
       <td>
         <%= f.input :category %>
-        <%= f.button :submit, "Actualizar" %>
+        <%= f.button :submit%>
       </td>
     </tr>
-  <% end %>
 <% end %>
