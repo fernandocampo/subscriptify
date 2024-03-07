@@ -25,15 +25,23 @@
     box-sizing: border-box;
   }
 
-  .buttons {
-      display: flex; // Alinear botones horizontalmente
-  }
-  .button-login {
+  .input.btn {
     display: flex;
     justify-content: flex-end;
     background-color: #ffffff;
     color: #8e44ad;
-    padding: 10px 20px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+  a.button-login {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #ffffff;
+    color: #8e44ad;
+    padding: 8px 20px;
     border: none;
     border-radius: 5px;
     margin-right: 10px;
