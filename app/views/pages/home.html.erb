@@ -3,7 +3,7 @@
 
 <body class="has-navbar-fixed-top">
 
-    <section class="hero is-medium" style="background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('background-image.webp'); background-size: cover">
+    <section class="hero is-medium" style="background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url(<%= image_path('background-image.png')%>); background-size: cover">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title is-2">Nunca más te olvides de una renovación de suscripción</h1>
@@ -13,9 +13,8 @@
     </section>
 
     <div class="container">
-        <section class="section content pb-0 mb-0">
-            <div class="columns">
-                <div class="column is-6 pt-5">
+        <div class="flex-container">
+                <div class="box box-1">
                     <h2 class="title is-3">Nunca olvides una renovación automática</h2>
                     <ol>
                         <li>Agrega las suscripciones que pagas actualmente.</li>
@@ -25,11 +24,11 @@
                     <h3 class="title is-5">Suscripciones con tiempo de prueba</h3>
                     <p>Realiza un seguimiento de las inscripciones a pruebas y cuándo se te cobrarán. Recibe recordatorios para que puedas cancelar las pruebas que no quieres empezar a pagar. Subscriptify hace un seguimiento de los períodos de reembolso y te mandará recordatorios.</p>
                 </div>
-                <div class="column">
-                    <img class="introduction-screenshot" ><%= image_tag "dashboard.png" %>
-                </div>
-            </div>
-        </section>
+                    <div class="box box-2">
+                      <img class="introduction-screenshot" ><%= image_tag "dashboard2.png" %>
+                    </div>
+
+      </div>
         <section class="section content pt-0 pb-0 mb-0">
             <div class="columns">
                 <div class="column">

@@ -1,44 +1,94 @@
-
-body {
-  font-family: Arial, sans-serif;
+/* Estilos globales */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px;
-}
+// body {
+//   font-family: Arial, sans-serif;
+// }
 
+// .container {
+//   margin: 0 auto;
+//   padding: 10px;
+// }
+
+/* Estilos para el hero */
 .hero {
-  background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('background-image.webp');
+  background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('background-image.png');
   background-size: cover;
   text-align: center;
   padding: 100px 0;
 }
 
-.hero h1 {
-  font-size: 3em;
-  color: #333;
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  max-width: 100%;
 }
 
-/* Estilos para las secciones de contenido */
-.section {
-  padding: 50px 0;
+.box {
+  margin: 10px 10px;
+}
+.box-1{
+  align-self: flex-start;
+  width: 50%;
 }
 
-.section h2 {
-  font-size: 2em;
-  color: #333;
-}
-
-.section p {
-  font-size: 1.2em;
-  color: #666;
+.box-2{
+  float: right;
+  width: 50%;
+  display: block;
+  min-height: 100%;
 }
 
 
+// /* Estilos para las secciones de contenido */
+// .section {
+//   display: grid;
+//   align-items: center;
+//   grid-template-columns: 1fr 1fr 1fr;
+//   column-gap: 5px;
+// }
+
+// .section.content.pb-0.mb-0 {
+//   display: flex;
+//   justify-content: flex-start;
+//   flex-direction: row;
+//   padding-bottom: 0;
+//   margin-bottom: 0;
+// }
+
+// .section h2 {
+//   font-size: 2em;
+//   color: #333;
+// }
+
+// .section p {
+//   font-size: 1.2em;
+//   color: #666;
+// }
+
+// .column.is-6.pt-5 {
+//   display: inline-block;
+//   width:50%;
+//   box-sizing: border-box;
+// }
+
+// .section .img {
+//   display: block;
+//   align-items: center;
+//   justify-content: center;
+//   width: 100%;
+//   height: 100%;
+//   max-width: 150%;
+//   box-sizing: border-box;
+// }
+
+/* Estilos para el pie de página */
 .footer {
   background-color: #333;
   color: #fff;
