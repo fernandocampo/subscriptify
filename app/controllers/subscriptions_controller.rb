@@ -1,4 +1,4 @@
-class SusbscriptionsController < ApplicationController
+class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,7 +14,12 @@ class SusbscriptionsController < ApplicationController
 
   def create
     @subscription = Subscription.new(subscription_params)
-    @subscription.save!
+    @subscription.user = current_user
+    if @subscription.save
+      redirect_to subscription_path(@subscription)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -32,6 +37,11 @@ class SusbscriptionsController < ApplicationController
     @subscription.destroy
     redirect_to subscriptions_path
   end
+
+  def stats
+    calculate_expenses
+  end
+
 
   private
 
@@ -51,4 +61,11 @@ class SusbscriptionsController < ApplicationController
       :category
     )
   end
+
+  def calculate_expenses
+    @upcoming_expenses = Subscription.where('payment_date >= ?', Date.today).sum(:price)
+    @average_expenses_by_category = Subscription.group(:category).average(:price)
+    @current_month_expenses_by_category = Subscription.where(payment_date: Date.today.beginning_of_month..Date.today.end_of_month).group(:category).sum(:price)
+  end
+
 end
