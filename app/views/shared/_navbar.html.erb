@@ -1,22 +1,24 @@
-<nav class="navbar is-primary is-fixed-top navbar-custom">
-    <div class="container">
-        <div class="navbar-logo">
-            <%= link_to root_path, class: "navbar-logo"  do %>
-              <%= image_tag "navlogo.png", class: "logo-img"%>
-            <% end %>
-        </div>
-        <div class="navbar-menu">
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                      <% if user_signed_in? %>
-                        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "button is-primary login-button" %>
-                      <% else %>
-                        <%= link_to "Login", new_user_session_path, class: "button is-primary login-button" %>
-                      <% end %>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
+  <nav class="navbar is-primary is-fixed-top navbar-custom">
+      <div class="container">
+          <div class="navbar-logo">
+              <%= link_to root_path, class: "navbar-logo"  do %>
+                <%= image_tag "navlogo.png", class: "logo-img"%>
+              <% end %>
+          </div>
+
+          <div class="navbar-menu">
+              <div class="navbar-end">
+                  <div class="navbar-item">
+                      <div class="buttons">
+                        <% if user_signed_in? %>
+                          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "button is-primary login-button" %>
+                        <% else %>
+                          <%= link_to "Login", new_user_session_path, class: "login btn btn-sm" %>
+                           <%= link_to "Register", new_user_session_path, class: "btn btn-outline-light" %>
+                        <% end %>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </nav>
