@@ -7,11 +7,9 @@
       <th>Nombre de la empresa</th>
       <th>Descripción</th>
       <th>URL</th>
-      <th>Recurrente</th>
       <th>Frecuencia</th>
       <th>Fecha de pago</th>
       <th>Precio</th>
-      <th>Moneda</th>
       <th>Categoría</th>
     </tr>
   </thead>
@@ -21,11 +19,9 @@
         <td><%= link_to subscription.company_name, subscription_path(subscription), class: "text-decoration-none" %></td>
         <td><%= subscription.description %></td>
         <td><%= subscription.url %></td>
-        <td><%= subscription.recurrent %></td>
         <td><%= subscription.frequency %></td>
         <td><%= subscription.payment_date %></td>
         <td><%= number_to_currency(subscription.price) %></td>
-        <td><%= subscription.currency %></td>
         <td><%= subscription.category %></td>
         <td><%= button_to "Delete", subscription_path(subscription), method: :delete, data: { confirm: "Are you sure you want to delete this subscription?" }, class: "btn btn-primary"%></td>
       </tr>
