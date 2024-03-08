@@ -9,41 +9,41 @@
 #   end
 puts "Creating Subscriptions"
 Subscription.create(
-  company_name: 'Netflic',
+  company_name: 'Netflix',
   user_id: '1',
   description: 'Familia',
   recurrent: "1",
-  frequency: 'anually',
-  payment_date: "25/10/2024",
-  url: 'www.Netflic.com',
+  frequency: 'monthly',
+  payment_date: "25/03/2024",
+  url: 'www.Netflix.com',
   price: '10',
   currency: "usd",
   category: "streaming"
 )
 
 Subscription.create(
-  company_name: 'Sporify',
+  company_name: 'Spotify',
   user_id: '1',
   description: 'Amigos',
   recurrent: "1",
   frequency: 'monthly',
-  payment_date: "25/11/2024",
+  payment_date: "22/03/2024",
   url: 'www.Sporify.com',
-  price: '2000',
-  currency: "ars",
+  price: '10',
+  currency: "usd",
   category: "streaming"
 )
 
 Subscription.create(
-  company_name: 'YouTuve',
+  company_name: 'YouTube',
   user_id: '1',
   description: 'Amigos',
   recurrent: "1",
-  frequency: 'weekly',
-  payment_date: "03/11/2024",
-  url: 'www.Youtuve.com',
-  price: '1500',
-  currency: "clp",
+  frequency: 'monthly',
+  payment_date: "03/03/2024",
+  url: 'www.Youtube.com',
+  price: '5',
+  currency: "usd",
   category: "streaming"
 )
 
@@ -53,9 +53,9 @@ Subscription.create(
   description: 'Personal',
   recurrent: "1",
   frequency: 'anually',
-  payment_date: "01/01/2025",
+  payment_date: "01/04/2024",
   url: 'www.edutech.com',
-  price: '2000',
+  price: '200',
   currency: "usd",
   category: "education"
 )
@@ -65,26 +65,14 @@ Subscription.create(
   user_id: '1',
   description: 'Familiar',
   recurrent: "1",
-  frequency: 'monthly',
-  payment_date: "11/06/2024",
+  frequency: 'weekly',
+  payment_date: "12/03/2024",
   url: 'www.diairiotech.com',
   price: '1',
   currency: "usd",
   category: "services"
 )
 
-Subscription.create(
-  company_name: 'GasLooz',
-  user_id: '1',
-  description: 'Familiar',
-  recurrent: "1",
-  frequency: 'monthly',
-  payment_date: "11/07/2024",
-  url: 'www.gaslooz.com',
-  price: '10000',
-  currency: "ars",
-  category: "services"
-)
 
 Subscription.create(
   company_name: 'Teletech',
@@ -92,10 +80,154 @@ Subscription.create(
   description: 'Personal',
   recurrent: "1",
   frequency: 'monthly',
-  payment_date: "11/07/2024",
+  payment_date: "11/03/2024",
   url: 'www.Teletech.com',
-  price: '15000',
-  currency: "ars",
+  price: '150',
+  currency: "usd",
+  category: "services"
+)
+
+Subscription.create(
+  company_name: 'Netflix',
+  user_id: '2',
+  description: 'Familia',
+  recurrent: "1",
+  frequency: 'monthly',
+  payment_date: "25/03/2024",
+  url: 'www.Netflix.com',
+  price: '10',
+  currency: "usd",
+  category: "streaming"
+)
+
+Subscription.create(
+  company_name: 'Spotify',
+  user_id: '2',
+  description: 'Amigos',
+  recurrent: "1",
+  frequency: 'monthly',
+  payment_date: "22/03/2024",
+  url: 'www.Sporify.com',
+  price: '10',
+  currency: "usd",
+  category: "streaming"
+)
+
+
+Subscription.create(
+  company_name: 'EducTech',
+  user_id: '2',
+  description: 'Personal',
+  recurrent: "1",
+  frequency: 'anually',
+  payment_date: "01/04/2024",
+  url: 'www.edutech.com',
+  price: '180',
+  currency: "usd",
+  category: "education"
+)
+
+Subscription.create(
+  company_name: 'DiarioTech',
+  user_id: '2',
+  description: 'Familiar',
+  recurrent: "1",
+  frequency: 'weekly',
+  payment_date: "12/03/2024",
+  url: 'www.diairiotech.com',
+  price: '2',
+  currency: "usd",
+  category: "services"
+)
+
+Subscription.create(
+  company_name: 'GasLooz',
+  user_id: '2',
+  description: 'Familiar',
+  recurrent: "1",
+  frequency: 'monthly',
+  payment_date: "11/03/2024",
+  url: 'www.gaslooz.com',
+  price: '18',
+  currency: "usd",
+  category: "services"
+)
+
+Subscription.create(
+  company_name: 'Teletech',
+  user_id: '2',
+  description: 'Personal',
+  recurrent: "1",
+  frequency: 'monthly',
+  payment_date: "11/03/2024",
+  url: 'www.Teletech.com',
+  price: '120',
+  currency: "usd",
+  category: "services"
+)
+
+Subscription.create(
+  company_name: 'Spotify',
+  user_id: '3',
+  description: 'Amigos',
+  recurrent: "1",
+  frequency: 'monthly',
+  payment_date: "22/03/2024",
+  url: 'www.Sporify.com',
+  price: '10',
+  currency: "usd",
+  category: "streaming"
+)
+
+Subscription.create(
+  company_name: 'YouTube',
+  user_id: '3',
+  description: 'Amigos',
+  recurrent: "1",
+  frequency: 'monthly',
+  payment_date: "03/03/2024",
+  url: 'www.Youtube.com',
+  price: '10',
+  currency: "usd",
+  category: "streaming"
+)
+
+Subscription.create(
+  company_name: 'EducTech',
+  user_id: '3',
+  description: 'Personal',
+  recurrent: "1",
+  frequency: 'anually',
+  payment_date: "01/04/2024",
+  url: 'www.edutech.com',
+  price: '180',
+  currency: "usd",
+  category: "education"
+)
+
+Subscription.create(
+  company_name: 'DiarioTech',
+  user_id: '3',
+  description: 'Familiar',
+  recurrent: "1",
+  frequency: 'weekly',
+  payment_date: "12/03/2024",
+  url: 'www.diairiotech.com',
+  price: '2',
+  currency: "usd",
+  category: "services"
+)
+
+Subscription.create(
+  company_name: 'Teletech',
+  user_id: '3',
+  description: 'Personal',
+  recurrent: "1",
+  frequency: 'monthly',
+  payment_date: "11/03/2024",
+  url: 'www.Teletech.com',
+  price: '120',
+  currency: "usd",
   category: "services"
 )
 
