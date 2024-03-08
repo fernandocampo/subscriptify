@@ -27,7 +27,7 @@
         <td><%= subscription.price %></td>
         <td><%= subscription.currency %></td>
         <td><%= subscription.category %></td>
-        <td><%= button_to "Delete", subscription_path(subscription), method: :delete, data: { confirm: "Are you sure you want to delete this subscription?" }%></td>
+        <td><%= button_to "Delete", subscription_path(subscription), method: :delete, data: { confirm: "Are you sure you want to delete this subscription?" }, class: "custom-button"%></td>
       </tr>
     <% end %>
   </tbody>
