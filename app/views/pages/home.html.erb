@@ -1,20 +1,3 @@
-<div class="container">
-  <div class="row">
-    <% if user_signed_in? %>
-      <div class="col">
-        <h1><%= link_to "Dashboard", subscriptions_path %></h1>
-      </div>
-      <div class="col">
-        <h1><%= link_to "Nueva Subscripcion", new_subscription_path %></h1>
-      </div>
-      <div class="col">
-        <h1><%= link_to "Statistics", stats_subscriptions_path %></h1>
-      </div>
-    <% else %>
-    <% end %>
-  </div>
-</div>
-
 <body class="has-navbar-fixed-top">
 
     <section class="hero is-medium" style="background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url(<%= image_path('background-image.png')%>); background-size: cover">
@@ -27,8 +10,8 @@
     </section>
 
     <div class="container">
-        <div class="flex-container">
-                <div class="box box-1">
+        <div class="flex-container my-4">
+                <div class="col-6">
                     <h2 class="title is-3">Nunca olvides una renovación automática</h2>
                       <ol>
                         <li>Agrega las suscripciones que pagas actualmente.</li>
@@ -38,8 +21,8 @@
                     <h3 class="title is-5">Suscripciones con tiempo de prueba</h3>
                     <p>Realiza un seguimiento de las inscripciones a pruebas y cuándo se te cobrarán. Recibe recordatorios para que puedas cancelar las pruebas que no quieres empezar a pagar. Subscriptify hace un seguimiento de los períodos de reembolso y te mandará recordatorios.</p>
                 </div>
-                    <div class="box box-2">
-                      <img class="introduction-screenshot" ><%= image_tag "dashboard2.png" %>
+                    <div class="col-6 d-flex justify-content-center">
+                      <img class="introduction-screenshot" ><%= image_tag "dashboard2.png", style: "width:90%;" %>
                     </div>
       </div>
 
@@ -58,20 +41,27 @@
             </div>
         </section>
         <section id="content">
-            <div class="flex-container">
-                <div class="box box-1">
-                    <img class="introduction-screenshot"><%= image_tag "metrics2.png" %>
-                </div>
-                <div class="box box-2">
-                    <h2 class="title is-3">Visualizar los cargos por meses</h2>
+            <div class="container">
+            <div class="row">
+              <div class="col-6"><%= image_tag "metrics2.png", class: "w-100" %></div>
+              <div class="col-6"> <h2 class="title is-3">Visualizar los cargos por meses</h2>
                     <p>Ver el gasto total mensual que puedes tener en los próximos 12 meses.</p>
                     <h3 class="title is-5">Categorizar suscripciones</h3>
                     <p>Al asignar categorías a tus suscripciones podrás ver cómo se reparte el gasto entre ellas.</p>
+              </div>
+            </div>
+                <div class="box box-1">
+                    <img class="introduction-screenshot">
+                </div>
+                <div class="box box-2">
+
                 </div>
             </div>
         </section>
     </div>
 
+
+</body>
     <footer id="main-footer">
                     <ul>
                         <li class="title is-6 mb-2">Producto</li>
@@ -91,7 +81,5 @@
                     <a href="#"><i class="fab fa-linkedin"></i></a>
                   </div>
     </footer>
-
-</body>
 
 </html>
