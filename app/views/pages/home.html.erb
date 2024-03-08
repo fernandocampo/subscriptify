@@ -1,13 +1,24 @@
-<h1><%= link_to "Subscriptions index", subscriptions_path %></h1>
-<h1><%= link_to "Nueva Subscripcion", new_subscription_path %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1><%= link_to "Dashboard", subscriptions_path %></h1>
+    </div>
+    <div class="col">
+      <h1><%= link_to "Nueva Subscripcion", new_subscription_path %></h1>
+    </div>
+    <div class="col">
+      <h1><%= link_to "Statistics", stats_subscriptions_path %></h1>
+    </div>
+  </div>
+</div>
 
 <body class="has-navbar-fixed-top">
 
     <section class="hero is-medium" style="background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url(<%= image_path('background-image.png')%>); background-size: cover">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title is-2">Nunca más te olvides de una renovación de suscripción</h1>
-                <h2 class="subtitle is-4">Recibe alertas antes de la renovación de las suscripciones.</h2>
+                <h1 class="title is-3">Nunca más te olvides de una renovación de suscripción</h1>
+                <h2 class="title is-5">Recibe alertas antes de la renovación de las suscripciones.</h2>
             </div>
         </div>
     </section>
@@ -16,11 +27,11 @@
         <div class="flex-container">
                 <div class="box box-1">
                     <h2 class="title is-3">Nunca olvides una renovación automática</h2>
-                    <ol>
+                      <ol>
                         <li>Agrega las suscripciones que pagas actualmente.</li>
                         <li>Recibe recordatorios cuando estén a punto de vencer.</li>
                         <li>Ahorra dinero cancelando servicios no usados a tiempo.</li>
-                    </ol>
+                      </ol>
                     <h3 class="title is-5">Suscripciones con tiempo de prueba</h3>
                     <p>Realiza un seguimiento de las inscripciones a pruebas y cuándo se te cobrarán. Recibe recordatorios para que puedas cancelar las pruebas que no quieres empezar a pagar. Subscriptify hace un seguimiento de los períodos de reembolso y te mandará recordatorios.</p>
                 </div>
@@ -44,11 +55,11 @@
             </div>
         </section>
         <section id="content">
-            <div class="row">
-                <div class="col-8">
-                    <img class="introduction-screenshot"><%= image_tag "metrics.png" %>
+            <div class="flex-container">
+                <div class="box box-1">
+                    <img class="introduction-screenshot"><%= image_tag "metrics2.png" %>
                 </div>
-                <div class="col-4">
+                <div class="box box-2">
                     <h2 class="title is-3">Visualizar los cargos por meses</h2>
                     <p>Ver el gasto total mensual que puedes tener en los próximos 12 meses.</p>
                     <h3 class="title is-5">Categorizar suscripciones</h3>

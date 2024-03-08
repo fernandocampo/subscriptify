@@ -1,5 +1,5 @@
-<h1>Subscriptions#edit</h1>
-<p>Find me in app/views/subscriptions/edit.html.erb</p>
+<h1>Subscription Edit</h1>
+<br>
   <%= simple_form_for @subscription do |f| %>
     <tr>
       <td>
@@ -20,7 +20,9 @@
       </td>
       <td>
         <%= f.input :category %>
-        <%= f.button :submit%>
+        <%= f.button :submit, class: "custom-button" %>
+        <br>
       </td>
     </tr>
+    <br>
 <% end %>
