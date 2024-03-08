@@ -11,7 +11,7 @@
 puts "Creating 3 Users"
 
 User.create(
-  email: "darioferreira@gmail.com",
+  email: "darioferreira10@gmail.com",
   password: '123456'
 )
 User.create(
