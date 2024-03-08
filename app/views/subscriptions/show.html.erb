@@ -12,7 +12,7 @@
             <p><%= @subscription.recurrent %></p>
             <p><%= @subscription.frequency %></p>
             <p><%= @subscription.payment_date %></p>
-            <p><%= @subscription.price %></p>
+            <p><%= number_to_currency(@subscription.price) %></p>
             <p><%= @subscription.currency %></p>
             <p><%= @subscription.category %></p>
           </div>
