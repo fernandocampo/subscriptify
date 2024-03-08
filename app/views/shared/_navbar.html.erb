@@ -6,7 +6,7 @@
               <% end %>
           </div>
 
-          <div class="navbar-menu">
+          <!--<div class="navbar-menu">
               <div class="navbar-end">
                   <div class="navbar-item">
                       <div class="buttons">
@@ -19,6 +19,28 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div>-->
+
+<div class="menu-wrap">
+    <input type="checkbox" class="toggler">
+    <div class="hamburger"><div></div></div>
+    <div class="menu">
+        <div>
+            <div>
+                <ul>
+                    <% if user_signed_in? %>
+                        <li><a href="<%= subscriptions_path %>">Dashboard</a></li>
+                        <li><a href="<%= new_subscription_path %>">New Subscription</a></li>
+                        <li><a href="<%= stats_subscriptions_path %>">Statistics</a></li>
+                        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                    <% else %>
+                        <li><%= link_to "Log in", new_user_session_path %></li>
+                        <li><%= link_to "Sign up", new_user_registration_path %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
       </div>
   </nav>
