@@ -28,7 +28,6 @@
       <%= link_to "Statistics", stats_subscriptions_path %>
     </div>
     <div class="col">
-
     </div>
   </div>
 </div>-->
@@ -61,7 +60,7 @@
         <td><%= subscription.price %></td>
         <td><%= subscription.currency %></td>
         <td><%= subscription.category %></td>
-        <td><%= button_to "Delete", subscription_path(subscription), method: :delete, data: { confirm: "Are you sure you want to delete this subscription?" }, class: "custom-button" %></td>
+        <td><%= button_to "Delete", subscription_path(subscription), method: :delete, data: { confirm: "Are you sure you want to delete this subscription?" }, class: "custom-button"%></td>
       </tr>
     <% end %>
   </tbody>
