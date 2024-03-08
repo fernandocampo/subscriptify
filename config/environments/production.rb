@@ -92,15 +92,14 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.namecheap.com',
-    port: 587,
-    domain: 'subscriptify.me',
-    user_name: 'contact@subscriptify.me',
-    password: '#Subscriptify2024',
+    address: ENV['SMTP_HOST'],
+    port: ENV['SMTP_PORT'],
+    domain: ENV['SMTP_DOMAIN'],
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD'],
     authentication: :plain,
     enable_starttls_auto: true
   }
-
 
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
