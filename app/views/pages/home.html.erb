@@ -1,14 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <h1><%= link_to "Dashboard", subscriptions_path %></h1>
-    </div>
-    <div class="col">
-      <h1><%= link_to "Nueva Subscripcion", new_subscription_path %></h1>
-    </div>
-    <div class="col">
-      <h1><%= link_to "Statistics", stats_subscriptions_path %></h1>
-    </div>
+    <% if user_signed_in? %>
+      <div class="col">
+        <h1><%= link_to "Dashboard", subscriptions_path %></h1>
+      </div>
+      <div class="col">
+        <h1><%= link_to "Nueva Subscripcion", new_subscription_path %></h1>
+      </div>
+      <div class="col">
+        <h1><%= link_to "Statistics", stats_subscriptions_path %></h1>
+      </div>
+    <% else %>
+    <% end %>
   </div>
 </div>
 

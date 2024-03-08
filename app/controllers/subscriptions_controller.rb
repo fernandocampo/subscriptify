@@ -2,7 +2,7 @@ class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
 
   def index
-    @subscriptions = Subscription.all
+    @subscriptions = current_user.subscriptions
   end
 
   def show
