@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :subscriptions, dependent: :destroy
-
+  
   validates :email, presence: true, uniqueness: true
 
   # validates :phone, presence: true
