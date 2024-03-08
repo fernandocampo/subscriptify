@@ -63,7 +63,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def calculate_expenses
-    @upcoming_expenses = Subscription.where('payment_date >= ?', Date.today).sum(:price)
+    @upcoming_expenses = Subscription.group_by_month(:payment_date, format: "%B").sum(:price)
     @average_expenses_by_category = Subscription.group(:category).average(:price)
     @current_month_expenses_by_category = Subscription.where(payment_date: Date.today.beginning_of_month..Date.today.end_of_month).group(:category).sum(:price)
   end
