@@ -1,5 +1,7 @@
 <div class="my-4 p-4">
 <h1>Dashboard</h1>
+<h2><%= link_to 'Export to XLSX', export_subscriptions_path(format: :xlsx), class: 'btn btn-success' %></h2>
+<h2><%= link_to 'Export to PDF', export_pdf_subscriptions_path(format: :pdf), class: 'btn btn-danger' %></h2>
 <br>
 <table class="table table-striped table-bordered table-hover">
   <thead>

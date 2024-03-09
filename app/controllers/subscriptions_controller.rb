@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-  before_action :set_subscription, only: [:show, :edit, :update, :destroy]
+  before_action :set_subscription, only: [:show, :edit, :update, :destroy], except: [:index, :new, :create, :export, :stats]
 
   def index
     @subscriptions = current_user.subscriptions
@@ -42,6 +42,27 @@ class SubscriptionsController < ApplicationController
     calculate_expenses
   end
 
+  def export
+    @subscriptions = current_user.subscriptions
+    respond_to do |format|
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachment; filename=\"subscriptions.xlsx\""
+      }
+    end
+  end
+
+  def export_pdf
+    @subscriptions = current_user.subscriptions
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Subscriptions",
+               template: "subscriptions/export_pdf",
+               formats: [:html],
+               layout: 'export_pdf' # Aquí se corrige el nombre del layout
+      end
+    end
+  end
 
   private
 
