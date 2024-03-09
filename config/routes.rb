@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   root to: "pages#home"
 
-  resources :subscriptions do
-    get 'stats', on: :collection
-  end
-
   devise_for :users
 
-
+  resources :subscriptions do
+    collection do
+      get :stats
+      get :export, to: 'subscriptions#export'
+    end
+  end
 
 end

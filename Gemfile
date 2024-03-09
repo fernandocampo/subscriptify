@@ -53,6 +53,8 @@ gem "sassc-rails"
 gem "chartkick"
 gem "groupdate"
 gem 'resend'
+gem 'caxlsx'
+gem 'caxlsx_rails'
 
 group :development, :test do
   gem "dotenv-rails"
