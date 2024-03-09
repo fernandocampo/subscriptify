@@ -1,0 +1,15 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Subscriptions") do |sheet|
+  sheet.add_row ["Company Name", "Description", "URL", "Frequency", "Payment Date", "Price", "Category"]
+  @subscriptions.each do |subscription|
+    sheet.add_row [
+      subscription.company_name,
+      subscription.description,
+      subscription.url,
+      subscription.frequency,
+      subscription.payment_date.strftime('%Y-%m-%d'), # Asegúrate de formatear la fecha correctamente
+      subscription.price,
+      subscription.category
+    ]
+  end
+end
