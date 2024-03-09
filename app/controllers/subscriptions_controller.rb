@@ -51,6 +51,19 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  def export_pdf
+    @subscriptions = current_user.subscriptions
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Subscriptions",
+               template: "subscriptions/export_pdf",
+               formats: [:html],
+               layout: 'export_pdf' # Aquí se corrige el nombre del layout
+      end
+    end
+  end
+
   private
 
   def set_subscription

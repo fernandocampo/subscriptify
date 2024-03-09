@@ -1,0 +1,33 @@
+<!-- app/views/subscriptions/export_pdf.html.erb -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subscriptions List</title>
+</head>
+<body>
+  <h1>List of Subscriptions</h1>
+  <table>
+    <tr>
+      <th>Company Name</th>
+      <th>Description</th>
+      <th>URL</th>
+      <th>Frequency</th>
+      <th>Payment Date</th>
+      <th>Price</th>
+      <th>Category</th>
+    </tr>
+    <% @subscriptions.each do |subscription| %>
+      <tr>
+        <td><%= subscription.company_name %></td>
+        <td><%= subscription.description %></td>
+        <td><%= subscription.url %></td>
+        <td><%= subscription.frequency %></td>
+        <td><%= subscription.payment_date %></td>
+        <td><%= subscription.price %></td>
+        <td><%= subscription.category %></td>
+      </tr>
+    <% end %>
+  </table>
+</body>
+</html>
