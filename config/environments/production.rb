@@ -1,7 +1,7 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://subscriptify.me" }
+  config.action_mailer.default_url_options = { host: "http://subscriptify.me", protocol: "https" }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -89,17 +89,18 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Configuracion propia del email con namecheap
-
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :user_name => 'subscriptify', # This is the string literal 'apikey', NOT the ID of your API key
-    :password => ENV['SENDGRID_API_KEY'], # Use environment variable for security
-    :domain => 'subscriptify.me', # Replace with your actual domain
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :resend
+  # config.action_mailer.smtp_settings = {
+  #   :user_name => 'subscriptify', # This is the string literal 'apikey', NOT the ID of your API key
+  #   :password => ENV['SENDGRID_API_KEY'], # Use environment variable for security
+  #   :domain => 'subscriptify.me', # Replace with your actual domain
+  #   :address => 'smtp.sendgrid.net',
+  #   :port => 587,
+  #   :authentication => :plain,
+  #   :enable_starttls_auto => true
+  # }
 
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
