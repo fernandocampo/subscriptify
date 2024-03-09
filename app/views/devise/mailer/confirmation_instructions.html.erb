@@ -1,6 +1,6 @@
 <h2>Bienvenido <%= @email %>!</h2>
 
 <p></p>
-<h4>Puedes confirmar tu cuenta de Subscriptify hacien click en en el siguiente enlace:</h4>
+<h4>Puedes confirmar tu cuenta de Subscriptify haciendo click en en el siguiente enlace:</h4>
 
 <h3><%= link_to 'Confirmar mi cuenta', confirmation_url(@resource, confirmation_token: @token) %></h3>
