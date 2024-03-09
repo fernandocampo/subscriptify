@@ -55,6 +55,8 @@ gem "groupdate"
 gem 'resend'
 gem 'caxlsx'
 gem 'caxlsx_rails'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem "dotenv-rails"
