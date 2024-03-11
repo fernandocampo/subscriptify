@@ -6,6 +6,9 @@ class SubscriptionsController < ApplicationController
   end
 
   def show
+    if fecha_coincide?(@subscription.payment_date.to_s)
+      subscription_email(@subscription.user, @subscription)
+    end
   end
 
   def new
