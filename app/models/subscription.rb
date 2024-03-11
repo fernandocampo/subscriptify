@@ -17,5 +17,8 @@ class Subscription < ApplicationRecord
   validates :category, presence: true
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :currency, presence: true
-end
 
+  def day_number
+    payment_date.day-1
+  end
+end
