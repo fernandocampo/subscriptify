@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Hola, <%= @user.email %></h1>
+    <% @filtered_subscriptions.each do | subs |  %>
+      <p> ??? <%= subs.company_name %>.</p>
+      <p> ??? <%= subs.price %> </p>
+      <br>
+      <hr>
+      <br>
+    <% end %>
+  </body>
+</html>
