@@ -5,7 +5,7 @@
       <%= f.input :company_name, input_html: {data: {change_class_target:"name", action: "keyup->change-class#nameEmpty"}  }%>
       <%= f.input :description %>
       <%= f.input :url %>
-      <%= link_to "Next", "#", class: "btn btn-primary", data: {action: "click->change-class#stepOne", change_class_target:"firstBtn"}  %>
+      <%= link_to "Next", "", class: "btn btn-primary", data: {action: "click->change-class#stepOne", change_class_target:"firstBtn"}  %>
     </div>
     <div data-change-class-target="payment" class="d-none">
       <%= f.input :payment_date, html5:true %>
@@ -13,7 +13,7 @@
       <%= f.input :recurrent %>
       <%= f.input :price %>
       <%= f.input :currency, collection: Subscription::CURRENCIES  %>
-      <%= link_to "Next", "#", class: "btn btn-primary", data: {action: "click->change-class#stepTwo"} %>
+      <%= link_to "Next", "", class: "btn btn-primary", data: {action: "click->change-class#stepTwo"} %>
     </div>
     <div data-change-class-target="category"  class="d-none">
       <%= f.input :category, collection: Subscription::CATEGORIES %>
