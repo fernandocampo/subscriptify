@@ -10,7 +10,6 @@ class SubscriptionsController < ApplicationController
   #     subscription_email(@subscription.user, @subscription)
   #   end
 
-  end
 
   def new
     @subscription = Subscription.new
