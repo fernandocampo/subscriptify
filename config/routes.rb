@@ -11,4 +11,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :emails do
+    post :send_email
+  end
+
+  get 'custom_email', to: 'emails#custom_email'
 end

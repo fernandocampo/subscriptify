@@ -6,7 +6,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Configura el método de entrega a :smtp para utilizar un servidor SMTP.
-  config.action_mailer.delivery_method = :smtp
+
+  # config.action_mailer.delivery_method = :smtp
 
   # Configura los detalles específicos para conectarse al servidor SMTP de MailCatcher.
   config.action_mailer.smtp_settings = {
@@ -15,9 +16,13 @@ Rails.application.configure do
   }
 
   # Establece true para ver errores de entrega de correo electrónico en el entorno de desarrollo.
-  config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.raise_delivery_errors = true
 
   # A continuación, se presentan configuraciones generales para el entorno de desarrollo:
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :resend
 
   # Configura la recarga de código en cada solicitud. Esto ralentiza la respuesta pero es perfecto para desarrollo.
   config.enable_reloading = true
