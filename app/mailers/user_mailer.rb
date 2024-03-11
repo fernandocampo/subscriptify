@@ -13,4 +13,14 @@ class UserMailer < ApplicationMailer
     mail(to: [@user.email], subject: "Recordatorio de #{@subscription.company_name}")
     # mail(to: [@user.email], subject: "Recordatorio de #{@subscription.company_name}")
   end
+
+  def notification_helper
+    @user = params[:user]
+    # Corrected logic to filter subscriptions based on a condition (e.g., day_number equals user's my_today)
+    filtered_subscriptions = @user.subscriptions.select { |sub| sub.day_number == @user.my_today }
+
+    filtered_subscriptions.each do |subscription|
+      subscription_reminder(subscription.id)
+    end
+  end
 end
