@@ -3,8 +3,14 @@
     <section class="hero is-medium" style="background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url(<%= image_path('background-image.png')%>); background-size: cover">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title is-3">Nunca más te olvides de una renovación de suscripción</h1>
-                <h2 class="title is-5">Recibe alertas antes de la renovación de las suscripciones.</h2>
+                <h1 class="title is-3">Never forget a subscription renewal again</h1>
+                <h2 class="title is-5">Get alerts before your subscriptions renew.</h2>
+
+                 <div class="main">
+                  <% unless user_signed_in? %> <%= link_to "Create account", new_user_registration_path, class: "btn btn-primary mt-4" %>
+                  <% end %>
+                </div>
+
             </div>
         </div>
     </section>
@@ -12,14 +18,14 @@
     <div class="container">
         <div class="flex-container my-4">
                 <div class="col-6">
-                    <h2 class="title is-3">Nunca olvides una renovación automática</h2>
+                    <h2 class="title is-3">Never miss an automatic renewal</h2>
                       <ol>
-                        <li>Agrega las suscripciones que pagas actualmente.</li>
-                        <li>Recibe recordatorios cuando estén a punto de vencer.</li>
-                        <li>Ahorra dinero cancelando servicios no usados a tiempo.</li>
+                        <li>Add the subscriptions you currently pay for.</li>
+                        <li>Receive reminders when they are about to expire.</li>
+                        <li>Save money by canceling unused services on time.</li>
                       </ol>
-                    <h3 class="title is-5">Suscripciones con tiempo de prueba</h3>
-                    <p>Realiza un seguimiento de las inscripciones a pruebas y cuándo se te cobrarán. Recibe recordatorios para que puedas cancelar las pruebas que no quieres empezar a pagar. Subscriptify hace un seguimiento de los períodos de reembolso y te mandará recordatorios.</p>
+                    <h3 class="title is-5">Subscriptions with trial periods</h3>
+                    <p>Track trial sign-ups and when you'll be charged. Get reminders so you can cancel trials you don't want to start paying for. Subscriptify tracks refund periods and will send you reminders.</p>
                 </div>
                     <div class="col-6 d-flex justify-content-center">
                       <img class="introduction-screenshot" ><%= image_tag "dashboard2.png", style: "width:90%;" %>
@@ -30,12 +36,12 @@
             <div class="box row">
                 <div class="col-6">
                     <blockquote>
-                        <em>"Subscriptify me simplificó la gestión y visualización de todas mis suscripciones. Con sus avisos pude darme de baja de servicios que ya no usaba"</em><br><br> Juan Domingo
+                        <em>"Subscriptify simplified the management and visualization of all my subscriptions. With their notifications I was able to unsubscribe from services I no longer used"</em><br><br> Juan Domingo
                     </blockquote>
                 </div>
                 <div class="col-6">
                     <blockquote>
-                        <em>"Web simple que cumple con lo que promete. Fácil de usar y tuvo impacto directo en tiempo y dinero"</em><br><br> ⭐⭐⭐⭐⭐ por Nicolás Hernández
+                        <em>"Simple website that delivers what it promises. Easy to use and had a direct impact on time and money"</em><br><br> ⭐⭐⭐⭐⭐ por Nicolás Hernández
                     </blockquote>
                 </div>
             </div>
@@ -44,10 +50,10 @@
             <div class="container">
             <div class="row">
               <div class="col-6"><%= image_tag "metrics2.png", class: "w-100" %></div>
-              <div class="col-6"> <h2 class="title is-3">Visualizar los cargos por meses</h2>
-                    <p>Ver el gasto total mensual que puedes tener en los próximos 12 meses.</p>
-                    <h3 class="title is-5">Categorizar suscripciones</h3>
-                    <p>Al asignar categorías a tus suscripciones podrás ver cómo se reparte el gasto entre ellas.</p>
+              <div class="col-6"> <h2 class="title is-3">View monthly charges</h2>
+                    <p>See the total monthly spend you can have in the next 12 months.</p>
+                    <h3 class="title is-5">Categorize subscriptions</h3>
+                    <p>By assigning categories to your subscriptions, you can see how the spending is distributed among them.</p>
               </div>
             </div>
                 <div class="box box-1">
@@ -65,13 +71,13 @@
     <footer id="main-footer">
                     <ul>
                         <li class="title is-6 mb-2">Producto</li>
-                        <li><a href="https://subscriptify.com/contact">Contacto</a></li>
-                        <li><a href="https://subscriptify.com/pages/terms">Términos de Servicio</a></li>
-                        <li><a href="https://subscriptify.com/pages/privacy">Política de Privacidad</a></li>
+                        <li><a href="https://subscriptify.com/contact">Contact</a></li>
+                        <li><a href="https://subscriptify.com/pages/terms">Terms of Service</a></li>
+                        <li><a href="https://subscriptify.com/pages/privacy">Privacy Policy</a></li>
                     </ul>
                 <div class="column">
                     <h6 class="title is-6 mb-2">Subscriptify &reg;</h6>
-                    Desarrollado por Antonio, Dario y Fernando.
+                    Developed by Antonio, Dario and Fernando.
                 </div>
                  <div class="footer-links">
                     <a href="#"><i class="fab fa-github"></i></a>
