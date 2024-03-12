@@ -3,6 +3,9 @@ class SubscriptionsController < ApplicationController
 
   def index
     @subscriptions = current_user.subscriptions
+    if params[:query].present?
+      @subscriptions = @subscriptions.where("company_name ILIKE :query", query: "%#{params[:query]}%")
+    end
   end
 
   def new
