@@ -20,6 +20,4 @@ class EmailsController < ApplicationController
   def custom_email
     @email = Email.new
   end
-
 end
-
