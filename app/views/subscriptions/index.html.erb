@@ -1,8 +1,9 @@
 <div class="my-4 p-4">
 <h1 class="text-center">Dashboard</h1>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-light text-bg-light" placeholder="Search..." aria-label="Search">
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="<%= subscriptions_path %>" method="get">
+          <input type="search" name="query" class="form-control form-control-light text-bg-light" placeholder="Search..." aria-label="Search">
+          <button type="submit" class="btn btn-outline-success">Search</button>
         </form>
 
 <div class="d-grid gap-2 gap-md-3 d-md-block">
@@ -22,7 +23,7 @@
       <th>Company name</th>
       <th>Description</th>
       <th>URL</th>
-      <th>Frecuency</th>
+      <th>Frequency</th>
       <th>Payment date</th>
       <th>Price</th>
       <th>Category</th>
