@@ -17,7 +17,7 @@
     </div>
     <div data-change-class-target="category"  class="d-none">
       <%= f.input :category, collection: Subscription::CATEGORIES %>
-      <%= f.button :submit %>
+      <%= f.button :submit, class: "btn btn-primary btn-sm" %>
     </div>
   </div>
 <% end %>

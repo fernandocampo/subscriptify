@@ -1,24 +1,25 @@
 <div class="my-4 p-4">
-<h1 class="text-center">Dashboard</h1>
+  <div class="background" style="background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url(<%= image_path('background.jpg')%>); background-size: cover">
+    <h1 class="text-center">Dashboard</h1>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="<%= subscriptions_path %>" method="get">
-          <input type="search" name="query" class="form-control form-control-light text-bg-light" placeholder="Search..." aria-label="Search">
-          <div class="d-grid gap-2 col-6 mx-auto">
-          <button type="submit" class="btn btn-md btn-outline-primary">Search</button>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="<%= subscriptions_path %>" method="get">
+              <input type="search" name="query" class="form-control form-control-light text-bg-light" placeholder="Search..." aria-label="Search">
+              <div class="d-grid gap-2 col-6 mx-auto">
+              <button type="submit" class="btn btn-md btn-outline-primary">Search</button>
+              </div>
+            </form>
+
+    <div class="d-grid gap-2 gap-md-3 d-md-block">
+      <div class="d-flex justify-content-end flex-wrap flex-md-nowrap align-items-center pt-2 pb-0 mb-0 border-bottom">
+        <div class="btn-toolbar mb-0 mb-md-0">
+          <div class="btn-group me-2 mb-0 pb-0 mt-2">
+            <h2><%= link_to 'Export to XLSX', export_subscriptions_path(format: :xlsx), class: 'btn btn-sm btn-outline-primary' %></h2>
+            <h2><%= link_to 'Export to PDF', export_pdf_subscriptions_path(format: :pdf), class: 'btn btn-sm btn-outline-primary' %></h2>
           </div>
-        </form>
-
-<div class="d-grid gap-2 gap-md-3 d-md-block">
-  <div class="d-flex justify-content-end flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <div class="btn-toolbar mb-2 mb-md-0">
-      <div class="btn-group me-2">
-        <h2><%= link_to 'Export to XLSX', export_subscriptions_path(format: :xlsx), class: 'btn btn-sm btn-outline-primary' %></h2>
-        <h2><%= link_to 'Export to PDF', export_pdf_subscriptions_path(format: :pdf), class: 'btn btn-sm btn-outline-primary' %></h2>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
 <table class="table table-striped table-bordered table-hover">
   <thead>
     <tr>
