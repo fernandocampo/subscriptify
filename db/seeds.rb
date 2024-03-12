@@ -8,20 +8,20 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-puts "Creating 3 Users"
+# puts "Creating 3 Users"
 
-User.create(
-  email: "darioferreira10@gmail.com",
-  password: '123456'
-)
-User.create(
-  email: "fernandocampo@gmail.com",
-  password: '123456'
-)
-User.create(
-  email: "antonioedwards@gmail.com",
-  password: '123456'
-)
+# User.create(
+#   email: "darioferreira10@gmail.com",
+#   password: '123456'
+# )
+# User.create(
+#   email: "fernandocampo@gmail.com",
+#   password: '123456'
+# )
+# User.create(
+#   email: "antonioedwards@gmail.com",
+#   password: '123456'
+# )
 
 puts "Users created succesfully!"
 
