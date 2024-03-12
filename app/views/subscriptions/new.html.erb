@@ -1,4 +1,4 @@
-<div class="m-5 p-4 shadow bg-white"><h1  class="text-center">My Subscriptions</h1>
+<div class="m-5 p-4 shadow bg-white"><h1  class="text-center">Add New Subscription</h1>
 <%= simple_form_for @subscription do |f| %>
   <div data-controller="change-class">
     <div data-change-class-target="company">
@@ -21,4 +21,5 @@
     </div>
   </div>
 <% end %>
+<%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-sm btn-outline-primary mt-2" %>
 </div>
