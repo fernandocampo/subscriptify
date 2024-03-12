@@ -19,6 +19,6 @@ class Subscription < ApplicationRecord
   validates :currency, presence: true
 
   def day_number
-    payment_date.day-1
+    payment_date.day - 1
   end
 end
