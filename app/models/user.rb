@@ -15,11 +15,11 @@ class User < ApplicationRecord
   # validates :age, presence: true
   # validates :city, presence: true
   def due_dates
-    subscriptions.map{|subscription|subscription.payment_date.day}
+    subscriptions.map{ |subscription| subscription.payment_date.day }
   end
 
   def mailing_dates
-    due_dates.map{| date|date-1 }
+    due_dates.map{ |date| date - 1 }
   end
 
   def my_today
