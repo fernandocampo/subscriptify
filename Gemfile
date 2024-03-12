@@ -60,6 +60,9 @@ gem 'wkhtmltopdf-binary'
 gem 'httparty'
 gem 'logger'
 
+gem "sidekiq", "~> 6.2"
+gem "sidekiq-failures", "~> 1.0"
+
 
 
 group :development, :test do
