@@ -1,9 +1,9 @@
-class EmailerJob < ApplicationJob
-  queue_as :default
+class EmailerJob
+  include Sidekiq::Job
 
   def perform
-    puts "I'm starting the fake job"
-    sleep 3
-    puts "OK I'm done now"
+    User.find_each do |user|
+      UserMailer.with(user: user).notification_helper.deliver_later
+    end
   end
 end
