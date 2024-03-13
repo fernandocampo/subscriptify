@@ -165,7 +165,6 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    logger (1.6.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -263,6 +262,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.6)
+    ruby-prof (1.7.0)
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -347,14 +347,13 @@ DEPENDENCIES
   error_highlight (>= 0.4.0)
   font-awesome-sass (~> 6.1)
   groupdate
-  httparty
   importmap-rails
   jbuilder
-  logger
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.2)
   resend
+  ruby-prof
   sassc-rails
   selenium-webdriver
   sidekiq (~> 6.2)

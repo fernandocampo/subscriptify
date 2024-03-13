@@ -57,13 +57,10 @@ gem 'caxlsx'
 gem 'caxlsx_rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-gem 'httparty'
-gem 'logger'
 
 gem "sidekiq", "~> 6.2"
 gem "sidekiq-failures", "~> 1.0"
 gem "sidekiq-cron"
-
 
 
 group :development, :test do
