@@ -15,5 +15,10 @@ Rails.application.routes.draw do
     post :send_email
   end
 
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   # get 'custom_email', to: 'emails#custom_email'
 end
