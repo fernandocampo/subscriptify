@@ -15,16 +15,16 @@ User.create(
   password: '123456',
   admin: true
 )
-User.create(
-  email: "fernandocampo@gmail.com",
-  password: '123456',
-  admin: true
-)
-User.create(
-  email: "antonioedwards@gmail.com",
-  password: '123456',
-  admin: true
-)
+# User.create(
+#   email: "fernandocampo@gmail.com",
+#   password: '123456',
+#   admin: true
+# )
+# User.create(
+#   email: "antonioedwards@gmail.com",
+#   password: '123456',
+#   admin: true
+# )
 
 puts "Users created succesfully!"
 

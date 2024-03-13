@@ -1,0 +1,3 @@
+DailyNotifications:
+  cron: '10 10 * * * America/Argentina/Buenos_Aires' # 24 min 23 hs
+  class: EmailerJob
