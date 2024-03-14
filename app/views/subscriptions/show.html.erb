@@ -1,6 +1,11 @@
 <div class="container text-center">
   <div class="my-4 p-4">
     <div class="card mx-auto" style="width: 18rem;">
+        <% if @subscription.photo.attached? %>
+      <h1><%= image_tag @subscription.photo %></h1>
+        <% else %>
+          <td><img src="<%= asset_path('Add Photo.png') %>"></td>
+        <% end %>
       <h1><%= @subscription.company_name %></h1>
         <div class="shadow card-body">
           <!--<p> <%= @subscription.company_name %></p>-->
@@ -22,3 +27,4 @@
     <%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-primary mt-2" %>
   </div>
 </div>
+
