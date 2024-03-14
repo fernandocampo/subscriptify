@@ -80,9 +80,11 @@ class SubscriptionsController < ApplicationController
       :payment_date,
       :url,
       :price, :currency,
-      :category
+      :category, :photo
     )
   end
+
+
 
   def calculate_expenses
     @upcoming_expenses = current_user.subscriptions.group_by_month(:payment_date, format: "%B").sum(:price)
