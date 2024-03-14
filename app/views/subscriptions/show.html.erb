@@ -2,10 +2,11 @@
   <div class="my-4 p-4">
     <div class="card mx-auto" style="width: 18rem;">
         <% if @subscription.photo.attached? %>
-      <h1><%= image_tag @subscription.photo %></h1>
+      <h1><%= image_tag @subscription.photo, style: "max-width: 100%; height: auto;" %></h1>
         <% else %>
-          <td><img src="<%= asset_path('Add Photo.png') %>"></td>
+          <td><img src="<%= asset_path('Add Photo.png') %>"class="custom-image" style="max-width: 100%; height: auto;"></td>
         <% end %>
+        <hr>
       <h1><%= @subscription.company_name %></h1>
         <div class="shadow card-body">
           <!--<p> <%= @subscription.company_name %></p>-->
@@ -17,14 +18,16 @@
           <p><%= number_to_currency(@subscription.price) %> <%= @subscription.currency.upcase %></p>
           <p></p>
           <p><%= @subscription.category.capitalize %></p>
+          <%= link_to edit_subscription_path(@subscription), class: "btn btn-sm btn-outline-primary mr-1" do %>
+          <i class="fa-regular fa-pen-to-square"></i> Editar
+          <% end %>
+          <%= button_to subscription_path(@subscription), method: :delete, data: { confirm: "Are you sure you want to delete this subscription?" }, class: "btn btn-sm btn-primary mt-2" do %>
+          <i class="fa-solid fa-trash-can"></i> Eliminar
+          <% end %>
       </div>
     </div>
   </div>
 
-  <div class="d-grid gap-2 gap-md-3 d-md-block">
-    <%= link_to "Edit", edit_subscription_path, class: "btn btn-primary" %>
-    <%= button_to "Delete", subscription_path(@subscription), method: :delete, data: { confirm: "Are you sure you want to delete this subscription?" }, class: "btn btn-primary mt-2" %>
-    <%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-primary mt-2" %>
-  </div>
-</div>
 
+    <%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-outline-primary mt-2 mb-2" %>
+</div>
