@@ -2,11 +2,11 @@ class Subscription < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
 
-  FREQUENCE = ["weekly", "monthly", "anually"]
+  FREQUENCE = ["Monthly", "Anually"]
 
-  CATEGORIES = ["education", "streaming", "services"]
+  CATEGORIES = ["Education", "Streaming", "Entertainment", "Services"]
 
-  CURRENCIES = ["usd", "ars", "clp"]
+  CURRENCIES = ["USD", "ARS", "CLP"]
 
   validates :frequency, inclusion: { in: FREQUENCE }
   validates :category, inclusion: { in: CATEGORIES }
