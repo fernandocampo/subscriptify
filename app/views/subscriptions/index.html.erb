@@ -46,7 +46,7 @@
             <% end %>
             <td class="text-center"><%= link_to subscription.company_name, subscription_path(subscription), class: "text-decoration-none" %></td>
             <td class="text-center"><%= subscription.description.capitalize %></td>
-            <td class="text-center"><%= subscription.url %></td>
+            <td class="text-center"><a href="<%= subscription.url %>"><%= subscription.url %></a></td>
           <!-- <td><%= subscription.frequency %></td> -->
             <td class="text-center"><%= subscription.payment_date %></td>
             <td class="text-center"><%= number_to_currency(subscription.price) %></td>
