@@ -1,7 +1,7 @@
 <div class="my-4 p-4">
   <div class="container text-center">
     <div class="card mx-auto" style="width: 18rem;">
-      <h1>User Profile</h1>
+      <h1>My Profile</h1>
         <% if @user.photo.attached? %>
           <h1><%= image_tag @user.photo, style: "max-width: 100%; height: auto;" %></h1>
         <% else %>
@@ -23,7 +23,7 @@
         </div>
     </div>
   </div>
-    <%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-primary mt-2" %>
+    <%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-outline-primary mt-2" %>
 </div>
 
 <div class="btn-group m-2" role="group" aria-label="Basic example">
