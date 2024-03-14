@@ -16,8 +16,8 @@
     <div>
       <%= f.input :category, collection: Subscription::CATEGORIES %>
       <%= f.button :submit, class: "btn btn-primary btn-sm" %>
+      <%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-sm btn-outline-primary" %>
     </div>
   </div>
 <% end %>
-<%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-sm btn-outline-primary mt-2" %>
 </div>

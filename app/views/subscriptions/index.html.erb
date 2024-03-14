@@ -37,7 +37,9 @@
     <% @subscriptions.each do |subscription| %>
       <tr>
         <% if subscription.photo.attached? %>
+
           <td class="text-center"><%= image_tag subscription.photo %></td>
+
         <% else %>
           <td class="text-center"><img src="<%= asset_path('Add Photo.png') %>"></td>
         <% end %>
@@ -48,7 +50,9 @@
         <td class="text-center"><%= subscription.payment_date %></td>
         <td class="text-center"><%= number_to_currency(subscription.price) %></td>
         <td class="text-center"><%= subscription.category.capitalize %></td>
-        <td>
+
+        <td class="text-center">
+
           <%= link_to edit_subscription_path(subscription), class: "btn btn-sm btn-outline-primary mr-1" do %>
           <i class="fa-regular fa-pen-to-square"></i>
           <% end %>
