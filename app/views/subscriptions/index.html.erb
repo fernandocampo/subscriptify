@@ -23,31 +23,31 @@
 <table class="table table-striped table-bordered table-hover">
   <thead>
     <tr>
-      <th>Logo</th>
-      <th>Company name</th>
-      <th>Description</th>
-      <th>URL</th>
+      <th class="text-center">Logo</th>
+      <th class="text-center">Company name</th>
+      <th class="text-center">Description</th>
+      <th class="text-center">URL</th>
      <!-- <th>Frequency</th> -->
-      <th>Payment date</th>
-      <th>Price</th>
-      <th>Category</th>
+      <th class="text-center">Payment date</th>
+      <th class="text-center">Price</th>
+      <th class="text-center">Category</th>
     </tr>
   </thead>
   <tbody>
     <% @subscriptions.each do |subscription| %>
       <tr>
         <% if subscription.photo.attached? %>
-          <td><%= image_tag subscription.photo, class: "bd-placeholder-img card-img-top" %></td>
+          <td class="text-center"><%= image_tag subscription.photo %></td>
         <% else %>
-          <td><img src="<%= asset_path('Add Photo.png') %>"></td>
+          <td class="text-center"><img src="<%= asset_path('Add Photo.png') %>"></td>
         <% end %>
-        <td><%= link_to subscription.company_name, subscription_path(subscription), class: "text-decoration-none" %></td>
-        <td><%= subscription.description %></td>
-        <td><%= subscription.url %></td>
+        <td class="text-center"><%= link_to subscription.company_name, subscription_path(subscription), class: "text-decoration-none" %></td>
+        <td class="text-center"><%= subscription.description %></td>
+        <td class="text-center"><%= subscription.url %></td>
        <!-- <td><%= subscription.frequency %></td> -->
-        <td><%= subscription.payment_date %></td>
-        <td><%= number_to_currency(subscription.price) %></td>
-        <td><%= subscription.category.capitalize %></td>
+        <td class="text-center"><%= subscription.payment_date %></td>
+        <td class="text-center"><%= number_to_currency(subscription.price) %></td>
+        <td class="text-center"><%= subscription.category.capitalize %></td>
         <td>
           <%= link_to edit_subscription_path(subscription), class: "btn btn-sm btn-outline-primary mr-1" do %>
           <i class="fa-regular fa-pen-to-square"></i>
