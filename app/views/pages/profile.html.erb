@@ -1,0 +1,27 @@
+<div class="container text-center">
+  <div class="my-4 p-4">
+    <div class="card mx-auto" style="width: 18rem;">
+      <h1>User Profile</h1>
+        <%# if @user.photo.attached? %>
+      <h1><%#= image_tag @user.photo %></h1>
+        <%# else %>
+          <td><img src="<%= asset_path('Add Photo.png') %>"></td>
+        <%# end %>
+        <div class="shadow card-body">
+          <p>Email: <%= @user.email %></p>
+          <p>Name: <%= @user.first_name %></p>
+          <p>Last name: <%= @user.last_name %></p>
+          <p>Phone number: <%= @user.phone %></p>
+          <p>City: <%= @user.city %></p>
+          <p></p>
+          <p></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-grid gap-2 gap-md-3 d-md-block">
+    <%= link_to "Edit", edit_user_registration_path, class: "btn btn-primary" %>
+    <%= link_to "Enviar notificaciones", "#", method: :post, class: "btn btn-primary mt-2" %>
+    <%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-primary mt-2" %>
+  </div>
+</div>

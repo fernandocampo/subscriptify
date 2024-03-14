@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root to: "pages#home"
-
+  get "/profile", to: "pages#profile", as: :profile
   devise_for :users
+
+  resources :pages do
+    post :notification_helper, on: :collection # Ruta para ejecutar la tarea
+  end
 
   resources :subscriptions do
     collection do
