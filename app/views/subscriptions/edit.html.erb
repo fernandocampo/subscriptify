@@ -14,15 +14,15 @@
           <%= f.input :recurrent %>
         </td>
         <td>
-          <%= f.input :frequency %>
+          <%= f.input :frequency, collection: Subscription::FREQUENCE %>
           <%= f.input :payment_date, html5:true %>
         </td>
         <td>
           <%= f.input :price %>
-          <%= f.input :currency %>
+          <%= f.input :currency, collection: Subscription::CURRENCIES %>
         </td>
         <td>
-          <%= f.input :category %>
+          <%= f.input :category, collection: Subscription::CATEGORIES %>
           <%= f.button :submit, class: "btn btn-primary mt-2" %>
       <%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-outline-primary mt-2" %>
           <br>
