@@ -1,7 +1,7 @@
 class Subscription < ApplicationRecord
   belongs_to :user
 
-  FREQUENCE = ["Weekly", "Monthly", "Anually"]
+  FREQUENCE = ["Monthly", "Anually"]
 
   CATEGORIES = ["Education", "Streaming", "Entertainment", "Services"]
 
