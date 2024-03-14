@@ -5,6 +5,7 @@
     <%= simple_form_for @subscription do |f| %>
       <tr>
         <td>
+          <%= f.input :photo, as: :file %>
           <%= f.input :company_name %>
           <%= f.input :description %>
         </td>
