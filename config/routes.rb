@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "pages#home"
   get "/profile", to: "pages#profile", as: :profile
-  devise_for :users
+
 
   resources :pages do
     post :notification_helper, on: :collection # Ruta para ejecutar la tarea
@@ -14,6 +14,10 @@ Rails.application.routes.draw do
       get :export_pdf, to: 'subscriptions#export_pdf'
     end
   end
+
+  devise_for :users, controllers: {
+      sessions: 'users/sessions'
+    }
 
   resources :emails do
     post :send_email
