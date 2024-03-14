@@ -18,11 +18,13 @@
           <p><%= number_to_currency(@subscription.price) %> <%= @subscription.currency.upcase %></p>
           <p></p>
           <p><%= @subscription.category.capitalize %></p>
-          <%= link_to edit_subscription_path(@subscription), class: "btn btn-sm btn-outline-primary mr-1" do %>
-          <i class="fa-regular fa-pen-to-square"></i> Editar
+          <div class="btn-group" role="group" aria-label="Basic example">
+
+          <%= link_to edit_subscription_path(@subscription), class: "btn btn-sm btn-outline-primary mt-2", style: "height: 100%" do %>
+          <i class="fa-regular fa-pen-to-square"></i>
           <% end %>
           <%= button_to subscription_path(@subscription), method: :delete, data: { confirm: "Are you sure you want to delete this subscription?" }, class: "btn btn-sm btn-primary mt-2" do %>
-          <i class="fa-solid fa-trash-can"></i> Eliminar
+          <i class="fa-solid fa-trash-can"></i>
           <% end %>
       </div>
     </div>
