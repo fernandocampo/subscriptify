@@ -1,17 +1,17 @@
 <div class="container text-center">
   <div class="my-4 p-4">
     <div class="card mx-auto" style="width: 18rem;">
-      <h1>My new subscription</h1>
+      <h1><%= @subscription.company_name %></h1>
         <div class="shadow card-body">
-          <p>Company: <%= @subscription.company_name %></p>
-          <p>Description: <%= @subscription.description %></p>
-          <p>URL: <%= @subscription.url %></p>
-          <p>Recurrent? : <%= @subscription.recurrent %></p>
-          <p>Frequency: <%= @subscription.frequency %></p>
-          <p>Payment date: <%= @subscription.payment_date %></p>
-          <p>Cost: <%= number_to_currency(@subscription.price) %></p>
-          <p>Currency: <%= @subscription.currency %></p>
-          <p>Category: <%= @subscription.category %></p>
+          <!--<p> <%= @subscription.company_name %></p>-->
+          <p><%= @subscription.description %></p>
+          <p> <%= @subscription.url %></p>
+          <!--<p> <%= @subscription.recurrent %></p> -->
+          <p> <%= @subscription.frequency %></p>
+          <p> <%= @subscription.payment_date %></p>
+          <p><%= number_to_currency(@subscription.price) %> <%= @subscription.currency.upcase %></p>
+          <p></p>
+          <p><%= @subscription.category.capitalize %></p>
       </div>
     </div>
   </div>
