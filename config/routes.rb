@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/profile", to: "pages#profile", as: :profile
 
-
   resources :pages do
     post :notification_helper, on: :collection # Ruta para ejecutar la tarea
   end
