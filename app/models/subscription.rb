@@ -1,7 +1,8 @@
 class Subscription < ApplicationRecord
   belongs_to :user
+  has_one_attached :photo
 
-  FREQUENCE = ["Weekly", "Monthly", "Anually"]
+  FREQUENCE = ["Monthly", "Anually"]
 
   CATEGORIES = ["Education", "Streaming", "Entertainment", "Services"]
 
