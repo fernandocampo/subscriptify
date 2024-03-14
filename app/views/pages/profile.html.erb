@@ -1,27 +1,34 @@
-<div class="container text-center">
-  <div class="my-4 p-4">
+<div class="my-4 p-4">
+  <div class="container text-center">
     <div class="card mx-auto" style="width: 18rem;">
       <h1>User Profile</h1>
-        <%# if @user.photo.attached? %>
-      <h1><%#= image_tag @user.photo %></h1>
-        <%# else %>
+        <% if @user.photo.attached? %>
+          <h1><%= image_tag @user.photo, style: "max-width: 100%; height: auto;" %></h1>
+        <% else %>
           <td><img src="<%= asset_path('Add Photo.png') %>"></td>
-        <%# end %>
+        <% end %>
         <div class="shadow card-body">
-          <p>Email: <%= @user.email %></p>
-          <p>Name: <%= @user.first_name %></p>
-          <p>Last name: <%= @user.last_name %></p>
-          <p>Phone number: <%= @user.phone %></p>
-          <p>City: <%= @user.city %></p>
+          <p><strong>Email:</strong> <%= @user.email %></p>
+          <p><strong>Name:</strong> <%= @user.first_name %></p>
+          <p><strong>Last name:</strong> <%= @user.last_name %></p>
+          <p><strong>Phone number:</strong> <%= @user.phone %></p>
+          <p><strong>City:</strong> <%= @user.city %></p>
           <p></p>
           <p></p>
-      </div>
+          <div class="btn-group m-2" role="group" aria-label="Basic example">
+          <%= link_to edit_user_registration_path, class: "btn btn-sm btn-outline-primary me-1" do %>
+          <i class="fa-regular fa-pen-to-square"></i>
+          <% end %>
+          </div>
+        </div>
     </div>
   </div>
-
-  <div class="d-grid gap-2 gap-md-3 d-md-block">
-    <%= link_to "Edit", edit_user_registration_path, class: "btn btn-primary" %>
-    <%= link_to "Enviar notificaciones", "#", method: :post, class: "btn btn-primary mt-2" %>
     <%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-primary mt-2" %>
-  </div>
+</div>
+
+<div class="btn-group m-2" role="group" aria-label="Basic example">
+  <%= link_to edit_user_registration_path, class: "btn btn-sm btn-outline-primary me-1" do %>
+  <i class="fa-regular fa-pen-to-square"></i>
+  <% end %>
+
 </div>
