@@ -16,6 +16,7 @@ class SubscriptionsController < ApplicationController
   def create
     @subscription = Subscription.new(subscription_params)
     @subscription.user = current_user
+    prepend_protocol_to_url(@subscription)
     if @subscription.save
       redirect_to subscription_path(@subscription)
     else
@@ -27,6 +28,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def update
+    prepend_protocol_to_url(@subscription)
     if @subscription.update(subscription_params)
       redirect_to subscription_path
     else
@@ -93,3 +95,8 @@ class SubscriptionsController < ApplicationController
   end
 
 end
+  def prepend_protocol_to_url(subscription)
+    unless subscription.url =~ /\Ahttp[s]?:\/\//
+      subscription.url.prepend("http://")
+    end
+  end
