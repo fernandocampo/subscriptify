@@ -6,6 +6,7 @@
 
   <h2 class= "m-4 p-4">Future Expenses</h2>
   <%= column_chart @upcoming_expenses%>
+  <%= column_chart @upcoming_expenses.to_a %>
 
   <h2 class= "m-4 p-4">Average Monthly Spending by Category</h2>
   <%= pie_chart @average_expenses_by_category.map { |category, average| [category, average.to_f.round(2)] } %>
@@ -13,4 +14,5 @@
   <h2 class= "m-4 p-4">Expenses for this Month by Category</h2>
   <%= pie_chart @current_month_expenses_by_category %>
   <%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-sm btn-outline-primary mt-2" %>
+
 </div>
