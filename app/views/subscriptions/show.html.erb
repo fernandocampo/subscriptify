@@ -4,7 +4,8 @@
         <% if @subscription.photo.attached? %>
       <h1><%= image_tag @subscription.photo, style: "max-width: 100%; height: auto;" %></h1>
         <% else %>
-          <td><img src="<%= asset_path('Add Photo.png') %>"class="custom-image"></td>
+
+          <td><img src="<%= asset_path('Add Photo.png') %>"class="custom-image" style="max-width: 100%; height: auto;"></td>
         <% end %>
         <hr>
       <h1><%= @subscription.company_name %></h1>
@@ -13,6 +14,7 @@
           <p> <%= @subscription.url %></p>
           <p><strong>Description</strong> <%= @subscription.description %></p>
           <!--<p> <%= @subscription.recurrent %></p> -->
+
           <p><strong>Frecuency</strong> <%= @subscription.frequency %></p>
           <p><strong>Payment Date</strong> <%= @subscription.payment_date %></p>
           <p><strong>Price</strong> <%= number_to_currency(@subscription.price) %> <%= @subscription.currency.upcase %></p>
@@ -26,10 +28,13 @@
             <i class="fa-solid fa-trash-can"></i>
             <% end %>
           </div>
+
       </div>
     </div>
   </div>
 
-    <%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-outline-primary" %>
-  </div>
+
+
+    <%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-outline-primary mt-2 mb-2" %>
+
 </div>
