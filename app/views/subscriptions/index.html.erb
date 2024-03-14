@@ -26,7 +26,7 @@
       <th>Company name</th>
       <th>Description</th>
       <th>URL</th>
-      <th>Frequency</th>
+     <!-- <th>Frequency</th> -->
       <th>Payment date</th>
       <th>Price</th>
       <th>Category</th>
@@ -38,10 +38,10 @@
         <td><%= link_to subscription.company_name, subscription_path(subscription), class: "text-decoration-none" %></td>
         <td><%= subscription.description %></td>
         <td><%= subscription.url %></td>
-        <td><%= subscription.frequency %></td>
+       <!-- <td><%= subscription.frequency %></td> -->
         <td><%= subscription.payment_date %></td>
         <td><%= number_to_currency(subscription.price) %></td>
-        <td><%= subscription.category %></td>
+        <td><%= subscription.category.capitalize %></td>
         <td>
           <%= link_to edit_subscription_path(subscription), class: "btn btn-sm btn-outline-primary mr-1" do %>
           <i class="fa-regular fa-pen-to-square"></i>
