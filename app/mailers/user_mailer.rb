@@ -10,7 +10,7 @@ class UserMailer < ApplicationMailer
     @user = params[:user]
     @subscription = Subscription.find(subscription_id)
     @url = 'https://www.subscriptify.me'
-    mail(to: [@user.email], subject: "Recordatorio de #{@subscription.company_name}")
+    mail(to: [@user.email], subject: "Subscription reminder of #{@subscription.company_name}")
     # mail(to: [@user.email], subject: "Recordatorio de #{@subscription.company_name}")
   end
 
@@ -18,7 +18,7 @@ class UserMailer < ApplicationMailer
     @user = params[:user]
     # Corrected logic to filter subscriptions based on a condition (e.g., day_number equals user's my_today)
     @filtered_subscriptions = @user.subscriptions.select { |sub| sub.day_number == @user.my_today }
-    mail(to: [@user.email], subject: "Recordatirio de #{@filtered_subscriptions.map(&:company_name).join(',')}") unless @filtered_subscriptions.empty?
+    mail(to: [@user.email], subject: "Subscription reminder of #{@filtered_subscriptions.map(&:company_name).join(',')}") unless @filtered_subscriptions.empty?
     # filtered_subscriptions.each do |subscription|
     #   subscription_reminder(subscription.id)
     # end
