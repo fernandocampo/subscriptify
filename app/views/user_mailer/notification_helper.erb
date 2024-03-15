@@ -4,13 +4,19 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>Hola, <%= @user.email %></h1>
-    <% @filtered_subscriptions.each do | subs |  %>
-      <p> ??? <%= subs.company_name %>.</p>
-      <p> ??? <%= subs.price %> </p>
-      <br>
-      <hr>
-      <br>
-    <% end %>
+    <div class="container text-center">
+      <div class="card mx-auto" style="width: 18rem;">
+        <h1>Hello, <%= @user.email %></h1>
+        <p>This is a friendly reminder that the follows subscriptions are set to expire tomorrow:</p>
+        <% @filtered_subscriptions.each do | subs |  %>
+          <p><strong>Company:</strong> <%= subs.company_name %>.</p>
+          <p><strong>Price:</strong> <%= number_to_currency(subs.price) %> <%= subs.currency %> </p>
+          <p><strong>URL:</strong> <%= subs.url %></p>
+          <br>
+          <hr>
+          <br>
+        <% end %>
+      </div>
+    </div>
   </body>
 </html>
