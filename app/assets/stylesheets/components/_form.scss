@@ -22,6 +22,15 @@
   padding-bottom: 75px;
 
 }
+.center-btn {
+  display: block; /* Convertir el botón en un elemento de bloque */
+  margin: 0 auto; /* Establecer márgenes automáticos horizontalmente para centrar */
+  text-align: center; /* Alinear el texto dentro del botón al centro */
+}
+
+.custom-padding {
+  margin-right: 0; /* Puedes ajustar estos valores según tus necesidades */
+}
 
 td > img {
   height: 32px;
