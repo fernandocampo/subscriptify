@@ -23,7 +23,7 @@
           <td><%= subscription.url %></td>
           <td><%= subscription.frequency %></td>
           <td><%= subscription.payment_date %></td>
-          <td><%= subscription.price %></td>
+          <td><%= number_to_currency(subscription.price) %></td>
           <td><%= subscription.category %></td>
         </tr>
       <% end %>

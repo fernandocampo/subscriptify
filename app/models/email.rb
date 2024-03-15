@@ -11,3 +11,5 @@ class Email
     @body = params[:body]
   end
 end
+
+#style
