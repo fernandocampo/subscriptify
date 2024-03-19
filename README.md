@@ -1,6 +1,6 @@
 # Subscriptify
 
-**Subscriptify** is a website designed to track and send notifications for subscription renewals, showcasing the synergy between Rails and Bootstrap, augmented by PostgreSQL for robust database management, and a selection of gems to elevate functionality and performance.
+**Subscriptify** is a website designed to track and send notifications for subscription renewals 
 
 ## Features
 
