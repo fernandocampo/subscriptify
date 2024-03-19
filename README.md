@@ -53,16 +53,6 @@ sidekiq
 
 Navigate to http://localhost:3000 to view the application. Use the provided routes for user authentication, data visualization, report generation, and more.
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE.md file for details.
-
-## Badges
-
-![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
-![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)
-![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)
-
 ## Authors
 
 - [@Antonioedwardsd](https://github.com/Antonioedwardsd)
