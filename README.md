@@ -1,6 +1,7 @@
 # Subscriptify
 
 **Subscriptify** is a website designed to track and send notifications for subscription renewals 
+https://subscriptify.me
 
 ## Features
 
