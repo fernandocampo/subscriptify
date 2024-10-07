@@ -29,7 +29,6 @@ gem 'cloudinary'
 gem "sidekiq", "~> 6.2"
 gem "sidekiq-failures", "~> 1.0"
 gem "sidekiq-cron"
-gem 'rubygems-update', '~> 3.3.22'
 gem 'ffi', '1.15.5'
 
 group :development, :test do
