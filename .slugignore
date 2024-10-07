@@ -6,3 +6,5 @@ node_modules/
 README.md
 .git/
 vendor/bundle/
+vendor/cache/
+storage/
