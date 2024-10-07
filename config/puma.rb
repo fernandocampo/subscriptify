@@ -5,14 +5,14 @@
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers: a minimum and maximum.
 # We reduced the maximum thread count to lower memory consumption.
-max_threads_count = ENV.fetch("RAILS_MAX_THREADS") { 3 }  # Reduced to 3 threads
+max_threads_count = ENV.fetch("RAILS_MAX_THREADS") { 3 }
 min_threads_count = ENV.fetch("RAILS_MIN_THREADS") { max_threads_count }
 threads min_threads_count, max_threads_count
 
 # Specifies the worker count to be 2 in production to save memory.
 if ENV["RAILS_ENV"] == "production"
   require "concurrent-ruby"
-  worker_count = Integer(ENV.fetch("WEB_CONCURRENCY") { 2 })  # Set to 2 workers
+  worker_count = Integer(ENV.fetch("WEB_CONCURRENCY") { 2 })
   workers worker_count if worker_count > 1
 end
 
@@ -21,8 +21,7 @@ preload_app!
 
 # Specifies the `worker_timeout` threshold that Puma will use to wait before
 # terminating a worker in development environments.
-worker_timeout 30 if ENV.fetch("RAILS_ENV", "development") == "production"  # Set timeout for production
-
+worker_timeout 30 if ENV.fetch("RAILS_ENV", "development") == "production"
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 port ENV.fetch("PORT") { 3000 }
 
