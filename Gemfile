@@ -24,7 +24,7 @@ gem 'resend'
 gem 'caxlsx'
 gem 'caxlsx_rails'
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-heroku', '~> 2.12.6.0'
+gem 'wkhtmltopdf-heroku', '3.0.0'
 gem 'cloudinary'
 gem "sidekiq", "~> 6.2"
 gem "sidekiq-failures", "~> 1.0"
