@@ -30,8 +30,6 @@ gem 'sidekiq', '~> 7.3.2'
 gem "sidekiq-failures", "~> 1.0"
 gem "sidekiq-cron"
 gem 'ffi', '~> 1.17.0'
-gem 'rubygems-update', '~> 3.3.22'
-
 
 group :development, :test do
   gem "dotenv-rails"
