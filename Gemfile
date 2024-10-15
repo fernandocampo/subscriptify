@@ -29,7 +29,7 @@ gem 'cloudinary'
 gem 'sidekiq', '~> 7.3.2'
 gem "sidekiq-failures", "~> 1.0"
 gem "sidekiq-cron"
-gem 'ffi', '~> 1.17.0'
+gem 'ffi', '1.16.0'
 
 group :development, :test do
   gem "dotenv-rails"
