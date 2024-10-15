@@ -10,7 +10,7 @@ gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "jbuilder"
-gem "tzinfo-data", platforms: %i[windows jruby]
+gem "tzinfo-data", platforms: %i[mswin mswin64 mingw x64_mingw jruby]
 gem "bootsnap", require: false
 gem "bootstrap", "~> 5.2"
 gem "devise"
