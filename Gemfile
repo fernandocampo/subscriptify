@@ -33,7 +33,7 @@ gem 'ffi', '1.16.0'
 
 group :development, :test do
   gem "dotenv-rails"
-  gem "debug", platforms: %i[mri windows]
+  gem "debug", platforms: %i[mri mingw x64_mingw] 
 end
 
 group :development do
