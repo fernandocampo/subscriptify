@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.1.2"
+ruby "3.3.5"
 
 gem "rails", "~> 7.2.1"
 gem "sprockets-rails"
@@ -33,7 +33,7 @@ gem 'ffi', '1.16.0'
 
 group :development, :test do
   gem "dotenv-rails"
-  gem "debug", platforms: %i[mri mingw x64_mingw] 
+  gem "debug", platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
