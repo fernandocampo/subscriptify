@@ -1,6 +1,6 @@
-require 'sidekiq/cron/job'
-
 Sidekiq.configure_server do |config|
+  config.redis = { url: ENV['REDIS_URL'] }
+
   config.on(:startup) do
     if File.exist?(File.expand_path('config/schedule.yml', Rails.root))
       schedule_file = File.expand_path('config/schedule.yml', Rails.root)
@@ -8,3 +8,8 @@ Sidekiq.configure_server do |config|
     end
   end
 end
+
+Sidekiq.configure_client do |config|
+  config.redis = { url: ENV['REDIS_URL'] }
+end
+
