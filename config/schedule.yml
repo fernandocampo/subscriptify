@@ -1,3 +1,3 @@
 DailyNotifications:
-  cron: '30 19 * * * America/Argentina/Buenos_Aires'
+  cron: '45 21 * * * America/Argentina/Buenos_Aires'
   class: EmailerJob
