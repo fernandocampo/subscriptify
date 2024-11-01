@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_many :subscriptions, dependent: :destroy
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, nondisposable: { message: "is a disposable email address, please use a permanent email address." }
 
   def due_dates
     subscriptions.map{ |subscription| subscription.payment_date.day }
