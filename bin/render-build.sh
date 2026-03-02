@@ -20,8 +20,7 @@ bundle config set --local without 'development test'
 bundle install --jobs 4 --retry 3
 
 echo "=== Asset precompile ==="
-# SECRET_KEY_BASE_DUMMY permite precompilar sin master key real
-SECRET_KEY_BASE_DUMMY=1 bundle exec rails assets:precompile
+bundle exec rails assets:precompile
 bundle exec rails assets:clean
 
 echo "=== Database migrate ==="
