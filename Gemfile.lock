@@ -139,8 +139,6 @@ GEM
     erb (5.0.2)
     error_highlight (0.7.0)
     erubi (1.13.1)
-    et-orbi (1.2.11)
-      tzinfo
     execjs (2.10.0)
     faraday (2.13.4)
       faraday-net_http (>= 2.0, < 3.5)
@@ -155,9 +153,6 @@ GEM
     ffi (1.15.5)
     font-awesome-sass (6.7.2)
       sassc (~> 2.0)
-    fugit (1.11.1)
-      et-orbi (~> 1, >= 1.2.11)
-      raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
     groupdate (6.7.0)
@@ -244,7 +239,6 @@ GEM
     public_suffix (6.0.2)
     puma (6.6.0)
       nio4r (~> 2.0)
-    raabro (1.4.0)
     racc (1.8.1)
     rack (2.2.17)
     rack-session (1.0.2)
@@ -287,7 +281,6 @@ GEM
     rdoc (6.14.2)
       erb
       psych (>= 4.0.0)
-    redis (4.8.1)
     regexp_parser (2.10.0)
     reline (0.6.2)
       io-console (~> 0.5)
@@ -313,16 +306,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sidekiq (6.5.12)
-      connection_pool (>= 2.2.5, < 3)
-      rack (~> 2.0)
-      redis (>= 4.5.0, < 5)
-    sidekiq-cron (1.12.0)
-      fugit (~> 1.8)
-      globalid (>= 1.0.1)
-      sidekiq (>= 6)
-    sidekiq-failures (1.0.4)
-      sidekiq (>= 4.0.0)
     sprockets (4.2.2)
       concurrent-ruby (~> 1.0)
       logger
@@ -385,7 +368,6 @@ DEPENDENCIES
   devise
   dotenv-rails
   error_highlight (>= 0.4.0)
-  ffi (= 1.15.5)
   font-awesome-sass (~> 6.1)
   groupdate
   importmap-rails
@@ -397,9 +379,6 @@ DEPENDENCIES
   resend
   sassc-rails
   selenium-webdriver
-  sidekiq (~> 6.2)
-  sidekiq-cron (= 1.12.0)
-  sidekiq-failures (~> 1.0)
   simple_form!
   sprockets-rails
   stimulus-rails

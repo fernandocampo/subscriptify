@@ -51,20 +51,4 @@ services:
         fromDatabase:
           name: subscriptify-db
           property: connectionString
-      - key: REDIS_URL
-        fromService:
-          name: subscriptify-redis
-          type: redis
-          property: connectionString
 
-
-
-  # =====
-  # Redis
-  # =====
-  - type: redis
-    name: subscriptify-redis
-    region: oregon
-    plan: free
-    maxmemoryPolicy: noeviction
-    ipAllowList: []

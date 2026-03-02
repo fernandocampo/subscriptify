@@ -25,10 +25,6 @@ gem 'caxlsx'
 gem 'caxlsx_rails'
 gem 'wicked_pdf'
 gem 'cloudinary'
-gem "sidekiq", "~> 6.2"
-gem "sidekiq-failures", "~> 1.0"
-gem "sidekiq-cron", "1.12.0"
-gem 'ffi', '1.15.5'
 gem 'nondisposable'
 
 
