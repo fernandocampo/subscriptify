@@ -39,3 +39,9 @@
 # Ignore Mac and Linux file system files
 *.swp
 .DS_Store
+
+# === CLAUDE OPTIMIZATION - LOCAL ONLY ===
+# Nunca se sube a GitHub, no aparece en el repo
+CLAUDE.md
+.claude/
+claude_context/
