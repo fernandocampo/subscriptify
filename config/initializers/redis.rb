@@ -1,5 +1,4 @@
-# Soporta REDIS_URL (Render) y REDISCLOUD_URL (Heroku) para compatibilidad
-redis_url = ENV["REDIS_URL"] || ENV["REDISCLOUD_URL"]
+redis_url = ENV["REDIS_URL"]
 
 if redis_url
   Sidekiq.configure_server do |config|

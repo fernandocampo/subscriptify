@@ -11,7 +11,6 @@
 WickedPdf.configure do |config|
   # Path to the wkhtmltopdf executable
   # - En Render: se instala via apt-get en /usr/bin/wkhtmltopdf
-  # - En Heroku: usa wkhtmltopdf-heroku gem
   # - En local: usa la gema wkhtmltopdf-binary o instalación del sistema
   if ENV['WKHTMLTOPDF_PATH'].present?
     config.exe_path = ENV['WKHTMLTOPDF_PATH']
