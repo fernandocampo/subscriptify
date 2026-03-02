@@ -29,10 +29,18 @@ services:
         value: production
       - key: RAILS_LOG_LEVEL
         value: info
+      - key: RAILS_LOG_TO_STDOUT
+        value: enabled
+      - key: RAILS_SERVE_STATIC_FILES
+        value: enabled
+      - key: RUBYOPT
+        value: --yjit
       - key: WEB_CONCURRENCY
         value: "1"
       - key: RAILS_MAX_THREADS
         value: "2"
+      - key: DOMAIN
+        value: www.subscriptify.me
       - key: RAILS_MASTER_KEY
         sync: false
       - key: CLOUDINARY_URL
