@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # Health check endpoint para Render
+  get "/health", to: proc { [200, {}, ["OK"]] }
+
   root to: "pages#home"
   get "/profile", to: "pages#profile", as: :profile
 

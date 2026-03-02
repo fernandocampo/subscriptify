@@ -1,0 +1,96 @@
+# Render Blueprint - Infraestructura como código
+# https://render.com/docs/blueprint-spec
+#
+# Para usar: Dashboard -> Blueprints -> New Blueprint Instance -> Seleccionar repo
+
+databases:
+  - name: subscriptify-db
+    databaseName: subscriptify_production
+    user: subscriptify
+    region: oregon
+    plan: free
+    postgresMajorVersion: 16
+
+keyValueStores:
+  - name: subscriptify-redis
+    region: oregon
+    plan: free
+    maxmemoryPolicy: noeviction  # Requerido para Sidekiq
+
+services:
+  # ===================
+  # Web Service (Rails)
+  # ===================
+  - type: web
+    name: subscriptify-web
+    runtime: ruby
+    region: oregon
+    plan: free
+    buildCommand: ./bin/render-build.sh
+    startCommand: bundle exec puma -C config/puma.rb
+    healthCheckPath: /health
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: RAILS_LOG_LEVEL
+        value: info
+      - key: WEB_CONCURRENCY
+        value: "1"
+      - key: RAILS_MAX_THREADS
+        value: "2"
+      # Secretos - configurar manualmente en Dashboard
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: CLOUDINARY_URL
+        sync: false
+      - key: RESENDER_API_KEY
+        sync: false
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      # Referencias automáticas a DB y Redis
+      - key: DATABASE_URL
+        fromDatabase:
+          name: subscriptify-db
+          property: connectionString
+      - key: REDIS_URL
+        fromKeyValue:
+          name: subscriptify-redis
+          property: connectionString
+
+  # ============================
+  # Background Worker (Sidekiq)
+  # ============================
+  - type: worker
+    name: subscriptify-worker
+    runtime: ruby
+    region: oregon
+    plan: free
+    buildCommand: bundle install
+    startCommand: bundle exec sidekiq -C config/sidekiq.yml
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: RAILS_LOG_LEVEL
+        value: info
+      # Secretos - configurar manualmente en Dashboard
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: CLOUDINARY_URL
+        sync: false
+      - key: RESENDER_API_KEY
+        sync: false
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      # Referencias automáticas a DB y Redis
+      - key: DATABASE_URL
+        fromDatabase:
+          name: subscriptify-db
+          property: connectionString
+      - key: REDIS_URL
+        fromKeyValue:
+          name: subscriptify-redis
+          property: connectionString

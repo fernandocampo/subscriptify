@@ -1,12 +1,13 @@
-:concurrency: 3
+# Configuración optimizada para Render free tier (512 MB RAM, Redis 25 MB)
+:concurrency: 2
 :timeout: 60
-:verbose: true
+:verbose: false
+
 :queues:
-  # Queue priority:
+  # Queue priority (mayor número = mayor prioridad):
   # https://github.com/mperham/sidekiq/wiki/Advanced-Options
-  # https://mikerogers.io/2019/06/06/rails-6-sidekiq-queues
-  - default
-  - mailers
-  - active_storage_analysis
-  - active_storage_purge
-  - notification_helper
+  - [default, 3]
+  - [mailers, 2]
+  - [notification_helper, 2]
+  - [active_storage_analysis, 1]
+  - [active_storage_purge, 1]
