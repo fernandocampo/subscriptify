@@ -57,28 +57,7 @@ services:
           type: redis
           property: connectionString
 
-  # ================================
-  # Cron Job - Notificaciones diarias
-  # ================================
-  - type: cron
-    name: subscriptify-daily-notifications
-    runtime: ruby
-    region: oregon
-    plan: starter
-    schedule: "40 1 * * *"  # 22:40 America/Argentina/Buenos_Aires
-    buildCommand: bundle install
-    startCommand: bundle exec rails runner "EmailerJob.new.perform"
-    envVars:
-      - key: RAILS_ENV
-        value: production
-      - key: RAILS_MASTER_KEY
-        sync: false
-      - key: RESENDER_API_KEY
-        sync: false
-      - key: DATABASE_URL
-        fromDatabase:
-          name: subscriptify-db
-          property: connectionString
+
 
   # =====
   # Redis
