@@ -64,7 +64,7 @@ services:
     name: subscriptify-daily-notifications
     runtime: ruby
     region: oregon
-    plan: free
+    plan: starter
     schedule: "40 1 * * *"  # 22:40 America/Argentina/Buenos_Aires
     buildCommand: bundle install
     startCommand: bundle exec rails runner "EmailerJob.new.perform"
