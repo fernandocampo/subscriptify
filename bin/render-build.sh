@@ -20,8 +20,7 @@ bundle config set --local without 'development test'
 bundle install --jobs 4 --retry 3
 
 echo "=== Asset precompile ==="
-echo "RAILS_MASTER_KEY length: ${#RAILS_MASTER_KEY}"
-bundle exec rails assets:precompile --trace 2>&1 || true
+bundle exec rails assets:precompile
 bundle exec rails assets:clean
 
 echo "=== Database migrate ==="
