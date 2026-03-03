@@ -12,12 +12,10 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "tzinfo-data", platforms: %i[windows jruby]
 gem "bootsnap", require: false
-gem "bootstrap", "~> 5.2"
+gem "tailwindcss-rails"
+gem "heroicons"
 gem "devise"
-gem "autoprefixer-rails"
-gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", "~> 5.3"
-gem "sassc-rails"
 gem "chartkick"
 gem "groupdate"
 gem 'resend'

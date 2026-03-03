@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
     <title><%= meta_title %></title>
@@ -29,13 +32,11 @@
     <meta name="twitter:image:src" content="<%= meta_image %>">
   </head>
 
-  <body>
+  <body class="bg-slate-50 text-slate-900 font-sans">
     <%= render "shared/navbar" %>
-    <br>
-    <div>
-    <%# <div class="container" style="margin-top: 86px"> %>
-        <%= yield %>
-        <%= render "shared/flashes" %>
-    </div>
+    <main class="pt-16">
+      <%= render "shared/flashes" %>
+      <%= yield %>
+    </main>
   </body>
 </html>

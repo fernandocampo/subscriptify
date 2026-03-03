@@ -1,91 +1,81 @@
-<body class="has-navbar-fixed-top">
-
-    <section class="hero is-medium" style="background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url(<%= image_path('background-image.png')%>); background-size: cover">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="l-heading">Never forget a subscription renewal again</h1>
-                <h2 class="title is-5">Get alerts before your subscriptions renew.</h2>
-
-                 <div class="main">
-                  <% unless user_signed_in? %> <%= link_to "Create account", new_user_registration_path, class: "btn btn-primary mt-4" %>
-                  <% end %>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <div class="container">
-        <div class="flex-container my-4">
-                <div class="col-6">
-                    <h2 class="title is-3">Never miss an automatic renewal</h2>
-                      <ol>
-                        <li>Add the subscriptions you currently pay for.</li>
-                        <li>Receive reminders when they are about to expire.</li>
-                        <li>Save money by canceling unused services on time.</li>
-                      </ol>
-                    <h3 class="title is-5">Subscriptions with trial periods</h3>
-                    <p>Track trial sign-ups and when you'll be charged. Get reminders so you can cancel trials you don't want to start paying for. Subscriptify tracks refund periods and will send you reminders.</p>
-                </div>
-                    <div class="col-6 d-flex justify-content-center">
-                      <img class="introduction-screenshot" ><%= image_tag "Dashboard.PNG", style: "width:95%; height:300px" %>
-                    </div>
-      </div>
-
-        <section class="section">
-            <div class="box row">
-                <div class="col-6">
-                    <blockquote>
-                        <em>"Subscriptify simplified the management and visualization of all my subscriptions. With their notifications I was able to unsubscribe from services I no longer used"</em><br><br> Juan Domingo
-                    </blockquote>
-                </div>
-                <div class="col-6">
-                    <blockquote>
-                        <em>"Simple website that delivers what it promises. Easy to use and had a direct impact on time and money"</em><br><br> ⭐⭐⭐⭐⭐ por Nicolás Hernández
-                    </blockquote>
-                </div>
-            </div>
-        </section>
-        <section id="content">
-            <div class="container">
-            <div class="row">
-              <div class="col-6"><%= image_tag "metrics2.png", class: "w-100" %></div>
-              <div class="col-6"> <h2 class="title is-3">View monthly charges</h2>
-                    <p>See the total monthly spend you can have in the next 12 months.</p>
-                    <h3 class="title is-5">Categorize subscriptions</h3>
-                    <p>By assigning categories to your subscriptions, you can see how the spending is distributed among them.</p>
-              </div>
-            </div>
-                <div class="box box-1">
-                    <img class="introduction-screenshot">
-                </div>
-                <div class="box box-2">
-
-                </div>
-            </div>
-        </section>
+<!-- Hero -->
+<section class="bg-gradient-to-b from-indigo-50 to-white py-20 px-4 text-center">
+  <h1 class="text-4xl font-bold text-slate-900 tracking-tight sm:text-5xl">
+    Never forget a subscription<br class="hidden sm:block"> renewal again
+  </h1>
+  <p class="mt-4 text-lg text-slate-600 max-w-xl mx-auto">
+    Get alerts before your subscriptions renew. Track trials, save money by cancelling unused services on time.
+  </p>
+  <% unless user_signed_in? %>
+    <div class="mt-8">
+      <%= link_to new_user_registration_path, class: "inline-flex items-center px-6 py-3 bg-indigo-600 text-white text-sm font-semibold rounded-xl hover:bg-indigo-700 transition shadow-sm" do %>
+        Create free account
+      <% end %>
     </div>
+  <% end %>
+</section>
 
+<!-- Features -->
+<section class="max-w-5xl mx-auto px-4 py-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div>
+      <h2 class="text-2xl font-bold text-slate-900">Never miss an automatic renewal</h2>
+      <ol class="mt-4 space-y-2 text-slate-600 list-decimal list-inside">
+        <li>Add the subscriptions you currently pay for.</li>
+        <li>Receive reminders when they are about to expire.</li>
+        <li>Save money by canceling unused services on time.</li>
+      </ol>
+      <h3 class="mt-6 text-lg font-semibold text-slate-900">Subscriptions with trial periods</h3>
+      <p class="mt-2 text-slate-600">Track trial sign-ups and when you'll be charged. Get reminders so you can cancel trials you don't want to start paying for.</p>
+    </div>
+    <div class="flex justify-center">
+      <%= image_tag "Dashboard.PNG", class: "rounded-xl shadow-md w-full max-w-sm", alt: "Dashboard screenshot" %>
+    </div>
+  </div>
+</section>
 
-</body>
-    <footer id="main-footer">
-                    <ul>
-                        <li class="title is-6 mb-2"></li>
-                        <li><a href="https://subscriptify.com/contact">Contact</a></li>
-                        <li><a href="https://subscriptify.com/pages/terms">Terms of Service</a></li>
-                        <li><a href="https://subscriptify.com/pages/privacy">Privacy Policy</a></li>
-                    </ul>
-                <div class="column">
-                    <h6 class="title is-6 mb-2">Subscriptify &reg;</h6>
-                    Developed by Antonio, Dario and Fernando.
-                </div>
-                 <div class="footer-links">
-                    <a href="https://github.com/fernandocampo/subscriptify"><i class="fab fa-github"></i></a>
-                    <a href="https://www.instagram.com/subscriptify.me/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61557426561381"><i class="fab fa-facebook"></i></a>
-                    <a href="https://twitter.com/subscriptify"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                  </div>
-    </footer>
+<!-- Testimonials -->
+<section class="bg-slate-50 py-16 px-4">
+  <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <blockquote class="bg-white rounded-xl border border-slate-100 shadow-sm p-6 text-sm text-slate-600 italic">
+      "Subscriptify simplified the management and visualization of all my subscriptions. With their notifications I was able to unsubscribe from services I no longer used"
+      <footer class="mt-3 font-semibold text-slate-800 not-italic">— Juan Domingo</footer>
+    </blockquote>
+    <blockquote class="bg-white rounded-xl border border-slate-100 shadow-sm p-6 text-sm text-slate-600 italic">
+      "Simple website that delivers what it promises. Easy to use and had a direct impact on time and money" ⭐⭐⭐⭐⭐
+      <footer class="mt-3 font-semibold text-slate-800 not-italic">— Nicolás Hernández</footer>
+    </blockquote>
+  </div>
+</section>
 
-</html>
+<!-- Monthly charts -->
+<section class="max-w-5xl mx-auto px-4 py-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div>
+      <%= image_tag "metrics2.png", class: "rounded-xl shadow-md w-full", alt: "Metrics" %>
+    </div>
+    <div>
+      <h2 class="text-2xl font-bold text-slate-900">View monthly charges</h2>
+      <p class="mt-3 text-slate-600">See the total monthly spend you can have in the next 12 months.</p>
+      <h3 class="mt-5 text-lg font-semibold text-slate-900">Categorize subscriptions</h3>
+      <p class="mt-2 text-slate-600">By assigning categories to your subscriptions, you can see how the spending is distributed among them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-slate-200 bg-white py-8 px-4">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+    <p class="font-semibold text-slate-700">Subscriptify &reg;</p>
+    <nav class="flex flex-wrap gap-4 justify-center">
+      <a href="https://subscriptify.com/contact" class="hover:text-slate-700">Contact</a>
+      <a href="https://subscriptify.com/pages/terms" class="hover:text-slate-700">Terms of Service</a>
+      <a href="https://subscriptify.com/pages/privacy" class="hover:text-slate-700">Privacy Policy</a>
+    </nav>
+    <div class="flex gap-3">
+      <a href="https://github.com/fernandocampo/subscriptify" class="hover:text-slate-700">
+        <%= heroicon "code-bracket", variant: :outline, class: "h-5 w-5" %>
+      </a>
+    </div>
+  </div>
+</footer>

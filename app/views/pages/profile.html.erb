@@ -1,28 +1,44 @@
-<div class="my-4 p-4">
-  <div class="container text-center">
-    <div class="card mx-auto" style="width: 18rem;">
-      <h1>My Profile</h1>
-        <% if @user.photo.attached? %>
-          <h1><%= image_tag @user.photo, style: "max-width: 100%; height: auto;" %></h1>
-        <% else %>
-          <td><img src="<%= asset_path('Add Photo.png') %>"></td>
-        <% end %>
-        <div class="shadow card-body">
-          <p><strong>Email:</strong> <%= @user.email %></p>
-          <p><strong>Name:</strong> <%= @user.first_name %></p>
-          <p><strong>Last name:</strong> <%= @user.last_name %></p>
-          <p><strong>Phone number:</strong> <%= @user.phone %></p>
-          <p><strong>City:</strong> <%= @user.city %></p>
-          <p></p>
-          <p></p>
-          <div class="btn-group m-2" role="group" aria-label="Basic example">
-          <%= link_to edit_user_registration_path, class: "btn btn-sm btn-outline-primary me-1" do %>
-          <i class="fa-regular fa-pen-to-square"></i>
-          <% end %>
-          </div>
+<div class="max-w-sm mx-auto my-8 px-4">
+  <div class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+    <div class="p-6 text-center border-b border-slate-100">
+      <% if @user.photo.attached? %>
+        <%= image_tag @user.photo, class: "h-20 w-20 rounded-full object-cover mx-auto" %>
+      <% else %>
+        <div class="h-20 w-20 rounded-full bg-indigo-50 mx-auto flex items-center justify-center">
+          <%= heroicon "user", variant: :outline, class: "h-10 w-10 text-indigo-300" %>
         </div>
+      <% end %>
+      <h1 class="mt-3 text-xl font-semibold text-slate-900">
+        <%= [@user.first_name, @user.last_name].compact_blank.join(" ").presence || "My Profile" %>
+      </h1>
+      <p class="text-sm text-slate-500 mt-0.5"><%= @user.email %></p>
+    </div>
+
+    <dl class="p-6 space-y-3 text-sm">
+      <% if @user.phone.present? %>
+        <div class="flex justify-between">
+          <dt class="font-medium text-slate-500">Phone</dt>
+          <dd class="text-slate-900"><%= @user.phone %></dd>
+        </div>
+      <% end %>
+      <% if @user.city.present? %>
+        <div class="flex justify-between">
+          <dt class="font-medium text-slate-500">City</dt>
+          <dd class="text-slate-900"><%= @user.city %></dd>
+        </div>
+      <% end %>
+    </dl>
+
+    <div class="px-6 pb-6">
+      <%= link_to edit_user_registration_path, class: "w-full inline-flex justify-center items-center gap-1 px-3 py-2 border border-slate-300 text-slate-700 text-sm rounded-lg hover:bg-slate-50 transition" do %>
+        <%= heroicon "pencil-square", variant: :outline, class: "h-4 w-4" %>
+        Edit profile
+      <% end %>
     </div>
   </div>
-    <%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-outline-primary mt-2" %>
-</div>
 
+  <%= link_to subscriptions_path, class: "inline-flex items-center gap-1 text-sm text-indigo-600 hover:underline mt-4" do %>
+    <%= heroicon "arrow-left", variant: :outline, class: "h-4 w-4" %>
+    Back to Dashboard
+  <% end %>
+</div>

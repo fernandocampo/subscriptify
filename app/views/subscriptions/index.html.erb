@@ -1,69 +1,92 @@
-<div class="my-4 p-4">
-    <div class="background" style="background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url(<%= image_path('background.jpg')%>); background-size: cover">
-      <h1 id="dashcenter">Dashboard</h1>
-              <section class="buttons mb-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
-                      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="<%= subscriptions_path %>" method="get">
-                        <div class="btn-group me-2 mb-0 pb-0 mt-2">
-                          <input type="search" name="query" class="form-control form-control-light text-bg-light" placeholder="Search..." aria-label="Search">
-                          <button type="submit" class="btn btn-outline-primary me-2">Search</button>
-                        </div>
-                      </form>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+    <h1 class="text-2xl font-semibold text-slate-900">Dashboard</h1>
+    <div class="flex flex-wrap items-center gap-2">
+      <form role="search" action="<%= subscriptions_path %>" method="get" class="flex gap-2">
+        <input type="search" name="query" value="<%= params[:query] %>"
+               class="rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-44"
+               placeholder="Search...">
+        <button type="submit" class="inline-flex items-center px-3 py-2 border border-indigo-600 text-indigo-600 text-sm rounded-lg hover:bg-indigo-50 transition">
+          Search
+        </button>
+      </form>
+      <%= link_to new_subscription_path, class: "inline-flex items-center gap-1 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition" do %>
+        <%= heroicon "plus", variant: :mini, class: "h-4 w-4" %>
+        Add subscription
+      <% end %>
+      <%= link_to export_subscriptions_path(format: :xlsx), class: "inline-flex items-center gap-1 px-3 py-2 border border-slate-300 text-slate-600 text-sm rounded-lg hover:bg-slate-50 transition" do %>
+        <%= heroicon "arrow-down-tray", variant: :outline, class: "h-4 w-4" %>
+        XLSX
+      <% end %>
+      <%= link_to export_pdf_subscriptions_path(format: :pdf), class: "inline-flex items-center gap-1 px-3 py-2 border border-slate-300 text-slate-600 text-sm rounded-lg hover:bg-slate-50 transition" do %>
+        <%= heroicon "arrow-down-tray", variant: :outline, class: "h-4 w-4" %>
+        PDF
+      <% end %>
+    </div>
+  </div>
 
-                <%= link_to "Add a new subscription", new_subscription_path, class: "btn btn-primary btn-md mt-2 fw-bold center-btn" %>
-                  <div class="btn-toolbar mb-0 mb-md-0">
-                    <div class="btn-group me-1 mb-0 pb-0 mt-2">
-                      <%= link_to 'Export to XLSX', export_subscriptions_path(format: :xlsx), class: 'btn btn-sm btn-outline-primary' %>
-                      <%= link_to 'Export to PDF', export_pdf_subscriptions_path(format: :pdf), class: 'btn btn-sm btn-outline-primary' %>
-                    </div>
-                  </div>
-                </div>
-                </section>
-
-
-    <table class="table table-striped table-bordered table-hover">
-      <thead>
-        <tr>
-          <th class="text-center">Logo</th>
-          <th class="text-center">Company name</th>
-          <th class="text-center">Description</th>
-          <th class="text-center">URL</th>
-        <!-- <th>Frequency</th> -->
-          <th class="text-center">Payment date</th>
-          <th class="text-center">Price</th>
-          <th class="text-center">Category</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @subscriptions.each do |subscription| %>
+  <% if @subscriptions.empty? %>
+    <div class="text-center py-16">
+      <%= heroicon "credit-card", variant: :outline, class: "h-12 w-12 text-slate-300 mx-auto" %>
+      <h3 class="mt-2 text-sm font-semibold text-slate-900">No subscriptions yet</h3>
+      <p class="mt-1 text-sm text-slate-500">Start tracking your subscriptions to see them here.</p>
+      <%= link_to new_subscription_path, class: "mt-6 inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition" do %>
+        Add your first subscription
+      <% end %>
+    </div>
+  <% else %>
+    <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+      <table class="min-w-full divide-y divide-slate-200 text-sm">
+        <thead class="bg-slate-50">
           <tr>
-            <% if subscription.photo.attached? %>
-
-              <td class="text-center"><%= image_tag subscription.photo %></td>
-
-            <% else %>
-              <td class="text-center"><img src="<%= asset_path('Add Photo.png') %>"></td>
-            <% end %>
-            <td class="text-center"><%= link_to subscription.company_name, subscription_path(subscription), class: "text-decoration-none" %></td>
-            <td class="text-center"><%= subscription.description.capitalize %></td>
-            <td class="text-center"><a href="<%= subscription.url %>"><%= subscription.url %></a></td>
-          <!-- <td><%= subscription.frequency %></td> -->
-            <td class="text-center"><%= subscription.payment_date.strftime("%d, %B %Y") %></td>
-            <td class="text-center"><%= number_to_currency(subscription.price) %></td>
-            <td class="text-center"><%= subscription.category.capitalize %></td>
-
-            <td class="text-center">
-
-              <%= link_to edit_subscription_path(subscription), class: "btn btn-sm btn-outline-primary mr-1" do %>
-              <i class="fa-regular fa-pen-to-square"></i>
-              <% end %>
-            <%= link_to subscription_path(subscription), method: :delete, data: { confirm: "Are you sure you want to delete this subscription?" }, class: "btn btn-sm btn-primary" do %>
-              <i class="fa-solid fa-trash-can"></i>
-              <% end %>
-            </td>
+            <th class="px-4 py-3 text-left font-medium text-slate-500">Logo</th>
+            <th class="px-4 py-3 text-left font-medium text-slate-500">Company</th>
+            <th class="px-4 py-3 text-left font-medium text-slate-500 hidden md:table-cell">Description</th>
+            <th class="px-4 py-3 text-left font-medium text-slate-500 hidden lg:table-cell">URL</th>
+            <th class="px-4 py-3 text-left font-medium text-slate-500">Payment date</th>
+            <th class="px-4 py-3 text-left font-medium text-slate-500">Price</th>
+            <th class="px-4 py-3 text-left font-medium text-slate-500 hidden sm:table-cell">Category</th>
+            <th class="px-4 py-3"></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-   </div>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          <% @subscriptions.each do |subscription| %>
+            <tr class="hover:bg-slate-50 transition">
+              <td class="px-4 py-3">
+                <% if subscription.photo.attached? %>
+                  <%= image_tag subscription.photo, class: "h-9 w-9 rounded-lg object-contain" %>
+                <% else %>
+                  <div class="h-9 w-9 rounded-lg bg-indigo-50 flex items-center justify-center">
+                    <%= heroicon "credit-card", variant: :outline, class: "h-5 w-5 text-indigo-300" %>
+                  </div>
+                <% end %>
+              </td>
+              <td class="px-4 py-3 font-medium text-slate-900">
+                <%= link_to subscription.company_name, subscription_path(subscription), class: "hover:text-indigo-600" %>
+              </td>
+              <td class="px-4 py-3 text-slate-600 hidden md:table-cell"><%= subscription.description.capitalize %></td>
+              <td class="px-4 py-3 hidden lg:table-cell">
+                <a href="<%= subscription.url %>" class="text-indigo-600 hover:underline truncate max-w-xs block"><%= subscription.url %></a>
+              </td>
+              <td class="px-4 py-3 text-slate-700"><%= subscription.payment_date.strftime("%d %b %Y") %></td>
+              <td class="px-4 py-3 font-semibold text-slate-900"><%= number_to_currency(subscription.price) %></td>
+              <td class="px-4 py-3 text-slate-600 hidden sm:table-cell"><%= subscription.category.capitalize %></td>
+              <td class="px-4 py-3">
+                <div class="flex items-center gap-1">
+                  <%= link_to edit_subscription_path(subscription), class: "p-1.5 rounded-lg text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 transition" do %>
+                    <%= heroicon "pencil-square", variant: :outline, class: "h-4 w-4" %>
+                  <% end %>
+                  <%= button_to subscription_path(subscription), method: :delete,
+                        data: { turbo_confirm: "Are you sure you want to delete this subscription?" },
+                        class: "p-1.5 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition" do %>
+                    <%= heroicon "trash", variant: :solid, class: "h-4 w-4" %>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
 </div>

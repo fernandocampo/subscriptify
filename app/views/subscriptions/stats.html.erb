@@ -1,15 +1,26 @@
-<div class="m-5 p-4">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-semibold text-slate-900">Subscription Statistics</h1>
+    <%= link_to subscriptions_path, class: "inline-flex items-center gap-1 text-sm text-indigo-600 hover:underline" do %>
+      <%= heroicon "arrow-left", variant: :outline, class: "h-4 w-4" %>
+      Back to Dashboard
+    <% end %>
+  </div>
 
-<h1 class="text-center">Subscription Statistics</h1>
+  <div class="space-y-6">
+    <div class="bg-white rounded-xl border border-slate-100 shadow-sm p-6">
+      <h2 class="text-base font-semibold text-slate-700 mb-4">Future Expenses</h2>
+      <%= column_chart @upcoming_expenses %>
+    </div>
 
-  <h2 class= "m-4 p-4">Future Expenses</h2>
-  <%= column_chart @upcoming_expenses%>
+    <div class="bg-white rounded-xl border border-slate-100 shadow-sm p-6">
+      <h2 class="text-base font-semibold text-slate-700 mb-4">Average Monthly Spending by Category</h2>
+      <%= pie_chart @average_expenses_by_category.map { |category, average| [category, average.to_f.round(2)] } %>
+    </div>
 
-  <h2 class= "m-4 p-4">Average Monthly Spending by Category</h2>
-  <%= pie_chart @average_expenses_by_category.map { |category, average| [category, average.to_f.round(2)] } %>
-
-  <h2 class= "m-4 p-4">Expenses for this Month by Category</h2>
-  <%= pie_chart @current_month_expenses_by_category %>
-  <%= link_to "Back to Dashboard", subscriptions_path, class: "btn btn-sm btn-outline-primary mt-2" %>
-
+    <div class="bg-white rounded-xl border border-slate-100 shadow-sm p-6">
+      <h2 class="text-base font-semibold text-slate-700 mb-4">Expenses for this Month by Category</h2>
+      <%= pie_chart @current_month_expenses_by_category %>
+    </div>
+  </div>
 </div>

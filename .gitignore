@@ -45,3 +45,6 @@
 CLAUDE.md
 .claude/
 claude_context/
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

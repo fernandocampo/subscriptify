@@ -1,14 +1,20 @@
-<% if notice %>
-  <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
-    <%= notice %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
-  </div>
-<% end %>
-<% if alert %>
-  <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
-    <%= alert %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
-  </div>
-<% end %>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-3 space-y-2">
+  <% if notice %>
+    <div class="flex items-start justify-between gap-3 rounded-lg bg-indigo-50 border border-indigo-200 px-4 py-3 text-sm text-indigo-800"
+         data-controller="alert">
+      <span><%= notice %></span>
+      <button data-action="click->alert#dismiss" aria-label="Dismiss" class="shrink-0 text-indigo-400 hover:text-indigo-600">
+        <%= heroicon "x-mark", variant: :mini, class: "h-4 w-4" %>
+      </button>
+    </div>
+  <% end %>
+  <% if alert %>
+    <div class="flex items-start justify-between gap-3 rounded-lg bg-amber-50 border border-amber-200 px-4 py-3 text-sm text-amber-800"
+         data-controller="alert">
+      <span><%= alert %></span>
+      <button data-action="click->alert#dismiss" aria-label="Dismiss" class="shrink-0 text-amber-400 hover:text-amber-600">
+        <%= heroicon "x-mark", variant: :mini, class: "h-4 w-4" %>
+      </button>
+    </div>
+  <% end %>
+</div>
