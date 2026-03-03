@@ -5,6 +5,7 @@ class SubscriptionsController < ApplicationController
     all_subscriptions = current_user.subscriptions.to_a
     @analytics = SubscriptionAnalytics.new(all_subscriptions)
     @monthly_total = @analytics.monthly_burn_rate
+    @next_subscription = all_subscriptions.min_by(&:payment_date)
 
     @subscriptions = current_user.subscriptions
     if params[:query].present?
