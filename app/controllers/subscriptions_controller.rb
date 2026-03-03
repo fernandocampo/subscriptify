@@ -2,11 +2,14 @@ class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:show, :edit, :update, :destroy], except: [:index, :new, :create, :export, :stats]
 
   def index
+    all_subscriptions = current_user.subscriptions.to_a
+    @analytics = SubscriptionAnalytics.new(all_subscriptions)
+    @monthly_total = @analytics.monthly_burn_rate
+
     @subscriptions = current_user.subscriptions
     if params[:query].present?
       @subscriptions = @subscriptions.where("company_name ILIKE :query", query: "%#{params[:query]}%")
     end
-    @monthly_total = @subscriptions.sum { |s| s.frequency == "Monthly" ? s.price.to_f : s.price.to_f / 12.0 }
   end
 
 

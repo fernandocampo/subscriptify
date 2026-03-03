@@ -14,28 +14,8 @@
     <%# ── Inline form (Turbo Frame placeholder) ── %>
     <%= turbo_frame_tag "subscription_form", class: "block" %>
 
-    <%# ── Stats Bento Grid ── %>
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
-      <div class="col-span-2 sm:col-span-1 bg-white rounded-2xl border border-zinc-200 p-5">
-        <p class="text-xs font-medium text-zinc-400 uppercase tracking-widest mb-2">Monthly</p>
-        <p class="text-3xl font-bold text-zinc-900 tabular-nums"><%= number_to_currency(@monthly_total) %></p>
-        <p class="text-xs text-zinc-400 mt-1.5"><%= pluralize(@subscriptions.size, "subscription") %> active</p>
-      </div>
-      <div class="bg-white rounded-2xl border border-zinc-200 p-5">
-        <p class="text-xs font-medium text-zinc-400 uppercase tracking-widest mb-2">Annually</p>
-        <p class="text-2xl font-bold text-zinc-900 tabular-nums"><%= number_to_currency(@monthly_total * 12) %></p>
-      </div>
-      <div class="bg-white rounded-2xl border border-zinc-200 p-5">
-        <p class="text-xs font-medium text-zinc-400 uppercase tracking-widest mb-2">Next Due</p>
-        <% next_sub = @subscriptions.min_by(&:payment_date) %>
-        <% if next_sub %>
-          <p class="text-xl font-bold text-zinc-900"><%= next_sub.payment_date.strftime("%b %d") %></p>
-          <p class="text-xs text-zinc-500 truncate mt-0.5"><%= next_sub.company_name %></p>
-        <% else %>
-          <p class="text-xl font-bold text-zinc-300">—</p>
-        <% end %>
-      </div>
-    </div>
+    <%# ── Financial Insights ── %>
+    <%= render "subscriptions/analytics", analytics: @analytics %>
 
     <%# ── Subscriptions List ── %>
     <% if @subscriptions.empty? %>
