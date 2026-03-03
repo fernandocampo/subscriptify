@@ -1,5 +1,5 @@
 <!-- Hero -->
-<section class="min-h-[88vh] flex items-center justify-center px-4 py-20 text-center bg-white">
+<section class="min-h-[88vh] flex items-center justify-center px-6 py-20 text-center bg-white">
   <div class="max-w-3xl mx-auto">
 
     <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold tracking-wide uppercase mb-8">
@@ -18,7 +18,7 @@
     <% unless user_signed_in? %>
       <div class="mt-10">
         <%= link_to "Get Started for Free →", new_user_registration_path,
-            class: "inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-base font-semibold rounded-xl hover:bg-indigo-700 active:scale-95 transition-all duration-150 shadow-lg shadow-indigo-200/60" %>
+            class: "inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-base font-semibold rounded-xl shadow-sm hover:bg-indigo-700 active:scale-95 transition-all duration-150" %>
       </div>
     <% end %>
 
@@ -41,7 +41,7 @@
 </section>
 
 <!-- Bento Grid Features -->
-<section class="bg-slate-50 py-20 px-4">
+<section class="bg-slate-50 py-20 px-6">
   <div class="max-w-5xl mx-auto">
 
     <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tighter text-center mb-3">
@@ -55,7 +55,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
       <!-- Wide card: Never miss a renewal -->
-      <div class="lg:col-span-2 bg-white rounded-2xl border border-slate-200 shadow-sm p-8 flex flex-col sm:flex-row gap-6 items-center overflow-hidden">
+      <div class="lg:col-span-2 bg-white rounded-2xl border border-slate-100 shadow-sm p-8 flex flex-col sm:flex-row gap-6 items-center overflow-hidden">
         <div class="flex-1 min-w-0">
           <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-indigo-100 mb-4">
             <%= heroicon "bell-alert", variant: :outline, options: { class: "h-5 w-5 text-indigo-600" } %>
@@ -140,7 +140,7 @@
       </div>
 
       <!-- Trial tracking -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
         <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-amber-100 mb-4">
           <%= heroicon "clock", variant: :outline, options: { class: "h-5 w-5 text-amber-600" } %>
         </div>
@@ -154,7 +154,7 @@
       </div>
 
       <!-- Monthly spend -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
         <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-emerald-100 mb-4">
           <%= heroicon "chart-bar", variant: :outline, options: { class: "h-5 w-5 text-emerald-600" } %>
         </div>
@@ -183,7 +183,7 @@
       </div>
 
       <!-- Categories -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
         <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-violet-100 mb-4">
           <%= heroicon "tag", variant: :outline, options: { class: "h-5 w-5 text-violet-600" } %>
         </div>
@@ -192,7 +192,7 @@
       </div>
 
       <!-- Metrics Mockup -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 overflow-hidden aspect-square flex flex-col">
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4 overflow-hidden aspect-square flex flex-col">
         <div class="text-[10px] font-semibold text-slate-500 mb-3">Monthly Spend · 2024</div>
         <div class="flex items-end gap-1.5 flex-1">
           <div class="flex-1 flex flex-col items-center gap-1">
@@ -231,7 +231,7 @@
 </section>
 
 <!-- Testimonials -->
-<section class="py-20 px-4 bg-white">
+<section class="py-20 px-6 bg-white">
   <div class="max-w-4xl mx-auto">
 
     <h2 class="text-3xl font-extrabold text-slate-900 tracking-tighter text-center mb-12">
@@ -239,7 +239,7 @@
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <blockquote class="bg-slate-50 rounded-2xl border border-slate-200 shadow-sm p-6">
+      <blockquote class="bg-slate-50 rounded-2xl border border-slate-100 shadow-sm p-6">
         <div class="text-amber-400 text-sm mb-3">★★★★★</div>
         <p class="text-slate-700 text-sm leading-relaxed">"Subscriptify simplified the management and visualization of all my subscriptions. With their notifications I was able to unsubscribe from services I no longer used."</p>
         <footer class="mt-4 flex items-center gap-3">
@@ -248,7 +248,7 @@
         </footer>
       </blockquote>
 
-      <blockquote class="bg-slate-50 rounded-2xl border border-slate-200 shadow-sm p-6">
+      <blockquote class="bg-slate-50 rounded-2xl border border-slate-100 shadow-sm p-6">
         <div class="text-amber-400 text-sm mb-3">★★★★★</div>
         <p class="text-slate-700 text-sm leading-relaxed">"Simple website that delivers what it promises. Easy to use and had a direct impact on time and money."</p>
         <footer class="mt-4 flex items-center gap-3">
@@ -262,7 +262,7 @@
 </section>
 
 <!-- Final CTA -->
-<section class="bg-slate-900 py-20 px-4 text-center">
+<section class="bg-slate-900 py-20 px-6 text-center">
   <div class="max-w-2xl mx-auto">
     <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tighter">
       Take control of your subscriptions today.
@@ -271,7 +271,7 @@
     <% unless user_signed_in? %>
       <div class="mt-8">
         <%= link_to "Get Started for Free →", new_user_registration_path,
-            class: "inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-base font-semibold rounded-xl hover:bg-indigo-700 active:scale-95 transition-all duration-150 shadow-lg shadow-indigo-500/20" %>
+            class: "inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-base font-semibold rounded-xl shadow-sm hover:bg-indigo-700 active:scale-95 transition-all duration-150" %>
       </div>
     <% end %>
     <p class="mt-5 font-mono text-xs text-slate-500">setup: ~5 min &nbsp;·&nbsp; no credit card &nbsp;·&nbsp; cancel anytime</p>
@@ -279,7 +279,7 @@
 </section>
 
 <!-- Footer -->
-<footer class="border-t border-slate-800 bg-slate-900 py-8 px-4">
+<footer class="border-t border-slate-800 bg-slate-900 py-8 px-6">
   <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
     <p class="font-semibold text-slate-300">Subscriptify &reg;</p>
     <nav class="flex flex-wrap gap-4 justify-center">

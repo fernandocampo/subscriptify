@@ -5,3 +5,14 @@
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --color-primary: var(--color-indigo-600);
 }
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
