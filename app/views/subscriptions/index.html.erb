@@ -62,10 +62,14 @@
               <%# Logo %>
               <div class="shrink-0">
                 <% if subscription.photo.attached? %>
-                  <%= image_tag subscription.photo, class: "h-9 w-9 rounded-xl object-contain" %>
+                  <%= image_tag subscription.photo, class: "w-10 h-10 rounded-xl object-contain bg-white border border-zinc-100" %>
                 <% else %>
-                  <div class="h-9 w-9 rounded-xl bg-indigo-50 flex items-center justify-center">
-                    <%= heroicon "credit-card", variant: :outline, options: { class: "h-5 w-5 text-indigo-300" } %>
+                  <img src="<%= subscription_logo_url(subscription.company_name) %>"
+                       alt="<%= subscription.company_name %>"
+                       class="w-10 h-10 rounded-xl object-contain bg-white border border-zinc-100"
+                       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 items-center justify-center text-sm font-bold hidden">
+                    <%= subscription.company_name.first.upcase %>
                   </div>
                 <% end %>
               </div>

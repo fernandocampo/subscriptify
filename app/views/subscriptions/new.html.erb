@@ -10,7 +10,10 @@
     </div>
     <%= simple_form_for @subscription, html: { data: { turbo_frame: "_top" } } do |f| %>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <%= f.input :company_name %>
+        <div>
+          <%= f.input :company_name %>
+          <p class="text-xs text-zinc-400 -mt-2">Escribe el nombre real (ej: Netflix) y buscaremos el logo por ti.</p>
+        </div>
         <%= f.input :description %>
         <%= f.input :url %>
         <%= f.input :payment_date, html5: true %>
