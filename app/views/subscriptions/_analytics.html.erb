@@ -1,6 +1,5 @@
 <%# ── Financial Intelligence Center ── %>
 <% analytics = local_assigns[:analytics] %>
-<% next_sub  = local_assigns[:next_sub] %>
 
 <% if analytics.count.zero? %>
 
@@ -23,34 +22,35 @@
   <%# ── Row 1: 3 hero KPIs ── %>
   <div class="grid grid-cols-3 gap-3 mb-3">
 
-    <%# Monthly Burn Rate %>
+    <%# Card 1: Monthly Total %>
     <div class="bg-zinc-900 rounded-2xl border border-zinc-800 p-6">
-      <p class="text-xs text-zinc-500 uppercase tracking-widest font-medium mb-3">Monthly</p>
-      <p class="text-3xl font-extrabold text-white tabular-nums tracking-tight">
-        <%= number_to_currency(analytics.monthly_burn_rate) %>
+      <p class="text-zinc-500 text-xs uppercase tracking-widest font-medium mb-3">Monthly</p>
+      <p class="text-3xl font-bold text-white tabular-nums tracking-tight">
+        <%= number_to_currency(analytics.monthly_total) %>
       </p>
       <p class="text-xs text-zinc-600 mt-2"><%= pluralize(analytics.count, "active subscription") %></p>
     </div>
 
-    <%# Annual Projection %>
+    <%# Card 2: Annual Projection %>
     <div class="bg-zinc-900 rounded-2xl border border-zinc-800 p-6">
-      <p class="text-xs text-zinc-500 uppercase tracking-widest font-medium mb-3">Annual</p>
-      <p class="text-3xl font-extrabold text-zinc-400 tabular-nums tracking-tight">
-        <%= number_to_currency(analytics.annual_projection) %>
+      <p class="text-zinc-500 text-xs uppercase tracking-widest font-medium mb-3">Annual</p>
+      <p class="text-3xl font-bold text-zinc-400 tabular-nums tracking-tight">
+        <%= number_to_currency(analytics.yearly_total) %>
       </p>
-      <p class="text-xs text-zinc-600 mt-2">projected this year</p>
+      <p class="text-xs text-zinc-600 mt-2">12-month projection</p>
     </div>
 
-    <%# Next Due %>
+    <%# Card 3: Next Payment — name + amount %>
     <div class="bg-zinc-900 rounded-2xl border border-zinc-800 p-6">
-      <p class="text-xs text-zinc-500 uppercase tracking-widest font-medium mb-3">Next Due</p>
-      <% if next_sub %>
-        <p class="text-3xl font-extrabold text-white tabular-nums tracking-tight">
-          <%= next_sub.payment_date.strftime("%b %d") %>
+      <p class="text-zinc-500 text-xs uppercase tracking-widest font-medium mb-3">Next Due</p>
+      <% if analytics.next_payment %>
+        <p class="text-3xl font-bold text-white tabular-nums tracking-tight">
+          <%= number_to_currency(analytics.next_payment.price) %>
         </p>
-        <p class="text-xs text-zinc-600 mt-2 truncate"><%= next_sub.company_name %></p>
+        <p class="text-xs text-zinc-600 mt-2 truncate"><%= analytics.next_payment.company_name %> · <%= analytics.next_payment.payment_date.strftime("%b %d") %></p>
       <% else %>
-        <p class="text-3xl font-extrabold text-zinc-700">—</p>
+        <p class="text-3xl font-bold text-zinc-700">—</p>
+        <p class="text-xs text-zinc-600 mt-2">no upcoming payments</p>
       <% end %>
     </div>
 
@@ -61,7 +61,7 @@
 
     <%# Category Breakdown %>
     <div class="col-span-3 bg-zinc-900 rounded-2xl border border-zinc-800 p-6">
-      <p class="text-xs text-zinc-500 uppercase tracking-widest font-medium mb-4">By Category</p>
+      <p class="text-zinc-500 text-xs uppercase tracking-widest font-medium mb-4">By Category</p>
       <div class="space-y-3">
         <% analytics.category_breakdown.each do |item| %>
           <div>
@@ -84,8 +84,8 @@
     <%# Avg / sub %>
     <div class="bg-zinc-900 rounded-2xl border border-zinc-800 p-6 flex flex-col justify-between">
       <div>
-        <p class="text-xs text-zinc-500 uppercase tracking-widest font-medium mb-3">Avg / sub</p>
-        <p class="text-2xl font-extrabold text-white tabular-nums tracking-tight">
+        <p class="text-zinc-500 text-xs uppercase tracking-widest font-medium mb-3">Avg / sub</p>
+        <p class="text-2xl font-bold text-white tabular-nums tracking-tight">
           <%= number_to_currency(analytics.average_monthly_cost) %>
         </p>
         <p class="text-xs text-zinc-600 mt-1">per month</p>
@@ -105,7 +105,7 @@
   <% max_cat_total = analytics.category_breakdown.first&.dig(:total).to_f %>
   <% max_cat_total = 1.0 if max_cat_total.zero? %>
   <div class="bg-zinc-900 rounded-2xl border border-zinc-800 p-6 mb-3">
-    <p class="text-xs text-zinc-500 uppercase tracking-widest font-medium mb-5">Monthly Spend by Category</p>
+    <p class="text-zinc-500 text-xs uppercase tracking-widest font-medium mb-5">Monthly Spend by Category</p>
     <div class="flex items-end gap-3" style="height: 96px;">
       <% analytics.category_breakdown.each do |item| %>
         <% bar_h = [( item[:total] / max_cat_total * 96 ).round, 4].max %>
@@ -127,21 +127,20 @@
     </div>
   </div>
 
-  <%# ── Insight Banner ── %>
+  <%# ── Card 4: Insight Banner ── %>
   <div class="bg-zinc-900 border border-zinc-800 rounded-2xl px-5 py-4 flex items-start gap-3 mb-6">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
          class="h-4 w-4 text-zinc-500 mt-0.5 shrink-0">
       <path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z" clip-rule="evenodd" />
     </svg>
     <p class="text-xs text-zinc-400 leading-relaxed">
-      <% if analytics.top_category && analytics.top_category[:percentage] >= 50 %>
+      <% if analytics.yearly_total > 500 %>
+        You're spending <span class="text-white font-semibold"><%= number_to_currency(analytics.yearly_total) %> per year</span> on subscriptions —
+        you could save <span class="text-white font-semibold"><%= number_to_currency(analytics.yearly_total * 0.10, precision: 0) %></span> by optimizing these apps.
+      <% elsif analytics.top_category && analytics.top_category[:percentage] >= 50 %>
         <span class="text-white font-semibold"><%= analytics.top_category[:category] %></span> accounts for
         <%= analytics.top_category[:percentage] %>% of your monthly spend —
         consider whether all <%= analytics.top_category[:category].downcase %> subscriptions are earning their keep.
-      <% elsif analytics.annual_projection > 1200 %>
-        Your <%= pluralize(analytics.count, "subscription") %> total
-        <span class="text-white font-semibold"><%= number_to_currency(analytics.annual_projection) %> per year</span>.
-        Worth reviewing periodically to cut what you don't use.
       <% else %>
         Averaging <span class="text-white font-semibold"><%= number_to_currency(analytics.average_monthly_cost) %>/month</span>
         per subscription across <%= analytics.count %> services.

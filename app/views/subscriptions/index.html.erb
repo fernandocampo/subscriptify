@@ -15,7 +15,7 @@
     <%= turbo_frame_tag "subscription_form", class: "block" %>
 
     <%# ── Financial Insights ── %>
-    <%= render "subscriptions/analytics", analytics: @analytics, next_sub: @next_subscription %>
+    <%= render "subscriptions/analytics", analytics: @analytics %>
 
     <%# ── Subscriptions List ── %>
     <% if @subscriptions.empty? %>
