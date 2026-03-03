@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   resources :subscriptions do
     collection do
       get :export, to: 'subscriptions#export'
-      get :export_pdf, to: 'subscriptions#export_pdf'
     end
   end
 

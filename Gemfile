@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.3.6"
 
 gem "rails", "~> 8.0"
-gem "sprockets-rails"
+gem "propshaft"
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "importmap-rails"
@@ -17,15 +17,12 @@ gem "devise"
 gem "simple_form", "~> 5.3"
 gem "chartkick"
 gem "groupdate"
-gem 'resend'
-gem 'caxlsx'
-gem 'caxlsx_rails'
-gem 'wicked_pdf'
-gem 'nondisposable'
-
-
-
-
+gem "resend"
+gem "caxlsx"
+gem "caxlsx_rails"
+gem "nondisposable"
+gem "solid_queue"
+gem "solid_cache"
 
 group :development, :test do
   gem "dotenv-rails"
