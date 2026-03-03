@@ -1,9 +1,9 @@
 <%= turbo_frame_tag "subscription_form" do %>
-  <div class="bg-zinc-900 rounded-2xl border border-zinc-800 p-6 mb-6 max-w-md mx-auto"
+  <div class="bg-zinc-900/80 backdrop-blur rounded-2xl border border-zinc-800 p-8 mb-6 max-w-xl mx-auto"
        data-controller="smart-sub">
 
-    <div class="flex items-center justify-between mb-6">
-      <h2 class="text-sm font-semibold text-white tracking-tight">New Subscription</h2>
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-base font-semibold text-white tracking-tight">New Subscription</h2>
       <%= link_to subscriptions_path,
             data: { turbo_frame: "subscription_form" },
             class: "text-zinc-600 hover:text-zinc-300 transition" do %>
@@ -15,68 +15,86 @@
 
     <%= simple_form_for @subscription, html: { data: { turbo_frame: "_top" } } do |f| %>
 
-      <% input_class = "w-full bg-zinc-800 border border-zinc-700 text-white placeholder:text-zinc-500 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-zinc-600 transition" %>
-      <% select_class = "w-full bg-zinc-800 border border-zinc-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-zinc-600 transition appearance-none" %>
+      <% input_class = "w-full bg-zinc-900/50 border border-zinc-800 text-white placeholder:text-zinc-500 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-white/10 focus:border-white/20 transition" %>
+      <% select_class = "w-full bg-zinc-900/50 border border-zinc-800 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-white/10 focus:border-white/20 transition appearance-none" %>
 
-      <div class="space-y-3">
+      <div class="space-y-4">
 
-        <%# Company name with smart autofill %>
         <div>
+          <label class="block text-xs text-zinc-500 mb-1.5 px-0.5">Service name</label>
           <%= f.text_field :company_name,
-                placeholder: "Service name (e.g. Netflix)",
+                placeholder: "Netflix, Spotify, GitHub…",
                 class: input_class,
                 autocomplete: "off",
+                autofocus: true,
                 data: { smart_sub_target: "name", action: "input->smart-sub#lookup" } %>
-          <p class="hidden text-xs text-zinc-500 mt-1.5 px-1" data-smart-sub-target="hint"></p>
+          <p class="hidden text-xs text-zinc-500 mt-1.5 px-0.5" data-smart-sub-target="hint"></p>
         </div>
 
-        <%# Price + Currency %>
-        <div class="grid grid-cols-3 gap-2">
-          <%= f.number_field :price,
-                placeholder: "Price",
-                step: "0.01",
-                min: "0",
-                class: "col-span-2 #{input_class}",
-                data: { smart_sub_target: "price" } %>
-          <%= f.select :currency, Subscription::CURRENCIES,
-                { include_blank: false },
-                class: select_class %>
+        <div>
+          <label class="block text-xs text-zinc-500 mb-1.5 px-0.5">Price</label>
+          <div class="grid grid-cols-3 gap-2">
+            <%= f.number_field :price,
+                  placeholder: "0.00",
+                  step: "0.01",
+                  min: "0",
+                  class: "col-span-2 #{input_class}",
+                  data: { smart_sub_target: "price" } %>
+            <%= f.select :currency, Subscription::CURRENCIES,
+                  { include_blank: false, selected: "USD" },
+                  class: select_class %>
+          </div>
         </div>
 
-        <%# Payment date + Frequency %>
-        <div class="grid grid-cols-2 gap-2">
-          <%= f.date_field :payment_date,
-                class: "#{input_class} text-zinc-400",
-                placeholder: "Payment date" %>
-          <%= f.select :frequency, Subscription::FREQUENCE,
-                { include_blank: false },
-                class: select_class %>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs text-zinc-500 mb-1.5 px-0.5">Frequency</label>
+            <%= f.select :frequency, Subscription::FREQUENCE,
+                  { include_blank: false },
+                  class: select_class %>
+          </div>
+          <div>
+            <label class="block text-xs text-zinc-500 mb-1.5 px-0.5">Next payment</label>
+            <%= f.date_field :payment_date,
+                  class: "#{input_class} text-zinc-300" %>
+          </div>
         </div>
 
-        <%# Category %>
-        <%= f.select :category, Subscription::CATEGORIES,
-              { include_blank: "Category" },
-              class: select_class,
-              data: { smart_sub_target: "category" } %>
+        <div>
+          <label class="block text-xs text-zinc-500 mb-1.5 px-0.5">Category</label>
+          <%= f.select :category, Subscription::CATEGORIES,
+                { include_blank: "Select a category" },
+                class: select_class,
+                data: { smart_sub_target: "category" } %>
+        </div>
 
-        <%# Optional fields %>
-        <%= f.text_field :url,
-              placeholder: "Website (optional)",
-              class: input_class %>
+        <div>
+          <label class="block text-xs text-zinc-500 mb-1.5 px-0.5">
+            Website <span class="text-zinc-600">optional</span>
+          </label>
+          <%= f.text_field :url,
+                placeholder: "https://",
+                class: input_class %>
+        </div>
 
-        <%= f.text_area :description,
-              placeholder: "Notes (optional)",
-              rows: 2,
-              class: "#{input_class} resize-none" %>
+        <div>
+          <label class="block text-xs text-zinc-500 mb-1.5 px-0.5">
+            Notes <span class="text-zinc-600">optional</span>
+          </label>
+          <%= f.text_area :description,
+                placeholder: "Add any notes…",
+                rows: 2,
+                class: "#{input_class} resize-none" %>
+        </div>
 
       </div>
 
-      <div class="flex items-center gap-3 mt-5">
+      <div class="flex items-center gap-4 mt-6">
         <%= f.button :submit, "Save subscription",
               class: "flex-1 py-3 bg-white text-black text-sm font-semibold rounded-xl hover:bg-zinc-100 active:scale-95 transition-all duration-150" %>
         <%= link_to "Cancel", subscriptions_path,
               data: { turbo_frame: "subscription_form" },
-              class: "text-sm text-zinc-600 hover:text-zinc-300 transition" %>
+              class: "text-sm text-zinc-500 hover:text-zinc-300 transition px-1" %>
       </div>
 
     <% end %>
