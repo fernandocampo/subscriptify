@@ -22,7 +22,6 @@ gem 'resend'
 gem 'caxlsx'
 gem 'caxlsx_rails'
 gem 'wicked_pdf'
-gem 'cloudinary'
 gem 'nondisposable'
 
 

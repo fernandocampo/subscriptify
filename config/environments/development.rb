@@ -49,7 +49,7 @@ Rails.application.configure do
   end
 
   # Guardar archivos subidos en el sistema de archivos local (configura opciones en config/storage.yml).
-  config.active_storage.service = :cloudinary
+  config.active_storage.service = :local
 
   # No preocuparse si el mailer no puede enviar.
   config.action_mailer.perform_caching = false
