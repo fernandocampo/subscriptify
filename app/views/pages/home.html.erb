@@ -1,79 +1,207 @@
 <!-- Hero -->
-<section class="bg-gradient-to-b from-indigo-50 to-white py-20 px-4 text-center">
-  <h1 class="text-4xl font-bold text-slate-900 tracking-tight sm:text-5xl">
-    Never forget a subscription<br class="hidden sm:block"> renewal again
-  </h1>
-  <p class="mt-4 text-lg text-slate-600 max-w-xl mx-auto">
-    Get alerts before your subscriptions renew. Track trials, save money by cancelling unused services on time.
-  </p>
-  <% unless user_signed_in? %>
-    <div class="mt-8">
-      <%= link_to new_user_registration_path, class: "inline-flex items-center px-6 py-3 bg-indigo-600 text-white text-sm font-semibold rounded-xl hover:bg-indigo-700 transition shadow-sm" do %>
-        Create free account
-      <% end %>
+<section class="min-h-[88vh] flex items-center justify-center px-4 py-20 text-center bg-white">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold tracking-wide uppercase mb-8">
+      <span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+      Free to use · No credit card required
     </div>
-  <% end %>
+
+    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-slate-900 tracking-tighter leading-[1.05]">
+      Stop losing money on<br class="hidden sm:block"> forgotten subscriptions.
+    </h1>
+
+    <p class="mt-6 text-lg sm:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+      The simplest way to track, manage, and optimize your monthly recurring expenses. 100% Mobile friendly.
+    </p>
+
+    <% unless user_signed_in? %>
+      <div class="mt-10">
+        <%= link_to "Get Started for Free →", new_user_registration_path,
+            class: "inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-base font-semibold rounded-xl hover:bg-indigo-700 active:scale-95 transition-all duration-150 shadow-lg shadow-indigo-200/60" %>
+      </div>
+    <% end %>
+
+    <div class="mt-16 grid grid-cols-3 max-w-sm sm:max-w-md mx-auto">
+      <div class="flex flex-col items-center px-4">
+        <span class="font-mono text-2xl sm:text-3xl font-bold text-slate-900">$240+</span>
+        <span class="text-xs text-slate-400 mt-1">avg. saved/year</span>
+      </div>
+      <div class="flex flex-col items-center px-4 border-x border-slate-200">
+        <span class="font-mono text-2xl sm:text-3xl font-bold text-slate-900">100%</span>
+        <span class="text-xs text-slate-400 mt-1">free to start</span>
+      </div>
+      <div class="flex flex-col items-center px-4">
+        <span class="font-mono text-2xl sm:text-3xl font-bold text-slate-900">5 min</span>
+        <span class="text-xs text-slate-400 mt-1">setup time</span>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<!-- Features -->
-<section class="max-w-5xl mx-auto px-4 py-16">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-    <div>
-      <h2 class="text-2xl font-bold text-slate-900">Never miss an automatic renewal</h2>
-      <ol class="mt-4 space-y-2 text-slate-600 list-decimal list-inside">
-        <li>Add the subscriptions you currently pay for.</li>
-        <li>Receive reminders when they are about to expire.</li>
-        <li>Save money by canceling unused services on time.</li>
-      </ol>
-      <h3 class="mt-6 text-lg font-semibold text-slate-900">Subscriptions with trial periods</h3>
-      <p class="mt-2 text-slate-600">Track trial sign-ups and when you'll be charged. Get reminders so you can cancel trials you don't want to start paying for.</p>
-    </div>
-    <div class="flex justify-center">
-      <%= image_tag "Dashboard.PNG", class: "rounded-xl shadow-md w-full max-w-sm", alt: "Dashboard screenshot" %>
+<!-- Bento Grid Features -->
+<section class="bg-slate-50 py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tighter text-center mb-3">
+      Everything you need, nothing you don't.
+    </h2>
+    <p class="text-center text-slate-500 mb-12 max-w-xl mx-auto">
+      Built for people who want clarity on their spending without the complexity.
+    </p>
+
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+      <!-- Wide card: Never miss a renewal -->
+      <div class="lg:col-span-2 bg-white rounded-2xl border border-slate-200 shadow-sm p-8 flex flex-col sm:flex-row gap-6 items-center overflow-hidden">
+        <div class="flex-1 min-w-0">
+          <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-indigo-100 mb-4">
+            <%= heroicon "bell-alert", variant: :outline, options: { class: "h-5 w-5 text-indigo-600" } %>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 tracking-tight">Never miss a renewal</h3>
+          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Get timely alerts before any subscription renews. Cancel what you don't need before you're charged.</p>
+          <ol class="mt-4 space-y-2 text-sm text-slate-600">
+            <li class="flex items-start gap-2">
+              <span class="font-mono text-indigo-500 font-bold shrink-0">01.</span>
+              Add your active subscriptions
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-mono text-indigo-500 font-bold shrink-0">02.</span>
+              Receive renewal reminders
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-mono text-indigo-500 font-bold shrink-0">03.</span>
+              Cancel what you don't use
+            </li>
+          </ol>
+        </div>
+        <div class="shrink-0 w-full sm:w-52">
+          <%= image_tag "Dashboard.PNG", class: "w-full rounded-xl shadow-md border border-slate-100", alt: "Dashboard screenshot" %>
+        </div>
+      </div>
+
+      <!-- Trial tracking -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+        <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-amber-100 mb-4">
+          <%= heroicon "clock", variant: :outline, options: { class: "h-5 w-5 text-amber-600" } %>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 tracking-tight">Trial tracking</h3>
+        <p class="mt-2 text-slate-500 text-sm leading-relaxed">Track free trials and know exactly when you'll be charged. Cancel before it costs you.</p>
+        <div class="mt-4 font-mono text-xs bg-slate-50 rounded-lg p-3 border border-slate-100 space-y-0.5">
+          <div class="text-slate-400">// upcoming charge</div>
+          <div><span class="text-amber-500 font-semibold">TRIAL</span> Netflix Premium</div>
+          <div>Ends in <span class="text-red-500 font-semibold">3 days</span></div>
+        </div>
+      </div>
+
+      <!-- Monthly spend -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+        <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-emerald-100 mb-4">
+          <%= heroicon "chart-bar", variant: :outline, options: { class: "h-5 w-5 text-emerald-600" } %>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 tracking-tight">Monthly spend overview</h3>
+        <p class="mt-2 text-slate-500 text-sm leading-relaxed">See your total monthly spend for the next 12 months, broken down by category.</p>
+        <div class="mt-4 space-y-2.5">
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-slate-500">Entertainment</span>
+              <span class="font-mono font-semibold text-slate-800">$32.97</span>
+            </div>
+            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+              <div class="h-full bg-emerald-400 rounded-full w-[65%]"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-slate-500">Productivity</span>
+              <span class="font-mono font-semibold text-slate-800">$19.98</span>
+            </div>
+            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+              <div class="h-full bg-indigo-400 rounded-full w-[40%]"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+        <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-violet-100 mb-4">
+          <%= heroicon "tag", variant: :outline, options: { class: "h-5 w-5 text-violet-600" } %>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 tracking-tight">Smart categories</h3>
+        <p class="mt-2 text-slate-500 text-sm leading-relaxed">Organize subscriptions by category and see exactly where your money is going each month.</p>
+      </div>
+
+      <!-- Metrics screenshot -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 flex items-center justify-center overflow-hidden">
+        <%= image_tag "metrics2.png", class: "w-full rounded-lg", alt: "Monthly metrics chart" %>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- Testimonials -->
-<section class="bg-slate-50 py-16 px-4">
-  <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
-    <blockquote class="bg-white rounded-xl border border-slate-100 shadow-sm p-6 text-sm text-slate-600 italic">
-      "Subscriptify simplified the management and visualization of all my subscriptions. With their notifications I was able to unsubscribe from services I no longer used"
-      <footer class="mt-3 font-semibold text-slate-800 not-italic">— Juan Domingo</footer>
-    </blockquote>
-    <blockquote class="bg-white rounded-xl border border-slate-100 shadow-sm p-6 text-sm text-slate-600 italic">
-      "Simple website that delivers what it promises. Easy to use and had a direct impact on time and money" ⭐⭐⭐⭐⭐
-      <footer class="mt-3 font-semibold text-slate-800 not-italic">— Nicolás Hernández</footer>
-    </blockquote>
+<section class="py-20 px-4 bg-white">
+  <div class="max-w-4xl mx-auto">
+
+    <h2 class="text-3xl font-extrabold text-slate-900 tracking-tighter text-center mb-12">
+      People who stopped wasting money
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <blockquote class="bg-slate-50 rounded-2xl border border-slate-200 shadow-sm p-6">
+        <div class="text-amber-400 text-sm mb-3">★★★★★</div>
+        <p class="text-slate-700 text-sm leading-relaxed">"Subscriptify simplified the management and visualization of all my subscriptions. With their notifications I was able to unsubscribe from services I no longer used."</p>
+        <footer class="mt-4 flex items-center gap-3">
+          <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center text-xs font-bold text-indigo-700">JD</div>
+          <span class="font-semibold text-sm text-slate-800">Juan Domingo</span>
+        </footer>
+      </blockquote>
+
+      <blockquote class="bg-slate-50 rounded-2xl border border-slate-200 shadow-sm p-6">
+        <div class="text-amber-400 text-sm mb-3">★★★★★</div>
+        <p class="text-slate-700 text-sm leading-relaxed">"Simple website that delivers what it promises. Easy to use and had a direct impact on time and money."</p>
+        <footer class="mt-4 flex items-center gap-3">
+          <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center text-xs font-bold text-indigo-700">NH</div>
+          <span class="font-semibold text-sm text-slate-800">Nicolás Hernández</span>
+        </footer>
+      </blockquote>
+    </div>
+
   </div>
 </section>
 
-<!-- Monthly charts -->
-<section class="max-w-5xl mx-auto px-4 py-16">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-    <div>
-      <%= image_tag "metrics2.png", class: "rounded-xl shadow-md w-full", alt: "Metrics" %>
-    </div>
-    <div>
-      <h2 class="text-2xl font-bold text-slate-900">View monthly charges</h2>
-      <p class="mt-3 text-slate-600">See the total monthly spend you can have in the next 12 months.</p>
-      <h3 class="mt-5 text-lg font-semibold text-slate-900">Categorize subscriptions</h3>
-      <p class="mt-2 text-slate-600">By assigning categories to your subscriptions, you can see how the spending is distributed among them.</p>
-    </div>
+<!-- Final CTA -->
+<section class="bg-slate-900 py-20 px-4 text-center">
+  <div class="max-w-2xl mx-auto">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tighter">
+      Take control of your subscriptions today.
+    </h2>
+    <p class="mt-4 text-slate-400 text-lg">Free forever. No credit card required.</p>
+    <% unless user_signed_in? %>
+      <div class="mt-8">
+        <%= link_to "Get Started for Free →", new_user_registration_path,
+            class: "inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-base font-semibold rounded-xl hover:bg-indigo-700 active:scale-95 transition-all duration-150 shadow-lg shadow-indigo-500/20" %>
+      </div>
+    <% end %>
+    <p class="mt-5 font-mono text-xs text-slate-500">setup: ~5 min &nbsp;·&nbsp; no credit card &nbsp;·&nbsp; cancel anytime</p>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="border-t border-slate-200 bg-white py-8 px-4">
+<footer class="border-t border-slate-800 bg-slate-900 py-8 px-4">
   <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-    <p class="font-semibold text-slate-700">Subscriptify &reg;</p>
+    <p class="font-semibold text-slate-300">Subscriptify &reg;</p>
     <nav class="flex flex-wrap gap-4 justify-center">
-      <a href="https://subscriptify.com/contact" class="hover:text-slate-700">Contact</a>
-      <a href="https://subscriptify.com/pages/terms" class="hover:text-slate-700">Terms of Service</a>
-      <a href="https://subscriptify.com/pages/privacy" class="hover:text-slate-700">Privacy Policy</a>
+      <a href="https://subscriptify.com/contact" class="hover:text-slate-300 transition-colors">Contact</a>
+      <a href="https://subscriptify.com/pages/terms" class="hover:text-slate-300 transition-colors">Terms of Service</a>
+      <a href="https://subscriptify.com/pages/privacy" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
     </nav>
     <div class="flex gap-3">
-      <a href="https://github.com/fernandocampo/subscriptify" class="hover:text-slate-700">
+      <a href="https://github.com/fernandocampo/subscriptify" class="hover:text-slate-300 transition-colors">
         <%= heroicon "code-bracket", variant: :outline, options: { class: "h-5 w-5" } %>
       </a>
     </div>
