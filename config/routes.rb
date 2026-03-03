@@ -8,9 +8,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/profile", to: "pages#profile", as: :profile
 
-  resources :pages do
-    post :notification_helper, on: :collection # Ruta para ejecutar la tarea
-  end
+  post "/pages/notification_helper", to: "pages#notification_helper", as: :notification_helper_pages
 
   resources :subscriptions do
     collection do
