@@ -101,6 +101,32 @@
 
   </div>
 
+  <%# ── Row 3: Bar Chart by Category ── %>
+  <% max_cat_total = analytics.category_breakdown.first&.dig(:total).to_f %>
+  <% max_cat_total = 1.0 if max_cat_total.zero? %>
+  <div class="bg-zinc-900 rounded-2xl border border-zinc-800 p-6 mb-3">
+    <p class="text-xs text-zinc-500 uppercase tracking-widest font-medium mb-5">Monthly Spend by Category</p>
+    <div class="flex items-end gap-3" style="height: 96px;">
+      <% analytics.category_breakdown.each do |item| %>
+        <% bar_h = [( item[:total] / max_cat_total * 96 ).round, 4].max %>
+        <div class="flex-1 flex flex-col items-center justify-end gap-1.5" style="height: 96px;">
+          <span class="text-[10px] text-zinc-400 tabular-nums font-medium leading-none">
+            <%= number_to_currency(item[:total], precision: 0) %>
+          </span>
+          <div class="w-full rounded-t-md bg-white/70 transition-all duration-700"
+               style="height: <%= bar_h %>px"></div>
+        </div>
+      <% end %>
+    </div>
+    <div class="flex gap-3 mt-3 border-t border-zinc-800 pt-3">
+      <% analytics.category_breakdown.each do |item| %>
+        <div class="flex-1 text-center">
+          <span class="text-[10px] text-zinc-500 font-medium truncate block"><%= item[:category] %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <%# ── Insight Banner ── %>
   <div class="bg-zinc-900 border border-zinc-800 rounded-2xl px-5 py-4 flex items-start gap-3 mb-6">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
