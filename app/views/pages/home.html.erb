@@ -1,42 +1,77 @@
+<%= content_for :json_ld do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Subscriptify",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "url": "https://www.subscriptify.me",
+    "offers": [
+      { "@type": "Offer", "price": "0", "priceCurrency": "USD", "name": "Starter" },
+      { "@type": "Offer", "price": "19", "priceCurrency": "USD", "name": "Lifetime Pro" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "2"
+    }
+  }
+  </script>
+<% end %>
+
 <!-- Hero -->
 <section class="min-h-[88vh] flex items-center justify-center px-6 py-20 text-center bg-white">
   <div class="max-w-3xl mx-auto">
 
     <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold tracking-wide uppercase mb-8">
-      <span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
-      Free to use · No credit card required
+      <span class="h-1.5 w-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
+      +500 ahorradores ya lo usan
     </div>
 
     <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-slate-900 tracking-tighter leading-[1.05]">
-      Stop losing money on<br class="hidden sm:block"> forgotten subscriptions.
+      Deja de regalar dinero<br class="hidden sm:block"> en suscripciones olvidadas.
     </h1>
 
     <p class="mt-6 text-lg sm:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
-      The simplest way to track, manage, and optimize your monthly recurring expenses. 100% Mobile friendly.
+      Trackea, gestiona y optimiza tus gastos recurrentes en 5 minutos. Recibe alertas antes de cada renovación y cancela lo que no usas.
     </p>
 
     <% unless user_signed_in? %>
-      <div class="mt-10">
-        <%= link_to "Get Started for Free →", new_user_registration_path,
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <%= link_to "Get Started →", new_user_registration_path,
             class: "inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-base font-semibold rounded-xl shadow-sm hover:bg-indigo-700 active:scale-95 transition-all duration-150" %>
+        <%= link_to "Ver precios", "#pricing",
+            class: "inline-flex items-center px-6 py-4 text-sm font-medium text-slate-500 hover:text-slate-700 transition" %>
       </div>
     <% end %>
 
     <div class="mt-16 grid grid-cols-3 max-w-sm sm:max-w-md mx-auto">
       <div class="flex flex-col items-center px-4">
         <span class="font-mono text-2xl sm:text-3xl font-bold text-slate-900">$240+</span>
-        <span class="text-xs text-slate-400 mt-1">avg. saved/year</span>
+        <span class="text-xs text-slate-400 mt-1">ahorro promedio/año</span>
       </div>
       <div class="flex flex-col items-center px-4 border-x border-slate-200">
-        <span class="font-mono text-2xl sm:text-3xl font-bold text-slate-900">100%</span>
-        <span class="text-xs text-slate-400 mt-1">free to start</span>
+        <span class="font-mono text-2xl sm:text-3xl font-bold text-slate-900">+500</span>
+        <span class="text-xs text-slate-400 mt-1">usuarios activos</span>
       </div>
       <div class="flex flex-col items-center px-4">
         <span class="font-mono text-2xl sm:text-3xl font-bold text-slate-900">5 min</span>
-        <span class="text-xs text-slate-400 mt-1">setup time</span>
+        <span class="text-xs text-slate-400 mt-1">para empezar</span>
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- Pain Point -->
+<section class="bg-slate-900 py-14 px-6 text-center">
+  <div class="max-w-2xl mx-auto">
+    <p class="text-slate-400 text-sm font-semibold uppercase tracking-widest mb-3">El problema real</p>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tighter">
+      El usuario promedio pierde <span class="text-indigo-400">$200 al año</span><br class="hidden sm:block"> en suscripciones que no usa.
+    </h2>
+    <p class="mt-4 text-slate-400 text-base">Netflix que dejaste de ver. Gym que no pisas. Software que nunca abriste. Subscriptify los encuentra todos.</p>
   </div>
 </section>
 
@@ -45,10 +80,10 @@
   <div class="max-w-5xl mx-auto">
 
     <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tighter text-center mb-3">
-      Everything you need, nothing you don't.
+      Todo lo que necesitas, nada que no.
     </h2>
     <p class="text-center text-slate-500 mb-12 max-w-xl mx-auto">
-      Built for people who want clarity on their spending without the complexity.
+      Construido para gente que quiere claridad en sus gastos sin la complejidad.
     </p>
 
     <!-- Bento Grid -->
@@ -60,20 +95,20 @@
           <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-indigo-100 mb-4">
             <%= heroicon "bell-alert", variant: :outline, options: { class: "h-5 w-5 text-indigo-600" } %>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 tracking-tight">Never miss a renewal</h3>
-          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Get timely alerts before any subscription renews. Cancel what you don't need before you're charged.</p>
+          <h3 class="text-xl font-bold text-slate-900 tracking-tight">Nunca más te cobren por sorpresa</h3>
+          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Recibe alertas antes de cada renovación. Cancela lo que no necesitas antes de que te cobren.</p>
           <ol class="mt-4 space-y-2 text-sm text-slate-600">
             <li class="flex items-start gap-2">
               <span class="font-mono text-indigo-500 font-bold shrink-0">01.</span>
-              Add your active subscriptions
+              Añade tus suscripciones activas
             </li>
             <li class="flex items-start gap-2">
               <span class="font-mono text-indigo-500 font-bold shrink-0">02.</span>
-              Receive renewal reminders
+              Recibe recordatorios de renovación
             </li>
             <li class="flex items-start gap-2">
               <span class="font-mono text-indigo-500 font-bold shrink-0">03.</span>
-              Cancel what you don't use
+              Cancela lo que no usas y ahorra
             </li>
           </ol>
         </div>
@@ -144,12 +179,12 @@
         <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-amber-100 mb-4">
           <%= heroicon "clock", variant: :outline, options: { class: "h-5 w-5 text-amber-600" } %>
         </div>
-        <h3 class="text-lg font-bold text-slate-900 tracking-tight">Trial tracking</h3>
-        <p class="mt-2 text-slate-500 text-sm leading-relaxed">Track free trials and know exactly when you'll be charged. Cancel before it costs you.</p>
+        <h3 class="text-lg font-bold text-slate-900 tracking-tight">Control de trials</h3>
+        <p class="mt-2 text-slate-500 text-sm leading-relaxed">Sabe exactamente cuándo termina cada prueba gratuita. Cancela antes de que te cobren.</p>
         <div class="mt-4 font-mono text-xs bg-slate-50 rounded-lg p-3 border border-slate-100 space-y-0.5">
-          <div class="text-slate-400">// upcoming charge</div>
+          <div class="text-slate-400">// próximo cobro</div>
           <div><span class="text-amber-500 font-semibold">TRIAL</span> Netflix Premium</div>
-          <div>Ends in <span class="text-red-500 font-semibold">3 days</span></div>
+          <div>Termina en <span class="text-red-500 font-semibold">3 días</span></div>
         </div>
       </div>
 
@@ -158,12 +193,12 @@
         <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-emerald-100 mb-4">
           <%= heroicon "chart-bar", variant: :outline, options: { class: "h-5 w-5 text-emerald-600" } %>
         </div>
-        <h3 class="text-lg font-bold text-slate-900 tracking-tight">Monthly spend overview</h3>
-        <p class="mt-2 text-slate-500 text-sm leading-relaxed">See your total monthly spend for the next 12 months, broken down by category.</p>
+        <h3 class="text-lg font-bold text-slate-900 tracking-tight">Gasto mensual</h3>
+        <p class="mt-2 text-slate-500 text-sm leading-relaxed">Ve tu gasto total mensual y anual, desglosado por categoría.</p>
         <div class="mt-4 space-y-2.5">
           <div>
             <div class="flex justify-between text-xs mb-1">
-              <span class="text-slate-500">Entertainment</span>
+              <span class="text-slate-500">Entretenimiento</span>
               <span class="font-mono font-semibold text-slate-800">$32.97</span>
             </div>
             <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
@@ -172,7 +207,7 @@
           </div>
           <div>
             <div class="flex justify-between text-xs mb-1">
-              <span class="text-slate-500">Productivity</span>
+              <span class="text-slate-500">Productividad</span>
               <span class="font-mono font-semibold text-slate-800">$19.98</span>
             </div>
             <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
@@ -187,13 +222,13 @@
         <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-violet-100 mb-4">
           <%= heroicon "tag", variant: :outline, options: { class: "h-5 w-5 text-violet-600" } %>
         </div>
-        <h3 class="text-lg font-bold text-slate-900 tracking-tight">Smart categories</h3>
-        <p class="mt-2 text-slate-500 text-sm leading-relaxed">Organize subscriptions by category and see exactly where your money is going each month.</p>
+        <h3 class="text-lg font-bold text-slate-900 tracking-tight">Categorías inteligentes</h3>
+        <p class="mt-2 text-slate-500 text-sm leading-relaxed">Organiza por categoría y ve exactamente a dónde va tu dinero cada mes.</p>
       </div>
 
       <!-- Metrics Mockup -->
       <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4 overflow-hidden aspect-square flex flex-col">
-        <div class="text-[10px] font-semibold text-slate-500 mb-3">Monthly Spend · 2024</div>
+        <div class="text-[10px] font-semibold text-slate-500 mb-3">Gasto mensual · 2025</div>
         <div class="flex items-end gap-1.5 flex-1">
           <div class="flex-1 flex flex-col items-center gap-1">
             <div class="w-full bg-indigo-200 rounded-t-sm h-8"></div>
@@ -221,7 +256,7 @@
           </div>
         </div>
         <div class="mt-2 pt-2 border-t border-slate-100 flex justify-between text-[9px]">
-          <span class="text-slate-400">Avg <span class="font-mono font-semibold text-slate-600">$87.32</span></span>
+          <span class="text-slate-400">Prom <span class="font-mono font-semibold text-slate-600">$87.32</span></span>
           <span class="text-emerald-500 font-semibold">↓ 12%</span>
         </div>
       </div>
@@ -235,13 +270,13 @@
   <div class="max-w-4xl mx-auto">
 
     <h2 class="text-3xl font-extrabold text-slate-900 tracking-tighter text-center mb-12">
-      People who stopped wasting money
+      Gente que dejó de desperdiciar dinero
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <blockquote class="bg-slate-50 rounded-2xl border border-slate-100 shadow-sm p-6">
         <div class="text-amber-400 text-sm mb-3">★★★★★</div>
-        <p class="text-slate-700 text-sm leading-relaxed">"Subscriptify simplified the management and visualization of all my subscriptions. With their notifications I was able to unsubscribe from services I no longer used."</p>
+        <p class="text-slate-700 text-sm leading-relaxed">"Subscriptify simplificó la gestión de todas mis suscripciones. Con las notificaciones pude darme de baja de servicios que ya no usaba."</p>
         <footer class="mt-4 flex items-center gap-3">
           <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center text-xs font-bold text-indigo-700">JD</div>
           <span class="font-semibold text-sm text-slate-800">Juan Domingo</span>
@@ -250,7 +285,7 @@
 
       <blockquote class="bg-slate-50 rounded-2xl border border-slate-100 shadow-sm p-6">
         <div class="text-amber-400 text-sm mb-3">★★★★★</div>
-        <p class="text-slate-700 text-sm leading-relaxed">"Simple website that delivers what it promises. Easy to use and had a direct impact on time and money."</p>
+        <p class="text-slate-700 text-sm leading-relaxed">"Simple y efectivo. Fácil de usar y tuvo un impacto directo en mi tiempo y mi bolsillo."</p>
         <footer class="mt-4 flex items-center gap-3">
           <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center text-xs font-bold text-indigo-700">NH</div>
           <span class="font-semibold text-sm text-slate-800">Nicolás Hernández</span>
@@ -261,20 +296,104 @@
   </div>
 </section>
 
+<!-- Pricing -->
+<section id="pricing" class="bg-slate-50 py-20 px-6">
+  <div class="max-w-3xl mx-auto">
+
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tighter text-center mb-3">
+      Precio simple. Sin sorpresas.
+    </h2>
+    <p class="text-center text-slate-500 mb-12">Empieza gratis. Paga una vez si quieres más.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+      <!-- Starter -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-8 flex flex-col">
+        <div class="mb-6">
+          <p class="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-2">Starter</p>
+          <div class="flex items-end gap-1">
+            <span class="text-5xl font-extrabold text-slate-900">$0</span>
+            <span class="text-slate-400 text-sm mb-1.5">/ siempre</span>
+          </div>
+        </div>
+        <ul class="space-y-3 text-sm text-slate-600 flex-1 mb-8">
+          <li class="flex items-center gap-2">
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-emerald-500 shrink-0" } %>
+            Hasta 3 suscripciones
+          </li>
+          <li class="flex items-center gap-2">
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-emerald-500 shrink-0" } %>
+            Alertas básicas de renovación
+          </li>
+          <li class="flex items-center gap-2">
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-emerald-500 shrink-0" } %>
+            Dashboard completo
+          </li>
+        </ul>
+        <%= link_to "Empezar gratis", new_user_registration_path,
+            class: "block text-center px-6 py-3 bg-slate-100 text-slate-700 text-sm font-semibold rounded-xl hover:bg-slate-200 transition" %>
+      </div>
+
+      <!-- Lifetime Pro -->
+      <div class="bg-indigo-600 rounded-2xl p-8 flex flex-col relative overflow-hidden">
+        <div class="absolute top-4 right-4 bg-white/20 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">
+          Más popular
+        </div>
+        <div class="mb-6">
+          <p class="text-sm font-semibold text-indigo-200 uppercase tracking-widest mb-2">Lifetime Pro</p>
+          <div class="flex items-end gap-1">
+            <span class="text-5xl font-extrabold text-white">$19</span>
+            <span class="text-indigo-300 text-sm mb-1.5">/ pago único</span>
+          </div>
+        </div>
+        <ul class="space-y-3 text-sm text-indigo-100 flex-1 mb-8">
+          <li class="flex items-center gap-2">
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-white shrink-0" } %>
+            Suscripciones ilimitadas
+          </li>
+          <li class="flex items-center gap-2">
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-white shrink-0" } %>
+            Logos automáticos de marcas
+          </li>
+          <li class="flex items-center gap-2">
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-white shrink-0" } %>
+            Alertas de renovación ilimitadas
+          </li>
+          <li class="flex items-center gap-2">
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-white shrink-0" } %>
+            Soporte prioritario
+          </li>
+          <li class="flex items-center gap-2">
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-white shrink-0" } %>
+            Acceso a todas las funciones futuras
+          </li>
+        </ul>
+        <div class="relative group">
+          <button class="w-full px-6 py-3 bg-white text-indigo-600 text-sm font-bold rounded-xl cursor-not-allowed opacity-90 flex items-center justify-center gap-2">
+            Buy Pro
+            <span class="bg-indigo-100 text-indigo-500 text-[10px] font-bold px-2 py-0.5 rounded-full">Próximamente</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- Final CTA -->
 <section class="bg-slate-900 py-20 px-6 text-center">
   <div class="max-w-2xl mx-auto">
     <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tighter">
-      Take control of your subscriptions today.
+      Toma el control de tus finanzas hoy.
     </h2>
-    <p class="mt-4 text-slate-400 text-lg">Free forever. No credit card required.</p>
+    <p class="mt-4 text-slate-400 text-lg">Empieza gratis. Actualiza cuando quieras.</p>
     <% unless user_signed_in? %>
       <div class="mt-8">
-        <%= link_to "Get Started for Free →", new_user_registration_path,
+        <%= link_to "Get Started →", new_user_registration_path,
             class: "inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-base font-semibold rounded-xl shadow-sm hover:bg-indigo-700 active:scale-95 transition-all duration-150" %>
       </div>
     <% end %>
-    <p class="mt-5 font-mono text-xs text-slate-500">setup: ~5 min &nbsp;·&nbsp; no credit card &nbsp;·&nbsp; cancel anytime</p>
+    <p class="mt-5 font-mono text-xs text-slate-500">setup: ~5 min &nbsp;·&nbsp; starter gratis &nbsp;·&nbsp; Pro de por vida por $19</p>
   </div>
 </section>
 
