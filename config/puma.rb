@@ -4,19 +4,11 @@
 
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers: a minimum and maximum.
-# Reducido a 2 threads para Render free tier (512 MB RAM)
-max_threads_count = ENV.fetch("RAILS_MAX_THREADS") { 2 }
-min_threads_count = ENV.fetch("RAILS_MIN_THREADS") { max_threads_count }
-threads min_threads_count, max_threads_count
+threads_count = ENV.fetch("RAILS_MAX_THREADS") { 3 }
+threads threads_count, threads_count
 
-# Specifies the worker count in production.
-# Default 1 para Render free tier (ahorra memoria)
-# Aumentar a 2 si tienes más RAM disponible
-if ENV["RAILS_ENV"] == "production"
-  require "concurrent-ruby"
-  worker_count = Integer(ENV.fetch("WEB_CONCURRENCY") { 1 })
-  workers worker_count if worker_count > 1
-end
+# Workers 0: single-process mode avoids forked-process memory overhead.
+workers 0
 
 # Preload the application to save memory with copy-on-write in production.
 preload_app!
