@@ -1,34 +1,84 @@
 <%= turbo_frame_tag "subscription_form" do %>
-  <div class="bg-white rounded-2xl border border-zinc-200 p-6 mb-6">
-    <div class="flex items-center justify-between mb-5">
-      <h2 class="text-base font-semibold text-zinc-900">New Subscription</h2>
+  <div class="bg-zinc-900 rounded-2xl border border-zinc-800 p-6 mb-6 max-w-md mx-auto"
+       data-controller="smart-sub">
+
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-sm font-semibold text-white tracking-tight">New Subscription</h2>
       <%= link_to subscriptions_path,
             data: { turbo_frame: "subscription_form" },
-            class: "text-zinc-400 hover:text-zinc-600 transition" do %>
-        <%= heroicon "x-mark", variant: :mini, options: { class: "h-5 w-5" } %>
+            class: "text-zinc-600 hover:text-zinc-300 transition" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+          <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
+        </svg>
       <% end %>
     </div>
+
     <%= simple_form_for @subscription, html: { data: { turbo_frame: "_top" } } do |f| %>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+      <% input_class = "w-full bg-zinc-800 border border-zinc-700 text-white placeholder:text-zinc-500 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-zinc-600 transition" %>
+      <% select_class = "w-full bg-zinc-800 border border-zinc-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-zinc-600 transition appearance-none" %>
+
+      <div class="space-y-3">
+
+        <%# Company name with smart autofill %>
         <div>
-          <%= f.input :company_name %>
-          <p class="text-xs text-zinc-400 -mt-2">Escribe el nombre real (ej: Netflix) y buscaremos el logo por ti.</p>
+          <%= f.text_field :company_name,
+                placeholder: "Service name (e.g. Netflix)",
+                class: input_class,
+                autocomplete: "off",
+                data: { smart_sub_target: "name", action: "input->smart-sub#lookup" } %>
+          <p class="hidden text-xs text-zinc-500 mt-1.5 px-1" data-smart-sub-target="hint"></p>
         </div>
-        <%= f.input :description %>
-        <%= f.input :url %>
-        <%= f.input :payment_date, html5: true %>
-        <%= f.input :frequency, collection: Subscription::FREQUENCE %>
-        <%= f.input :recurrent %>
-        <%= f.input :price %>
-        <%= f.input :currency, collection: Subscription::CURRENCIES %>
-        <%= f.input :category, collection: Subscription::CATEGORIES %>
+
+        <%# Price + Currency %>
+        <div class="grid grid-cols-3 gap-2">
+          <%= f.number_field :price,
+                placeholder: "Price",
+                step: "0.01",
+                min: "0",
+                class: "col-span-2 #{input_class}",
+                data: { smart_sub_target: "price" } %>
+          <%= f.select :currency, Subscription::CURRENCIES,
+                { include_blank: false },
+                class: select_class %>
+        </div>
+
+        <%# Payment date + Frequency %>
+        <div class="grid grid-cols-2 gap-2">
+          <%= f.date_field :payment_date,
+                class: "#{input_class} text-zinc-400",
+                placeholder: "Payment date" %>
+          <%= f.select :frequency, Subscription::FREQUENCE,
+                { include_blank: false },
+                class: select_class %>
+        </div>
+
+        <%# Category %>
+        <%= f.select :category, Subscription::CATEGORIES,
+              { include_blank: "Category" },
+              class: select_class,
+              data: { smart_sub_target: "category" } %>
+
+        <%# Optional fields %>
+        <%= f.text_field :url,
+              placeholder: "Website (optional)",
+              class: input_class %>
+
+        <%= f.text_area :description,
+              placeholder: "Notes (optional)",
+              rows: 2,
+              class: "#{input_class} resize-none" %>
+
       </div>
-      <div class="flex items-center gap-3 mt-6">
-        <%= f.button :submit, "Save subscription", class: "px-5 py-2 bg-indigo-600 text-white text-sm font-medium rounded-xl hover:bg-indigo-700 transition" %>
+
+      <div class="flex items-center gap-3 mt-5">
+        <%= f.button :submit, "Save subscription",
+              class: "flex-1 py-3 bg-white text-black text-sm font-semibold rounded-xl hover:bg-zinc-100 active:scale-95 transition-all duration-150" %>
         <%= link_to "Cancel", subscriptions_path,
               data: { turbo_frame: "subscription_form" },
-              class: "text-sm text-zinc-500 hover:text-zinc-700" %>
+              class: "text-sm text-zinc-600 hover:text-zinc-300 transition" %>
       </div>
+
     <% end %>
   </div>
 <% end %>

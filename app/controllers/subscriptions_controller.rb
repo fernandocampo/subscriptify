@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-  before_action :set_subscription, only: [:show, :edit, :update, :destroy], except: [:index, :new, :create, :export, :stats]
+  before_action :set_subscription, only: [:show, :edit, :update, :destroy]
 
   def index
     all_subscriptions = current_user.subscriptions.to_a
@@ -12,7 +12,6 @@ class SubscriptionsController < ApplicationController
       @subscriptions = @subscriptions.where("company_name ILIKE :query", query: "%#{params[:query]}%")
     end
   end
-
 
   def new
     @subscription = Subscription.new
@@ -46,10 +45,6 @@ class SubscriptionsController < ApplicationController
     redirect_to subscriptions_path
   end
 
-  def stats
-    calculate_expenses
-  end
-
   def export
     @subscriptions = current_user.subscriptions
     respond_to do |format|
@@ -67,7 +62,7 @@ class SubscriptionsController < ApplicationController
         render pdf: "Subscriptions",
                template: "subscriptions/export_pdf",
                formats: [:html],
-               layout: 'export_pdf' # Aquí se corrige el nombre del layout
+               layout: 'export_pdf'
       end
     end
   end
@@ -91,17 +86,9 @@ class SubscriptionsController < ApplicationController
     )
   end
 
-
-
-  def calculate_expenses
-    @upcoming_expenses = current_user.subscriptions.group_by_month(:payment_date, format: "%B").sum(:price)
-    @average_expenses_by_category = current_user.subscriptions.group(:category).average(:price)
-    @current_month_expenses_by_category = current_user.subscriptions.where(payment_date: Date.today.beginning_of_month..Date.today.end_of_month).group(:category).sum(:price)
-  end
-
-end
   def prepend_protocol_to_url(subscription)
     unless subscription.url =~ /\Ahttp[s]?:\/\//
       subscription.url.prepend("http://")
     end
   end
+end
