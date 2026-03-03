@@ -5,7 +5,7 @@
         <%= image_tag @user.photo, class: "h-20 w-20 rounded-full object-cover mx-auto" %>
       <% else %>
         <div class="h-20 w-20 rounded-full bg-indigo-50 mx-auto flex items-center justify-center">
-          <%= heroicon "user", variant: :outline, class: "h-10 w-10 text-indigo-300" %>
+          <%= heroicon "user", variant: :outline, options: { class: "h-10 w-10 text-indigo-300" } %>
         </div>
       <% end %>
       <h1 class="mt-3 text-xl font-semibold text-slate-900">
@@ -31,14 +31,14 @@
 
     <div class="px-6 pb-6">
       <%= link_to edit_user_registration_path, class: "w-full inline-flex justify-center items-center gap-1 px-3 py-2 border border-slate-300 text-slate-700 text-sm rounded-lg hover:bg-slate-50 transition" do %>
-        <%= heroicon "pencil-square", variant: :outline, class: "h-4 w-4" %>
+        <%= heroicon "pencil-square", variant: :outline, options: { class: "h-4 w-4" } %>
         Edit profile
       <% end %>
     </div>
   </div>
 
   <%= link_to subscriptions_path, class: "inline-flex items-center gap-1 text-sm text-indigo-600 hover:underline mt-4" do %>
-    <%= heroicon "arrow-left", variant: :outline, class: "h-4 w-4" %>
+    <%= heroicon "arrow-left", variant: :outline, options: { class: "h-4 w-4" } %>
     Back to Dashboard
   <% end %>
 </div>
