@@ -1,21 +1,32 @@
-<div class="max-w-lg mx-auto my-8 px-4">
-  <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-6">
-    <h1 class="text-xl font-semibold text-slate-900 mb-6">Edit Subscription</h1>
-    <%= simple_form_for @subscription do |f| %>
-      <%= f.input :photo, as: :file %>
-      <%= f.input :company_name %>
-      <%= f.input :description %>
-      <%= f.input :url %>
-      <%= f.input :recurrent %>
-      <%= f.input :frequency, collection: Subscription::FREQUENCE %>
-      <%= f.input :payment_date, html5: true %>
-      <%= f.input :price %>
-      <%= f.input :currency, collection: Subscription::CURRENCIES %>
-      <%= f.input :category, collection: Subscription::CATEGORIES %>
+<%= turbo_frame_tag "subscription_form" do %>
+  <div class="bg-white rounded-2xl border border-zinc-200 p-6 mb-6">
+    <div class="flex items-center justify-between mb-5">
+      <h2 class="text-base font-semibold text-zinc-900">Edit Subscription</h2>
+      <%= link_to subscriptions_path,
+            data: { turbo_frame: "subscription_form" },
+            class: "text-zinc-400 hover:text-zinc-600 transition" do %>
+        <%= heroicon "x-mark", variant: :mini, options: { class: "h-5 w-5" } %>
+      <% end %>
+    </div>
+    <%= simple_form_for @subscription, html: { data: { turbo_frame: "_top" } } do |f| %>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <%= f.input :photo, as: :file %>
+        <%= f.input :company_name %>
+        <%= f.input :description %>
+        <%= f.input :url %>
+        <%= f.input :recurrent %>
+        <%= f.input :frequency, collection: Subscription::FREQUENCE %>
+        <%= f.input :payment_date, html5: true %>
+        <%= f.input :price %>
+        <%= f.input :currency, collection: Subscription::CURRENCIES %>
+        <%= f.input :category, collection: Subscription::CATEGORIES %>
+      </div>
       <div class="flex items-center gap-3 mt-6">
-        <%= f.button :submit, "Update subscription" %>
-        <%= link_to "Cancel", subscriptions_path, class: "text-sm text-slate-500 hover:text-slate-700" %>
+        <%= f.button :submit, "Update subscription", class: "px-5 py-2 bg-indigo-600 text-white text-sm font-medium rounded-xl hover:bg-indigo-700 transition" %>
+        <%= link_to "Cancel", subscriptions_path,
+              data: { turbo_frame: "subscription_form" },
+              class: "text-sm text-zinc-500 hover:text-zinc-700" %>
       </div>
     <% end %>
   </div>
-</div>
+<% end %>

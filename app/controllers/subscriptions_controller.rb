@@ -6,6 +6,7 @@ class SubscriptionsController < ApplicationController
     if params[:query].present?
       @subscriptions = @subscriptions.where("company_name ILIKE :query", query: "%#{params[:query]}%")
     end
+    @monthly_total = @subscriptions.sum { |s| s.frequency == "Monthly" ? s.price.to_f : s.price.to_f / 12.0 }
   end
 
 
@@ -18,7 +19,7 @@ class SubscriptionsController < ApplicationController
     @subscription.user = current_user
     prepend_protocol_to_url(@subscription)
     if @subscription.save
-      redirect_to subscription_path(@subscription)
+      redirect_to subscriptions_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +31,7 @@ class SubscriptionsController < ApplicationController
   def update
     prepend_protocol_to_url(@subscription)
     if @subscription.update(subscription_params)
-      redirect_to subscription_path
+      redirect_to subscriptions_path
     else
       render :edit, status: :unprocessable_entity
     end

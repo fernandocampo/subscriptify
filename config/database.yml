@@ -79,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: subscriptify_production
-  username: subscriptify
-  password: <%= ENV["SUBSCRIPTIFY_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
