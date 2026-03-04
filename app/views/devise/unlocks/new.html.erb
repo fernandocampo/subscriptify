@@ -1,19 +1,36 @@
-<h2>Resend unlock instructions</h2>
+<div class="min-h-[80vh] flex items-center justify-center px-4 py-12">
+  <div class="w-full max-w-sm">
+    <h2 class="text-2xl font-bold text-slate-900 mb-6 text-center">Resend unlock instructions</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :unlock_token %>
+    <%= form_with(model: resource, as: resource_name, url: unlock_path(resource_name)) do |f| %>
+      <% if resource.errors.any? %>
+        <div class="mb-4 rounded-md bg-red-50 border border-red-200 px-4 py-3">
+          <ul class="text-sm text-red-700 list-disc list-inside space-y-0.5">
+            <% resource.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
+      <div class="space-y-4">
+        <div>
+          <%= f.label :email, class: "block text-sm font-medium text-slate-700 mb-1" %>
+          <%= f.email_field :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
-  </div>
+                autocomplete: "email",
+                class: "w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" %>
+        </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Resend unlock instructions" %>
-  </div>
-<% end %>
+        <div class="mt-6">
+          <%= f.submit "Resend unlock instructions", class: "w-full inline-flex justify-center items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition cursor-pointer" %>
+        </div>
+      </div>
+    <% end %>
 
-<%= render "devise/shared/links" %>
+    <div class="mt-4 text-center text-sm text-slate-500 space-y-1">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
