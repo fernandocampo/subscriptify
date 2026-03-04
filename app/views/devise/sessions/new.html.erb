@@ -2,13 +2,30 @@
   <div class="w-full max-w-sm">
     <h2 class="text-2xl font-bold text-slate-900 mb-6 text-center">Log in</h2>
 
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email" } %>
-      <%= f.input :password, required: false, input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <%= form_with(model: resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="space-y-4">
+        <div>
+          <%= f.label :email, class: "block text-sm font-medium text-slate-700 mb-1" %>
+          <%= f.email_field :email, required: false, autofocus: true, autocomplete: "email",
+                class: "w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" %>
+        </div>
 
-      <div class="mt-6">
-        <%= f.button :submit, "Log in", class: "w-full inline-flex justify-center items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition" %>
+        <div>
+          <%= f.label :password, class: "block text-sm font-medium text-slate-700 mb-1" %>
+          <%= f.password_field :password, required: false, autocomplete: "current-password",
+                class: "w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="flex items-center gap-2">
+            <%= f.check_box :remember_me, class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" %>
+            <%= f.label :remember_me, class: "text-sm text-slate-600" %>
+          </div>
+        <% end %>
+
+        <div class="mt-6">
+          <%= f.submit "Log in", class: "w-full inline-flex justify-center items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition cursor-pointer" %>
+        </div>
       </div>
     <% end %>
 

@@ -8,7 +8,7 @@
       <h1 class="text-3xl font-bold text-white tracking-tight">Profile Settings</h1>
     </div>
 
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= form_with(model: resource, as: resource_name, url: registration_path(resource_name), method: :put, multipart: true) do |f| %>
 
       <%# Validation errors %>
       <% if resource.errors.any? %>
@@ -29,31 +29,27 @@
         <p class="text-xs font-medium uppercase tracking-widest text-zinc-500 mb-5">Personal Info</p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <%= f.input :first_name,
-              label: "First name",
-              label_html: { class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" },
-              input_html: { class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150" },
-              wrapper_html: { class: "mb-0" } %>
+          <div>
+            <%= f.label :first_name, "First name", class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" %>
+            <%= f.text_field :first_name, class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150" %>
+          </div>
 
-          <%= f.input :last_name,
-              label: "Last name",
-              label_html: { class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" },
-              input_html: { class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150" },
-              wrapper_html: { class: "mb-0" } %>
+          <div>
+            <%= f.label :last_name, "Last name", class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" %>
+            <%= f.text_field :last_name, class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150" %>
+          </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <%= f.input :phone,
-              label: "Phone",
-              label_html: { class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" },
-              input_html: { class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150" },
-              wrapper_html: { class: "mb-0" } %>
+          <div>
+            <%= f.label :phone, "Phone", class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" %>
+            <%= f.telephone_field :phone, class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150" %>
+          </div>
 
-          <%= f.input :city,
-              label: "City",
-              label_html: { class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" },
-              input_html: { class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150" },
-              wrapper_html: { class: "mb-0" } %>
+          <div>
+            <%= f.label :city, "City", class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" %>
+            <%= f.text_field :city, class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150" %>
+          </div>
         </div>
       </div>
 
@@ -61,23 +57,20 @@
       <div class="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl p-6 mb-4">
         <p class="text-xs font-medium uppercase tracking-widest text-zinc-500 mb-5">Contact</p>
 
-        <%= f.input :email,
-            label: "Email address",
-            label_html: { class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" },
-            input_html: { class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150", autocomplete: "email" },
-            wrapper_html: { class: "mb-0" } %>
+        <div>
+          <%= f.label :email, "Email address", class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" %>
+          <%= f.email_field :email, autocomplete: "email", class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150" %>
+        </div>
       </div>
 
       <%# ─── Avatar ────────────────────────────────────────────── %>
       <div class="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl p-6 mb-4">
         <p class="text-xs font-medium uppercase tracking-widest text-zinc-500 mb-5">Avatar</p>
 
-        <%= f.input :photo,
-            as: :file,
-            label: "Profile photo",
-            label_html: { class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" },
-            input_html: { class: "w-full text-sm text-zinc-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-zinc-800 file:text-zinc-300 hover:file:bg-zinc-700 file:cursor-pointer file:transition-colors file:duration-150 cursor-pointer" },
-            wrapper_html: { class: "mb-0" } %>
+        <div>
+          <%= f.label :photo, "Profile photo", class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" %>
+          <%= f.file_field :photo, class: "w-full text-sm text-zinc-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-zinc-800 file:text-zinc-300 hover:file:bg-zinc-700 file:cursor-pointer file:transition-colors file:duration-150 cursor-pointer" %>
+        </div>
       </div>
 
       <%# ─── Security ──────────────────────────────────────────── %>
@@ -86,34 +79,28 @@
         <p class="text-xs text-zinc-600 mb-5">Leave blank to keep your current password.</p>
 
         <div class="space-y-4">
-          <%= f.input :password,
-              label: "New password",
-              label_html: { class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" },
-              input_html: { class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150", autocomplete: "new-password" },
-              wrapper_html: { class: "mb-0" } %>
+          <div>
+            <%= f.label :password, "New password", class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" %>
+            <%= f.password_field :password, autocomplete: "new-password", class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150" %>
+          </div>
 
-          <%= f.input :password_confirmation,
-              label: "Confirm new password",
-              label_html: { class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" },
-              input_html: { class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150", autocomplete: "new-password" },
-              wrapper_html: { class: "mb-0" } %>
+          <div>
+            <%= f.label :password_confirmation, "Confirm new password", class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150" %>
+          </div>
 
           <div class="pt-2 border-t border-zinc-800">
-            <%= f.input :current_password,
-                label: "Current password",
-                hint: "Required to confirm any changes",
-                label_html: { class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" },
-                hint_html: { class: "text-xs text-zinc-600 mt-1.5" },
-                input_html: { class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150", autocomplete: "current-password" },
-                wrapper_html: { class: "mb-0" } %>
+            <%= f.label :current_password, "Current password", class: "block text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1.5" %>
+            <p class="text-xs text-zinc-600 mb-1.5">Required to confirm any changes</p>
+            <%= f.password_field :current_password, autocomplete: "current-password", class: "w-full bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 focus:bg-zinc-800 transition-colors duration-150" %>
           </div>
         </div>
       </div>
 
       <%# ─── Actions ───────────────────────────────────────────── %>
       <div class="flex items-center gap-4 mb-10">
-        <%= f.button :submit, "Save changes",
-            class: "inline-flex items-center px-6 py-2.5 bg-white text-black text-sm font-semibold rounded-xl hover:bg-zinc-100 active:scale-95 transition-all duration-150" %>
+        <%= f.submit "Save changes",
+            class: "inline-flex items-center px-6 py-2.5 bg-white text-black text-sm font-semibold rounded-xl hover:bg-zinc-100 active:scale-95 transition-all duration-150 cursor-pointer" %>
         <%= link_to "Cancel", :back,
             class: "text-sm text-zinc-500 hover:text-zinc-300 transition-colors duration-150" %>
       </div>
