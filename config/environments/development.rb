@@ -1,85 +1,75 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  # Define la URL base para los enlaces dentro de los correos electrónicos.
-  # Esto es crucial para los correos de confirmación de Devise y otros correos del sistema.
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # Settings specified here will take precedence over those in config/application.rb.
 
-  # Configura el método de entrega a :smtp para utilizar un servidor SMTP.
-
-  # config.action_mailer.delivery_method = :smtp
-
-  # Configura los detalles específicos para conectarse al servidor SMTP de MailCatcher.
-  config.action_mailer.smtp_settings = {
-    address: 'localhost',
-    port: 1025
-  }
-
-  # Establece true para ver errores de entrega de correo electrónico en el entorno de desarrollo.
-  # config.action_mailer.raise_delivery_errors = true
-
-  # A continuación, se presentan configuraciones generales para el entorno de desarrollo:
-
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :resend
-
-  # Configura la recarga de código en cada solicitud. Esto ralentiza la respuesta pero es perfecto para desarrollo.
+  # Make code changes take effect immediately without server restart.
   config.enable_reloading = true
 
-  # No precargar código al iniciar.
+  # Do not eager load code on boot.
   config.eager_load = false
 
-  # Muestra informes completos de error.
+  # Show full error reports.
   config.consider_all_requests_local = true
 
-  # Habilita el cronometraje del servidor.
+  # Enable server timing.
   config.server_timing = true
 
-  # Habilitar/deshabilitar la caché. Por defecto, la caché está deshabilitada.
+  # Enable/disable Action Controller caching. By default Action Controller caching is disabled.
+  # Run rails dev:cache to toggle Action Controller caching.
   if Rails.root.join("tmp/caching-dev.txt").exist?
     config.action_controller.perform_caching = true
-    config.cache_store = :memory_store
-    config.public_file_server.headers = {
-      "Cache-Control" => "public, max-age=#{2.days.to_i}"
-    }
+    config.action_controller.enable_fragment_cache_logging = true
+    config.public_file_server.headers = { "cache-control" => "public, max-age=#{2.days.to_i}" }
   else
     config.action_controller.perform_caching = false
-    config.cache_store = :null_store
   end
 
-  # Guardar archivos subidos en el sistema de archivos local (configura opciones en config/storage.yml).
+  # Change to :null_store to avoid any caching.
+  config.cache_store = :memory_store
+
+  # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-  # No preocuparse si el mailer no puede enviar.
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = false
+
+  # Make template changes take effect immediately.
   config.action_mailer.perform_caching = false
 
-  # Imprimir avisos de deprecación al logger de Rails.
+  # Set localhost to be used by links generated in mailer templates.
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+
+  # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
-  # Elevar excepciones para deprecaciones no permitidas.
-  config.active_support.disallowed_deprecation = :raise
-
-  # Informar a Active Support qué mensajes de deprecación no permitir.
-  config.active_support.disallowed_deprecation_warnings = []
-
-  # Elevar un error en la carga de página si hay migraciones pendientes.
+  # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
-  # Resaltar código que desencadenó consultas a la base de datos en los logs.
+  # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
-  # Resaltar en los logs el código que encoló trabajos en segundo plano.
+  # Append comments with runtime information tags to SQL queries in logs.
+  config.active_record.query_log_tags_enabled = true
+
+  # Highlight code that enqueued background job in logs.
   config.active_job.verbose_enqueue_logs = true
 
-  # Suprimir salida del logger para solicitudes de activos.
+  # Highlight code that triggered redirect in logs.
+  config.action_dispatch.verbose_redirect_logs = true
+
+  # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  # Elevar un error cuando una before_action's only/except options hace referencia a acciones faltantes.
-  config.action_controller.raise_on_missing_callback_actions = true
+  # Raises error for missing translations.
+  # config.i18n.raise_on_missing_translations = true
 
-  # Configuraciones adicionales pueden ir aquí.
+  # Annotate rendered view with file names.
+  config.action_view.annotate_rendered_view_with_filenames = true
 
-  # Por ejemplo, para deshabilitar la protección de falsificación de solicitud en Action Cable:
+  # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # Raise error when a before_action's only/except options reference missing actions.
+  config.action_controller.raise_on_missing_callback_actions = true
 end
