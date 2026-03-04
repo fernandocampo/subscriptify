@@ -21,43 +21,43 @@
 <% end %>
 
 <!-- Hero -->
-<section class="min-h-[88vh] flex items-center justify-center px-6 py-20 text-center bg-white">
+<section class="min-h-[88vh] flex items-center justify-center px-6 py-20 text-center">
   <div class="max-w-3xl mx-auto">
 
-    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold tracking-wide uppercase mb-8">
-      <span class="h-1.5 w-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-800/60 border border-zinc-700/60 text-zinc-400 text-xs font-medium tracking-widest uppercase mb-8">
+      <span class="h-1.5 w-1.5 rounded-full bg-white animate-pulse"></span>
       +500 ahorradores ya lo usan
     </div>
 
-    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-slate-900 tracking-tighter leading-[1.05]">
+    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white tracking-tighter leading-[1.05]">
       Deja de regalar dinero<br class="hidden sm:block"> en suscripciones olvidadas.
     </h1>
 
-    <p class="mt-6 text-lg sm:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+    <p class="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
       Trackea, gestiona y optimiza tus gastos recurrentes en 5 minutos. Recibe alertas antes de cada renovación y cancela lo que no usas.
     </p>
 
     <% unless user_signed_in? %>
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
         <%= link_to "Get Started →", new_user_registration_path,
-            class: "inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-base font-semibold rounded-xl shadow-sm hover:bg-indigo-700 active:scale-95 transition-all duration-150" %>
+            class: "inline-flex items-center px-8 py-4 bg-white text-black text-base font-semibold rounded-xl hover:bg-zinc-100 active:scale-95 transition-all duration-150" %>
         <%= link_to "Ver precios", "#pricing",
-            class: "inline-flex items-center px-6 py-4 text-sm font-medium text-slate-500 hover:text-slate-700 transition" %>
+            class: "inline-flex items-center px-6 py-4 text-sm font-medium text-zinc-500 hover:text-zinc-300 transition" %>
       </div>
     <% end %>
 
     <div class="mt-16 grid grid-cols-3 max-w-sm sm:max-w-md mx-auto">
       <div class="flex flex-col items-center px-4">
-        <span class="font-mono text-2xl sm:text-3xl font-bold text-slate-900">$240+</span>
-        <span class="text-xs text-slate-400 mt-1">ahorro promedio/año</span>
+        <span class="font-mono text-2xl sm:text-3xl font-bold text-white">$240+</span>
+        <span class="text-xs text-zinc-500 mt-1">ahorro promedio/año</span>
       </div>
-      <div class="flex flex-col items-center px-4 border-x border-slate-200">
-        <span class="font-mono text-2xl sm:text-3xl font-bold text-slate-900">+500</span>
-        <span class="text-xs text-slate-400 mt-1">usuarios activos</span>
+      <div class="flex flex-col items-center px-4 border-x border-zinc-800">
+        <span class="font-mono text-2xl sm:text-3xl font-bold text-white">+500</span>
+        <span class="text-xs text-zinc-500 mt-1">usuarios activos</span>
       </div>
       <div class="flex flex-col items-center px-4">
-        <span class="font-mono text-2xl sm:text-3xl font-bold text-slate-900">5 min</span>
-        <span class="text-xs text-slate-400 mt-1">para empezar</span>
+        <span class="font-mono text-2xl sm:text-3xl font-bold text-white">5 min</span>
+        <span class="text-xs text-zinc-500 mt-1">para empezar</span>
       </div>
     </div>
 
@@ -65,24 +65,24 @@
 </section>
 
 <!-- Pain Point -->
-<section class="bg-slate-900 py-14 px-6 text-center">
+<section class="bg-zinc-900/40 border-y border-zinc-800/60 py-14 px-6 text-center">
   <div class="max-w-2xl mx-auto">
-    <p class="text-slate-400 text-sm font-semibold uppercase tracking-widest mb-3">El problema real</p>
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tighter">
-      El usuario promedio pierde <span class="text-indigo-400">$200 al año</span><br class="hidden sm:block"> en suscripciones que no usa.
+    <p class="text-zinc-500 text-xs font-medium uppercase tracking-widest mb-3">El problema real</p>
+    <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tighter">
+      El usuario promedio pierde <span class="text-zinc-300">$200 al año</span><br class="hidden sm:block"> en suscripciones que no usa.
     </h2>
-    <p class="mt-4 text-slate-400 text-base">Netflix que dejaste de ver. Gym que no pisas. Software que nunca abriste. Subscriptify los encuentra todos.</p>
+    <p class="mt-4 text-zinc-400 text-base">Netflix que dejaste de ver. Gym que no pisas. Software que nunca abriste. Subscriptify los encuentra todos.</p>
   </div>
 </section>
 
 <!-- Bento Grid Features -->
-<section class="bg-slate-50 py-20 px-6">
+<section class="py-20 px-6">
   <div class="max-w-5xl mx-auto">
 
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tighter text-center mb-3">
+    <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tighter text-center mb-3">
       Todo lo que necesitas, nada que no.
     </h2>
-    <p class="text-center text-slate-500 mb-12 max-w-xl mx-auto">
+    <p class="text-center text-zinc-400 mb-12 max-w-xl mx-auto">
       Construido para gente que quiere claridad en sus gastos sin la complejidad.
     </p>
 
@@ -90,83 +90,83 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
       <!-- Wide card: Never miss a renewal -->
-      <div class="lg:col-span-2 bg-white rounded-2xl border border-slate-100 shadow-sm p-8 flex flex-col sm:flex-row gap-6 items-center overflow-hidden">
+      <div class="lg:col-span-2 bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-zinc-800 p-8 flex flex-col sm:flex-row gap-6 items-center overflow-hidden">
         <div class="flex-1 min-w-0">
-          <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-indigo-100 mb-4">
-            <%= heroicon "bell-alert", variant: :outline, options: { class: "h-5 w-5 text-indigo-600" } %>
+          <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-zinc-800 mb-4">
+            <%= heroicon "bell-alert", variant: :outline, options: { class: "h-5 w-5 text-zinc-300" } %>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 tracking-tight">Nunca más te cobren por sorpresa</h3>
-          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Recibe alertas antes de cada renovación. Cancela lo que no necesitas antes de que te cobren.</p>
-          <ol class="mt-4 space-y-2 text-sm text-slate-600">
+          <h3 class="text-xl font-semibold text-white tracking-tight">Nunca más te cobren por sorpresa</h3>
+          <p class="mt-2 text-zinc-400 text-sm leading-relaxed">Recibe alertas antes de cada renovación. Cancela lo que no necesitas antes de que te cobren.</p>
+          <ol class="mt-4 space-y-2 text-sm text-zinc-400">
             <li class="flex items-start gap-2">
-              <span class="font-mono text-indigo-500 font-bold shrink-0">01.</span>
+              <span class="font-mono text-zinc-500 font-bold shrink-0">01.</span>
               Añade tus suscripciones activas
             </li>
             <li class="flex items-start gap-2">
-              <span class="font-mono text-indigo-500 font-bold shrink-0">02.</span>
+              <span class="font-mono text-zinc-500 font-bold shrink-0">02.</span>
               Recibe recordatorios de renovación
             </li>
             <li class="flex items-start gap-2">
-              <span class="font-mono text-indigo-500 font-bold shrink-0">03.</span>
+              <span class="font-mono text-zinc-500 font-bold shrink-0">03.</span>
               Cancela lo que no usas y ahorra
             </li>
           </ol>
         </div>
-        <!-- Dashboard Mockup -->
+        <!-- Dashboard Mockup (dark) -->
         <div class="shrink-0 w-full sm:w-52 aspect-[3/4]">
-          <div class="w-full h-full rounded-xl shadow-md border border-slate-100 bg-white overflow-hidden flex flex-col">
-            <div class="bg-indigo-600 px-3 py-2 flex items-center justify-between shrink-0">
-              <span class="text-white text-[11px] font-bold tracking-tight">Subscriptify</span>
-              <span class="text-indigo-200 text-[11px] font-mono">$89.97/mo</span>
+          <div class="w-full h-full rounded-xl border border-zinc-700/60 bg-zinc-900 overflow-hidden flex flex-col">
+            <div class="bg-zinc-800 px-3 py-2 flex items-center justify-between shrink-0 border-b border-zinc-700/60">
+              <span class="text-white text-[11px] font-semibold tracking-tight">Subscriptify</span>
+              <span class="text-zinc-400 text-[11px] font-mono">$89.97/mo</span>
             </div>
             <div class="p-3 space-y-2.5 overflow-hidden flex-1">
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="h-6 w-6 rounded bg-red-100 flex items-center justify-center text-[10px] font-black text-red-600 shrink-0">N</span>
+                  <span class="h-6 w-6 rounded bg-zinc-800 flex items-center justify-center text-[10px] font-black text-zinc-300 shrink-0">N</span>
                   <div>
-                    <div class="text-[10px] font-semibold text-slate-800 leading-none">Netflix</div>
-                    <div class="text-[9px] text-slate-400 mt-0.5">Renews Mar 15</div>
+                    <div class="text-[10px] font-semibold text-zinc-200 leading-none">Netflix</div>
+                    <div class="text-[9px] text-zinc-500 mt-0.5">Renews Mar 15</div>
                   </div>
                 </div>
-                <span class="text-[10px] font-mono font-bold text-slate-700">$15.99</span>
+                <span class="text-[10px] font-mono font-bold text-zinc-300">$15.99</span>
               </div>
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="h-6 w-6 rounded bg-green-100 flex items-center justify-center text-[10px] font-black text-green-600 shrink-0">S</span>
+                  <span class="h-6 w-6 rounded bg-zinc-800 flex items-center justify-center text-[10px] font-black text-zinc-300 shrink-0">S</span>
                   <div>
-                    <div class="text-[10px] font-semibold text-slate-800 leading-none">Spotify</div>
-                    <div class="text-[9px] text-slate-400 mt-0.5">Renews Mar 20</div>
+                    <div class="text-[10px] font-semibold text-zinc-200 leading-none">Spotify</div>
+                    <div class="text-[9px] text-zinc-500 mt-0.5">Renews Mar 20</div>
                   </div>
                 </div>
-                <span class="text-[10px] font-mono font-bold text-slate-700">$9.99</span>
+                <span class="text-[10px] font-mono font-bold text-zinc-300">$9.99</span>
               </div>
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="h-6 w-6 rounded bg-blue-100 flex items-center justify-center text-[10px] font-black text-blue-600 shrink-0">A</span>
+                  <span class="h-6 w-6 rounded bg-zinc-800 flex items-center justify-center text-[10px] font-black text-amber-400 shrink-0">A</span>
                   <div>
-                    <div class="text-[10px] font-semibold text-slate-800 leading-none">Adobe CC</div>
+                    <div class="text-[10px] font-semibold text-zinc-200 leading-none">Adobe CC</div>
                     <div class="text-[9px] text-amber-500 mt-0.5 font-semibold">Trial · 3 days</div>
                   </div>
                 </div>
-                <span class="text-[10px] font-mono font-bold text-slate-700">$54.99</span>
+                <span class="text-[10px] font-mono font-bold text-zinc-300">$54.99</span>
               </div>
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="h-6 w-6 rounded bg-purple-100 flex items-center justify-center text-[10px] font-black text-purple-600 shrink-0">G</span>
+                  <span class="h-6 w-6 rounded bg-zinc-800 flex items-center justify-center text-[10px] font-black text-zinc-300 shrink-0">G</span>
                   <div>
-                    <div class="text-[10px] font-semibold text-slate-800 leading-none">GitHub Pro</div>
-                    <div class="text-[9px] text-slate-400 mt-0.5">Renews Apr 1</div>
+                    <div class="text-[10px] font-semibold text-zinc-200 leading-none">GitHub Pro</div>
+                    <div class="text-[9px] text-zinc-500 mt-0.5">Renews Apr 1</div>
                   </div>
                 </div>
-                <span class="text-[10px] font-mono font-bold text-slate-700">$4.00</span>
+                <span class="text-[10px] font-mono font-bold text-zinc-300">$4.00</span>
               </div>
-              <div class="pt-2 border-t border-slate-100">
+              <div class="pt-2 border-t border-zinc-800">
                 <div class="flex justify-between text-[9px] mb-1">
-                  <span class="text-slate-500">Monthly Total</span>
-                  <span class="font-mono font-bold text-indigo-600">$84.97</span>
+                  <span class="text-zinc-500">Monthly Total</span>
+                  <span class="font-mono font-bold text-white">$84.97</span>
                 </div>
-                <div class="w-full h-1 bg-slate-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-indigo-500 rounded-full w-[72%]"></div>
+                <div class="w-full h-1 bg-zinc-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-white/70 rounded-full w-[72%]"></div>
                 </div>
               </div>
             </div>
@@ -175,89 +175,89 @@
       </div>
 
       <!-- Trial tracking -->
-      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
-        <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-amber-100 mb-4">
-          <%= heroicon "clock", variant: :outline, options: { class: "h-5 w-5 text-amber-600" } %>
+      <div class="bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-zinc-800 p-6">
+        <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-zinc-800 mb-4">
+          <%= heroicon "clock", variant: :outline, options: { class: "h-5 w-5 text-amber-400" } %>
         </div>
-        <h3 class="text-lg font-bold text-slate-900 tracking-tight">Control de trials</h3>
-        <p class="mt-2 text-slate-500 text-sm leading-relaxed">Sabe exactamente cuándo termina cada prueba gratuita. Cancela antes de que te cobren.</p>
-        <div class="mt-4 font-mono text-xs bg-slate-50 rounded-lg p-3 border border-slate-100 space-y-0.5">
-          <div class="text-slate-400">// próximo cobro</div>
-          <div><span class="text-amber-500 font-semibold">TRIAL</span> Netflix Premium</div>
-          <div>Termina en <span class="text-red-500 font-semibold">3 días</span></div>
+        <h3 class="text-lg font-semibold text-white tracking-tight">Control de trials</h3>
+        <p class="mt-2 text-zinc-400 text-sm leading-relaxed">Sabe exactamente cuándo termina cada prueba gratuita. Cancela antes de que te cobren.</p>
+        <div class="mt-4 font-mono text-xs bg-zinc-950/60 rounded-xl p-3 border border-zinc-800 space-y-0.5">
+          <div class="text-zinc-600">// próximo cobro</div>
+          <div><span class="text-amber-400 font-semibold">TRIAL</span> <span class="text-zinc-300">Netflix Premium</span></div>
+          <div class="text-zinc-400">Termina en <span class="text-red-400 font-semibold">3 días</span></div>
         </div>
       </div>
 
       <!-- Monthly spend -->
-      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
-        <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-emerald-100 mb-4">
-          <%= heroicon "chart-bar", variant: :outline, options: { class: "h-5 w-5 text-emerald-600" } %>
+      <div class="bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-zinc-800 p-6">
+        <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-zinc-800 mb-4">
+          <%= heroicon "chart-bar", variant: :outline, options: { class: "h-5 w-5 text-white" } %>
         </div>
-        <h3 class="text-lg font-bold text-slate-900 tracking-tight">Gasto mensual</h3>
-        <p class="mt-2 text-slate-500 text-sm leading-relaxed">Ve tu gasto total mensual y anual, desglosado por categoría.</p>
+        <h3 class="text-lg font-semibold text-white tracking-tight">Gasto mensual</h3>
+        <p class="mt-2 text-zinc-400 text-sm leading-relaxed">Ve tu gasto total mensual y anual, desglosado por categoría.</p>
         <div class="mt-4 space-y-2.5">
           <div>
             <div class="flex justify-between text-xs mb-1">
-              <span class="text-slate-500">Entretenimiento</span>
-              <span class="font-mono font-semibold text-slate-800">$32.97</span>
+              <span class="text-zinc-500">Entretenimiento</span>
+              <span class="font-mono font-semibold text-zinc-300">$32.97</span>
             </div>
-            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
-              <div class="h-full bg-emerald-400 rounded-full w-[65%]"></div>
+            <div class="w-full h-1 bg-zinc-800 rounded-full overflow-hidden">
+              <div class="h-full bg-white/60 rounded-full w-[65%]"></div>
             </div>
           </div>
           <div>
             <div class="flex justify-between text-xs mb-1">
-              <span class="text-slate-500">Productividad</span>
-              <span class="font-mono font-semibold text-slate-800">$19.98</span>
+              <span class="text-zinc-500">Productividad</span>
+              <span class="font-mono font-semibold text-zinc-300">$19.98</span>
             </div>
-            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
-              <div class="h-full bg-indigo-400 rounded-full w-[40%]"></div>
+            <div class="w-full h-1 bg-zinc-800 rounded-full overflow-hidden">
+              <div class="h-full bg-white/40 rounded-full w-[40%]"></div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Categories -->
-      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
-        <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-violet-100 mb-4">
-          <%= heroicon "tag", variant: :outline, options: { class: "h-5 w-5 text-violet-600" } %>
+      <div class="bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-zinc-800 p-6">
+        <div class="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-zinc-800 mb-4">
+          <%= heroicon "tag", variant: :outline, options: { class: "h-5 w-5 text-zinc-300" } %>
         </div>
-        <h3 class="text-lg font-bold text-slate-900 tracking-tight">Categorías inteligentes</h3>
-        <p class="mt-2 text-slate-500 text-sm leading-relaxed">Organiza por categoría y ve exactamente a dónde va tu dinero cada mes.</p>
+        <h3 class="text-lg font-semibold text-white tracking-tight">Categorías inteligentes</h3>
+        <p class="mt-2 text-zinc-400 text-sm leading-relaxed">Organiza por categoría y ve exactamente a dónde va tu dinero cada mes.</p>
       </div>
 
       <!-- Metrics Mockup -->
-      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-4 overflow-hidden aspect-square flex flex-col">
-        <div class="text-[10px] font-semibold text-slate-500 mb-3">Gasto mensual · 2025</div>
+      <div class="bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-zinc-800 p-4 overflow-hidden aspect-square flex flex-col">
+        <div class="text-[10px] font-medium text-zinc-500 uppercase tracking-widest mb-3">Gasto mensual · 2025</div>
         <div class="flex items-end gap-1.5 flex-1">
           <div class="flex-1 flex flex-col items-center gap-1">
-            <div class="w-full bg-indigo-200 rounded-t-sm h-8"></div>
-            <span class="text-[8px] text-slate-400">O</span>
+            <div class="w-full bg-zinc-700 rounded-t-sm h-8"></div>
+            <span class="text-[8px] text-zinc-600">O</span>
           </div>
           <div class="flex-1 flex flex-col items-center gap-1">
-            <div class="w-full bg-indigo-300 rounded-t-sm h-11"></div>
-            <span class="text-[8px] text-slate-400">N</span>
+            <div class="w-full bg-zinc-600 rounded-t-sm h-11"></div>
+            <span class="text-[8px] text-zinc-600">N</span>
           </div>
           <div class="flex-1 flex flex-col items-center gap-1">
-            <div class="w-full bg-indigo-400 rounded-t-sm h-14"></div>
-            <span class="text-[8px] text-slate-400">D</span>
+            <div class="w-full bg-zinc-500 rounded-t-sm h-14"></div>
+            <span class="text-[8px] text-zinc-600">D</span>
           </div>
           <div class="flex-1 flex flex-col items-center gap-1">
-            <div class="w-full bg-indigo-500 rounded-t-sm h-12"></div>
-            <span class="text-[8px] text-slate-400">E</span>
+            <div class="w-full bg-zinc-400 rounded-t-sm h-12"></div>
+            <span class="text-[8px] text-zinc-600">E</span>
           </div>
           <div class="flex-1 flex flex-col items-center gap-1">
-            <div class="w-full bg-indigo-600 rounded-t-sm h-16"></div>
-            <span class="text-[8px] text-slate-400">F</span>
+            <div class="w-full bg-zinc-300 rounded-t-sm h-16"></div>
+            <span class="text-[8px] text-zinc-600">F</span>
           </div>
           <div class="flex-1 flex flex-col items-center gap-1">
-            <div class="w-full bg-indigo-700 rounded-t-sm h-14"></div>
-            <span class="text-[8px] text-slate-400">M</span>
+            <div class="w-full bg-white rounded-t-sm h-14"></div>
+            <span class="text-[8px] text-zinc-600">M</span>
           </div>
         </div>
-        <div class="mt-2 pt-2 border-t border-slate-100 flex justify-between text-[9px]">
-          <span class="text-slate-400">Prom <span class="font-mono font-semibold text-slate-600">$87.32</span></span>
-          <span class="text-emerald-500 font-semibold">↓ 12%</span>
+        <div class="mt-2 pt-2 border-t border-zinc-800 flex justify-between text-[9px]">
+          <span class="text-zinc-500">Prom <span class="font-mono font-semibold text-zinc-300">$87.32</span></span>
+          <span class="text-white font-semibold">↓ 12%</span>
         </div>
       </div>
 
@@ -266,29 +266,29 @@
 </section>
 
 <!-- Testimonials -->
-<section class="py-20 px-6 bg-white">
+<section class="py-20 px-6">
   <div class="max-w-4xl mx-auto">
 
-    <h2 class="text-3xl font-extrabold text-slate-900 tracking-tighter text-center mb-12">
+    <h2 class="text-3xl font-semibold text-white tracking-tighter text-center mb-12">
       Gente que dejó de desperdiciar dinero
     </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <blockquote class="bg-slate-50 rounded-2xl border border-slate-100 shadow-sm p-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <blockquote class="bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-zinc-800 p-6">
         <div class="text-amber-400 text-sm mb-3">★★★★★</div>
-        <p class="text-slate-700 text-sm leading-relaxed">"Subscriptify simplificó la gestión de todas mis suscripciones. Con las notificaciones pude darme de baja de servicios que ya no usaba."</p>
+        <p class="text-zinc-300 text-sm leading-relaxed">"Subscriptify simplificó la gestión de todas mis suscripciones. Con las notificaciones pude darme de baja de servicios que ya no usaba."</p>
         <footer class="mt-4 flex items-center gap-3">
-          <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center text-xs font-bold text-indigo-700">JD</div>
-          <span class="font-semibold text-sm text-slate-800">Juan Domingo</span>
+          <div class="h-8 w-8 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-xs font-bold text-zinc-300">JD</div>
+          <span class="font-semibold text-sm text-white">Juan Domingo</span>
         </footer>
       </blockquote>
 
-      <blockquote class="bg-slate-50 rounded-2xl border border-slate-100 shadow-sm p-6">
+      <blockquote class="bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-zinc-800 p-6">
         <div class="text-amber-400 text-sm mb-3">★★★★★</div>
-        <p class="text-slate-700 text-sm leading-relaxed">"Simple y efectivo. Fácil de usar y tuvo un impacto directo en mi tiempo y mi bolsillo."</p>
+        <p class="text-zinc-300 text-sm leading-relaxed">"Simple y efectivo. Fácil de usar y tuvo un impacto directo en mi tiempo y mi bolsillo."</p>
         <footer class="mt-4 flex items-center gap-3">
-          <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center text-xs font-bold text-indigo-700">NH</div>
-          <span class="font-semibold text-sm text-slate-800">Nicolás Hernández</span>
+          <div class="h-8 w-8 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-xs font-bold text-zinc-300">NH</div>
+          <span class="font-semibold text-sm text-white">Nicolás Hernández</span>
         </footer>
       </blockquote>
     </div>
@@ -297,81 +297,81 @@
 </section>
 
 <!-- Pricing -->
-<section id="pricing" class="bg-slate-50 py-20 px-6">
+<section id="pricing" class="py-20 px-6">
   <div class="max-w-3xl mx-auto">
 
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tighter text-center mb-3">
+    <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tighter text-center mb-3">
       Precio simple. Sin sorpresas.
     </h2>
-    <p class="text-center text-slate-500 mb-12">Empieza gratis. Paga una vez si quieres más.</p>
+    <p class="text-center text-zinc-500 mb-12">Empieza gratis. Paga una vez si quieres más.</p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
       <!-- Starter -->
-      <div class="bg-white rounded-2xl border border-slate-200 p-8 flex flex-col">
+      <div class="bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-zinc-800 p-8 flex flex-col">
         <div class="mb-6">
-          <p class="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-2">Starter</p>
+          <p class="text-xs font-medium text-zinc-500 uppercase tracking-widest mb-2">Starter</p>
           <div class="flex items-end gap-1">
-            <span class="text-5xl font-extrabold text-slate-900">$0</span>
-            <span class="text-slate-400 text-sm mb-1.5">/ siempre</span>
+            <span class="text-5xl font-bold text-white">$0</span>
+            <span class="text-zinc-500 text-sm mb-1.5">/ siempre</span>
           </div>
         </div>
-        <ul class="space-y-3 text-sm text-slate-600 flex-1 mb-8">
+        <ul class="space-y-3 text-sm text-zinc-400 flex-1 mb-8">
           <li class="flex items-center gap-2">
-            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-emerald-500 shrink-0" } %>
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-white shrink-0" } %>
             Hasta 3 suscripciones
           </li>
           <li class="flex items-center gap-2">
-            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-emerald-500 shrink-0" } %>
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-white shrink-0" } %>
             Alertas básicas de renovación
           </li>
           <li class="flex items-center gap-2">
-            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-emerald-500 shrink-0" } %>
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-white shrink-0" } %>
             Dashboard completo
           </li>
         </ul>
         <%= link_to "Empezar gratis", new_user_registration_path,
-            class: "block text-center px-6 py-3 bg-slate-100 text-slate-700 text-sm font-semibold rounded-xl hover:bg-slate-200 transition" %>
+            class: "block text-center px-6 py-3 bg-zinc-800 text-zinc-200 text-sm font-semibold rounded-xl hover:bg-zinc-700 active:scale-95 transition-all duration-150" %>
       </div>
 
-      <!-- Lifetime Pro -->
-      <div class="bg-indigo-600 rounded-2xl p-8 flex flex-col relative overflow-hidden">
-        <div class="absolute top-4 right-4 bg-white/20 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">
+      <!-- Lifetime Pro (white card — Apple highlight style) -->
+      <div class="bg-white rounded-2xl p-8 flex flex-col relative overflow-hidden">
+        <div class="absolute top-4 right-4 bg-black/10 text-black text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">
           Más popular
         </div>
         <div class="mb-6">
-          <p class="text-sm font-semibold text-indigo-200 uppercase tracking-widest mb-2">Lifetime Pro</p>
+          <p class="text-xs font-medium text-zinc-500 uppercase tracking-widest mb-2">Lifetime Pro</p>
           <div class="flex items-end gap-1">
-            <span class="text-5xl font-extrabold text-white">$19</span>
-            <span class="text-indigo-300 text-sm mb-1.5">/ pago único</span>
+            <span class="text-5xl font-bold text-black">$19</span>
+            <span class="text-zinc-400 text-sm mb-1.5">/ pago único</span>
           </div>
         </div>
-        <ul class="space-y-3 text-sm text-indigo-100 flex-1 mb-8">
+        <ul class="space-y-3 text-sm text-zinc-600 flex-1 mb-8">
           <li class="flex items-center gap-2">
-            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-white shrink-0" } %>
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-black shrink-0" } %>
             Suscripciones ilimitadas
           </li>
           <li class="flex items-center gap-2">
-            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-white shrink-0" } %>
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-black shrink-0" } %>
             Logos automáticos de marcas
           </li>
           <li class="flex items-center gap-2">
-            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-white shrink-0" } %>
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-black shrink-0" } %>
             Alertas de renovación ilimitadas
           </li>
           <li class="flex items-center gap-2">
-            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-white shrink-0" } %>
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-black shrink-0" } %>
             Soporte prioritario
           </li>
           <li class="flex items-center gap-2">
-            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-white shrink-0" } %>
+            <%= heroicon "check", variant: :mini, options: { class: "h-4 w-4 text-black shrink-0" } %>
             Acceso a todas las funciones futuras
           </li>
         </ul>
         <div class="relative group">
-          <button class="w-full px-6 py-3 bg-white text-indigo-600 text-sm font-bold rounded-xl cursor-not-allowed opacity-90 flex items-center justify-center gap-2">
+          <button class="w-full px-6 py-3 bg-black text-white text-sm font-bold rounded-xl cursor-not-allowed opacity-70 flex items-center justify-center gap-2">
             Buy Pro
-            <span class="bg-indigo-100 text-indigo-500 text-[10px] font-bold px-2 py-0.5 rounded-full">Próximamente</span>
+            <span class="bg-zinc-800 text-zinc-400 text-[10px] font-bold px-2 py-0.5 rounded-full">Próximamente</span>
           </button>
         </div>
       </div>
@@ -381,23 +381,23 @@
 </section>
 
 <!-- Final CTA -->
-<section class="bg-slate-900 py-20 px-6 text-center">
+<section class="bg-zinc-900/40 border-t border-zinc-800/60 py-20 px-6 text-center">
   <div class="max-w-2xl mx-auto">
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tighter">
+    <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tighter">
       Toma el control de tus finanzas hoy.
     </h2>
-    <p class="mt-4 text-slate-400 text-lg">Empieza gratis. Actualiza cuando quieras.</p>
+    <p class="mt-4 text-zinc-400 text-lg">Empieza gratis. Actualiza cuando quieras.</p>
     <% unless user_signed_in? %>
       <div class="mt-8">
         <%= link_to "Get Started →", new_user_registration_path,
-            class: "inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-base font-semibold rounded-xl shadow-sm hover:bg-indigo-700 active:scale-95 transition-all duration-150" %>
+            class: "inline-flex items-center px-8 py-4 bg-white text-black text-base font-semibold rounded-xl hover:bg-zinc-100 active:scale-95 transition-all duration-150" %>
       </div>
     <% end %>
-    <p class="mt-5 font-mono text-xs text-slate-500">setup: ~5 min &nbsp;·&nbsp; starter gratis &nbsp;·&nbsp; Pro de por vida por $19</p>
+    <p class="mt-5 font-mono text-xs text-zinc-600">setup: ~5 min &nbsp;·&nbsp; starter gratis &nbsp;·&nbsp; Pro de por vida por $19</p>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="bg-slate-900 py-10 text-center text-xs text-slate-400">
-  &copy; 2026 Subscriptify &mdash; Built by Fernando &bull; <a href="mailto:support@subscriptify.me" class="hover:text-slate-300 transition-colors">support@subscriptify.me</a>
+<footer class="border-t border-zinc-800/60 py-10 text-center text-xs text-zinc-600">
+  &copy; 2026 Subscriptify &mdash; Built by Fernando &bull; <a href="mailto:support@subscriptify.me" class="hover:text-zinc-400 transition-colors">support@subscriptify.me</a>
 </footer>

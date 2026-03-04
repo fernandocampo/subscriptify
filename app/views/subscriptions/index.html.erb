@@ -1,12 +1,12 @@
-<div class="min-h-screen bg-zinc-50">
+<div class="min-h-screen">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
 
     <%# ── Header ── %>
     <div class="flex items-center justify-between mb-8">
-      <h1 class="text-2xl font-semibold text-zinc-900">Dashboard</h1>
+      <h1 class="text-2xl font-semibold text-white tracking-tight">Dashboard</h1>
       <%= link_to new_subscription_path,
             data: { turbo_frame: "subscription_form" },
-            class: "flex items-center justify-center w-11 h-11 bg-indigo-600 text-white rounded-2xl shadow-md hover:bg-indigo-700 hover:shadow-lg transition" do %>
+            class: "flex items-center justify-center w-11 h-11 bg-white text-black rounded-2xl hover:bg-zinc-100 active:scale-95 transition-all duration-150 shadow-lg" do %>
         <%= heroicon "plus", variant: :mini, options: { class: "h-5 w-5" } %>
       <% end %>
     </div>
@@ -19,37 +19,37 @@
 
     <%# ── Subscriptions List ── %>
     <% if @subscriptions.empty? %>
-      <div class="bg-white rounded-2xl border border-zinc-200 p-14 text-center">
-        <%= heroicon "credit-card", variant: :outline, options: { class: "h-10 w-10 text-zinc-300 mx-auto mb-3" } %>
+      <div class="bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-zinc-800 p-14 text-center">
+        <%= heroicon "credit-card", variant: :outline, options: { class: "h-10 w-10 text-zinc-700 mx-auto mb-3" } %>
         <p class="text-sm font-medium text-zinc-500">No subscriptions yet</p>
-        <p class="text-xs text-zinc-400 mt-1">Click + to add your first one</p>
+        <p class="text-xs text-zinc-600 mt-1">Click + to add your first one</p>
       </div>
     <% else %>
-      <div class="bg-white rounded-2xl border border-zinc-200 overflow-hidden">
+      <div class="bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-zinc-800 overflow-hidden">
         <%# Search %>
-        <div class="px-5 py-3 border-b border-zinc-100">
+        <div class="px-5 py-3 border-b border-zinc-800">
           <form role="search" action="<%= subscriptions_path %>" method="get">
             <input type="search" name="query" value="<%= params[:query] %>"
-                   class="w-full text-sm bg-zinc-50 rounded-xl border border-zinc-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                   class="w-full text-sm bg-zinc-950/60 rounded-xl border border-zinc-800 text-white placeholder:text-zinc-600 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-white/10 focus:border-zinc-700 transition"
                    placeholder="Search subscriptions…"
                    autocapitalize="none">
           </form>
         </div>
 
         <%# Rows %>
-        <div class="divide-y divide-zinc-100">
+        <div class="divide-y divide-zinc-800/60">
           <% @subscriptions.each do |subscription| %>
-            <div class="flex items-center gap-4 px-5 py-4 hover:bg-zinc-50 transition">
+            <div class="flex items-center gap-4 px-5 py-4 hover:bg-zinc-800/30 transition duration-150">
               <%# Logo %>
               <div class="shrink-0">
                 <% if subscription.photo.attached? %>
-                  <%= image_tag subscription.photo, class: "w-10 h-10 rounded-xl object-contain bg-white border border-zinc-100" %>
+                  <%= image_tag subscription.photo, class: "w-10 h-10 rounded-xl object-contain bg-zinc-800 border border-zinc-700/60" %>
                 <% else %>
                   <img src="<%= subscription_logo_url(subscription.company_name) %>"
                        alt="<%= subscription.company_name %>"
-                       class="w-10 h-10 rounded-xl object-contain bg-white border border-zinc-100"
+                       class="w-10 h-10 rounded-xl object-contain bg-zinc-800 border border-zinc-700/60"
                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                  <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 items-center justify-center text-sm font-bold hidden">
+                  <div class="w-10 h-10 rounded-xl bg-zinc-800 border border-zinc-700/60 text-zinc-300 items-center justify-center text-sm font-bold hidden">
                     <%= subscription.company_name.first.upcase %>
                   </div>
                 <% end %>
@@ -57,26 +57,26 @@
 
               <%# Name + category %>
               <div class="flex-1 min-w-0">
-                <p class="text-sm font-semibold text-zinc-900 truncate"><%= subscription.company_name %></p>
-                <p class="text-xs text-zinc-400"><%= subscription.category %> · <%= subscription.frequency %></p>
+                <p class="text-sm font-semibold text-white truncate"><%= subscription.company_name %></p>
+                <p class="text-xs text-zinc-500"><%= subscription.category %> · <%= subscription.frequency %></p>
               </div>
 
               <%# Price + date %>
               <div class="text-right shrink-0 hidden sm:block">
-                <p class="text-sm font-semibold text-zinc-900 tabular-nums"><%= number_to_currency(subscription.price) %> <span class="text-xs font-normal text-zinc-400"><%= subscription.currency %></span></p>
-                <p class="text-xs text-zinc-400"><%= subscription.payment_date.strftime("%b %d") %></p>
+                <p class="text-sm font-semibold text-white tabular-nums"><%= number_to_currency(subscription.price) %> <span class="text-xs font-normal text-zinc-500"><%= subscription.currency %></span></p>
+                <p class="text-xs text-zinc-500"><%= subscription.payment_date.strftime("%b %d") %></p>
               </div>
 
               <%# Actions %>
               <div class="flex items-center gap-1 shrink-0">
                 <%= link_to edit_subscription_path(subscription),
                       data: { turbo_frame: "subscription_form" },
-                      class: "p-1.5 rounded-lg text-zinc-400 hover:text-indigo-600 hover:bg-indigo-50 transition" do %>
+                      class: "p-1.5 rounded-lg text-zinc-600 hover:text-zinc-300 hover:bg-zinc-800 transition" do %>
                   <%= heroicon "pencil-square", variant: :outline, options: { class: "h-4 w-4" } %>
                 <% end %>
                 <%= button_to subscription_path(subscription), method: :delete,
                       data: { turbo_confirm: "Delete #{subscription.company_name}?" },
-                      class: "p-1.5 rounded-lg text-zinc-400 hover:text-red-600 hover:bg-red-50 transition cursor-pointer" do %>
+                      class: "p-1.5 rounded-lg text-zinc-600 hover:text-red-400 hover:bg-zinc-800 transition cursor-pointer" do %>
                   <%= heroicon "trash", variant: :solid, options: { class: "h-4 w-4" } %>
                 <% end %>
               </div>
@@ -85,8 +85,8 @@
         </div>
 
         <%# Footer: exports %>
-        <div class="px-5 py-3 border-t border-zinc-100 flex gap-3">
-          <%= link_to export_subscriptions_path(format: :xlsx), class: "inline-flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-700 transition" do %>
+        <div class="px-5 py-3 border-t border-zinc-800 flex gap-3">
+          <%= link_to export_subscriptions_path(format: :xlsx), class: "inline-flex items-center gap-1 text-xs text-zinc-600 hover:text-zinc-400 transition" do %>
             <%= heroicon "arrow-down-tray", variant: :outline, options: { class: "h-3.5 w-3.5" } %>
             XLSX
           <% end %>
