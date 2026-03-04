@@ -1,37 +1,38 @@
 source "https://rubygems.org"
+ruby "4.0.1"
 
-ruby "3.3.6"
+gem "rails", "~> 8.1.2"
 
-gem "rails", "~> 8.0"
-gem "propshaft"
 gem "pg", "~> 1.1"
-gem "puma", ">= 5.0"
+gem "solid_queue"
+gem "solid_cache"
+gem "solid_cable"
+
+gem "propshaft"
 gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
-gem "tzinfo-data", platforms: %i[windows jruby]
-gem "bootsnap", require: false
 gem "tailwindcss-rails"
-gem "heroicons"
+
 gem "devise"
-gem "simple_form", "~> 5.3"
+gem "money-rails"
+gem "resend"
 gem "chartkick"
 gem "groupdate"
-gem "resend"
-gem "caxlsx"
 gem "caxlsx_rails"
 gem "nondisposable"
-gem "solid_queue"
-gem "solid_cache"
+gem "heroicons"
+
+gem "puma", ">= 6.0"
+gem "bootsnap", require: false
 
 group :development, :test do
   gem "dotenv-rails"
-  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "debug"
 end
 
 group :development do
   gem "web-console"
-  gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
 end
 
 group :test do
