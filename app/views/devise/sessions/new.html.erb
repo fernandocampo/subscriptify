@@ -1,36 +1,50 @@
 <div class="min-h-[80vh] flex items-center justify-center px-4 py-12">
   <div class="w-full max-w-sm">
-    <h2 class="text-2xl font-bold text-slate-900 mb-6 text-center">Log in</h2>
 
-    <%= form_with(model: resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="space-y-4">
-        <div>
-          <%= f.label :email, class: "block text-sm font-medium text-slate-700 mb-1" %>
-          <%= f.email_field :email, required: false, autofocus: true, autocomplete: "email",
-                class: "w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" %>
-        </div>
+    <%# Logo / Brand mark %>
+    <div class="text-center mb-8">
+      <p class="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-2">Subscriptify</p>
+      <h1 class="text-2xl font-bold text-slate-100">Welcome back</h1>
+      <p class="mt-1 text-sm text-slate-400">Sign in to your account</p>
+    </div>
 
-        <div>
-          <%= f.label :password, class: "block text-sm font-medium text-slate-700 mb-1" %>
-          <%= f.password_field :password, required: false, autocomplete: "current-password",
-                class: "w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" %>
-        </div>
-
-        <% if devise_mapping.rememberable? %>
-          <div class="flex items-center gap-2">
-            <%= f.check_box :remember_me, class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" %>
-            <%= f.label :remember_me, class: "text-sm text-slate-600" %>
+    <%# Card %>
+    <div class="rounded-2xl bg-slate-900/50 border border-slate-800 p-8 shadow-2xl backdrop-blur-sm">
+      <%= form_with(model: resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="space-y-5">
+          <div>
+            <%= f.label :email, class: "block text-xs font-medium text-slate-400 mb-1.5 uppercase tracking-wide" %>
+            <%= f.email_field :email, required: false, autofocus: true, autocomplete: "email",
+                  placeholder: "you@example.com",
+                  class: "w-full rounded-lg bg-slate-900 border border-slate-700 px-3 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:ring-offset-2 focus:ring-offset-slate-950 transition" %>
           </div>
-        <% end %>
 
-        <div class="mt-6">
-          <%= f.submit "Log in", class: "w-full inline-flex justify-center items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition cursor-pointer" %>
+          <div>
+            <%= f.label :password, class: "block text-xs font-medium text-slate-400 mb-1.5 uppercase tracking-wide" %>
+            <%= f.password_field :password, required: false, autocomplete: "current-password",
+                  placeholder: "••••••••",
+                  class: "w-full rounded-lg bg-slate-900 border border-slate-700 px-3 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:ring-offset-2 focus:ring-offset-slate-950 transition" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="flex items-center gap-2.5">
+              <%= f.check_box :remember_me,
+                    class: "h-4 w-4 rounded border-slate-700 bg-slate-800 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-950" %>
+              <%= f.label :remember_me, class: "text-sm text-slate-400 cursor-pointer" %>
+            </div>
+          <% end %>
+
+          <div class="pt-1">
+            <%= f.submit "Sign in", class: "w-full inline-flex justify-center items-center px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-lg transition cursor-pointer shadow-lg shadow-indigo-500/20" %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
-    <div class="mt-4 text-center text-sm text-slate-500 space-y-1">
+    <%# Footer links %>
+    <div class="mt-6 flex flex-col items-center gap-2 text-sm">
       <%= render "devise/shared/links" %>
     </div>
+
   </div>
 </div>
