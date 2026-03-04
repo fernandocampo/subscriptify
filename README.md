@@ -1,58 +1,52 @@
 # Subscriptify
 
-**Subscriptify** is a website designed to track and send notifications for subscription renewals 
+**Subscriptify** is a subscription tracking application that sends renewal notifications.
 https://subscriptify.me
 
 ## Features
 
-- **User Authentication**: Seamlessly integrated with Devise for secure and adaptable user authentication mechanisms.
-- **Responsive Design**: Utilizing Bootstrap ~5.2 for a modern and responsive user interface.
-- **Form Management**: Enhanced with Simple Form for streamlined and efficient form handling.
-- **Iconography & Typography**: Leveraging Font Awesome for comprehensive iconography and typography options.
-- **Data Visualization**: Employs Chartkick and Groupdate for real-time, dynamic charts and efficient data grouping.
-- **Email Operations**: With the Resend gem for streamlined email processing.
-- **Report Generation**: Utilizing Caxlsx and Caxlsx_rails for Excel reports, and Wicked PDF for PDF generation.
-- **Background Job Processing**: Powered by Sidekiq for efficient background job management.
+- **User Authentication**: Devise for secure, extensible authentication.
+- **UI Design**: Tailwind CSS with a Zinc/Dark Mode design system and Heroicons for iconography.
+- **Reactivity**: Hotwire (Turbo 8 + Stimulus) for seamless, page-reload-free interactions. Smart subscription forms with zero-friction UX driven by Stimulus controllers.
+- **Form Management**: Simple Form for clean and efficient form handling.
+- **Data Visualization**: Chartkick and Groupdate for dynamic charts and data grouping.
+- **Email**: Resend gem for transactional email delivery.
+- **Report Generation**: Caxlsx/Caxlsx_rails for Excel exports, Wicked PDF for PDF generation.
+- **Background Processing**: Solid Queue, the native Rails 8 background job backend.
 
 ## Getting Started
 
 ### Prerequisites
 
-Before you begin, ensure you have installed:
-
-- Ruby on Rails
+- Ruby 3.3+
 - PostgreSQL
-- Node.js and Yarn (for Webpacker dependencies)
-- Redis (required for Sidekiq)
 
-### Installation Steps
+### Installation
 
-1. **Clone the Repository**
-git clone https://github.com/fernandocampo/subscriptify.git
+1. **Clone the repository**
+   ```
+   git clone https://github.com/fernandocampo/subscriptify.git
+   cd subscriptify
+   ```
 
-2. **Navigate to the Project Directory**
-cd subscriptify
+2. **Install dependencies**
+   ```
+   bundle install
+   ```
 
-3. **Install Dependencies**
-First, install the Ruby gems specified in the Gemfile:
-bundle install
+3. **Set up the database**
+   ```
+   rails db:prepare
+   ```
 
-4. **Setup the Database**
-Create and migrate the database:
-rails db:create db:migrate
-
-5. **Start the Rails Server**
-Start the Rails application:
-rails server
-
-6. **Launch Sidekiq in a New Terminal**
-For background processing, start Sidekiq in a new terminal window:
-sidekiq
-
+4. **Start the development server**
+   ```
+   bin/dev
+   ```
 
 ### Usage
 
-Navigate to http://localhost:3000 to view the application. Use the provided routes for user authentication, data visualization, report generation, and more.
+Navigate to http://localhost:3000. `bin/dev` starts the Rails server and all background processes in a single command.
 
 ## Authors
 
