@@ -2,19 +2,38 @@
   <div class="w-full max-w-sm">
     <h2 class="text-2xl font-bold text-slate-900 mb-6 text-center">Change your password</h2>
 
-    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-      <%= f.error_notification %>
-      <%= f.input :reset_password_token, as: :hidden %>
-      <%= f.full_error :reset_password_token %>
+    <%= form_with(model: resource, as: resource_name, url: password_path(resource_name), method: :put) do |f| %>
+      <% if resource.errors.any? %>
+        <div class="mb-4 rounded-md bg-red-50 border border-red-200 px-4 py-3">
+          <ul class="text-sm text-red-700 list-disc list-inside space-y-0.5">
+            <% resource.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-      <%= f.input :password, label: "New password", required: true, autofocus: true,
-            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-            input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation, label: "Confirm your new password", required: true,
-            input_html: { autocomplete: "new-password" } %>
+      <%= f.hidden_field :reset_password_token %>
 
-      <div class="mt-6">
-        <%= f.button :submit, "Change my password", class: "w-full inline-flex justify-center items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition" %>
+      <div class="space-y-4">
+        <div>
+          <%= f.label :password, "New password", class: "block text-sm font-medium text-slate-700 mb-1" %>
+          <% if @minimum_password_length %>
+            <p class="text-xs text-slate-500 mb-1"><%= @minimum_password_length %> characters minimum</p>
+          <% end %>
+          <%= f.password_field :password, required: true, autofocus: true, autocomplete: "new-password",
+                class: "w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" %>
+        </div>
+
+        <div>
+          <%= f.label :password_confirmation, "Confirm your new password", class: "block text-sm font-medium text-slate-700 mb-1" %>
+          <%= f.password_field :password_confirmation, required: true, autocomplete: "new-password",
+                class: "w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" %>
+        </div>
+
+        <div class="mt-6">
+          <%= f.submit "Change my password", class: "w-full inline-flex justify-center items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition cursor-pointer" %>
+        </div>
       </div>
     <% end %>
 

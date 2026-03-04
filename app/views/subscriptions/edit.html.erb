@@ -8,21 +8,68 @@
         <%= heroicon "x-mark", variant: :mini, options: { class: "h-5 w-5" } %>
       <% end %>
     </div>
-    <%= simple_form_for @subscription, html: { data: { turbo_frame: "_top" } } do |f| %>
+
+    <% input_class = "w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" %>
+    <% label_class = "block text-sm font-medium text-zinc-700 mb-1" %>
+
+    <%= form_with(model: @subscription, html: { data: { turbo_frame: "_top" } }, multipart: true) do |f| %>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <%= f.input :photo, as: :file %>
-        <%= f.input :company_name %>
-        <%= f.input :description %>
-        <%= f.input :url %>
-        <%= f.input :recurrent %>
-        <%= f.input :frequency, collection: Subscription::FREQUENCE %>
-        <%= f.input :payment_date, html5: true %>
-        <%= f.input :price %>
-        <%= f.input :currency, collection: Subscription::CURRENCIES %>
-        <%= f.input :category, collection: Subscription::CATEGORIES %>
+        <div>
+          <%= f.label :photo, class: label_class %>
+          <%= f.file_field :photo, class: "w-full text-sm text-zinc-500 file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-xs file:font-medium file:bg-zinc-100 file:text-zinc-700 hover:file:bg-zinc-200 cursor-pointer" %>
+        </div>
+
+        <div>
+          <%= f.label :company_name, class: label_class %>
+          <%= f.text_field :company_name, class: input_class %>
+        </div>
+
+        <div>
+          <%= f.label :description, class: label_class %>
+          <%= f.text_area :description, rows: 2, class: "#{input_class} resize-none" %>
+        </div>
+
+        <div>
+          <%= f.label :url, class: label_class %>
+          <%= f.url_field :url, placeholder: "https://", class: input_class %>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <%= f.check_box :recurrent, class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" %>
+          <%= f.label :recurrent, class: "text-sm font-medium text-zinc-700" %>
+        </div>
+
+        <div>
+          <%= f.label :frequency, class: label_class %>
+          <%= f.select :frequency, Subscription::FREQUENCE, { include_blank: false },
+                class: "#{input_class} appearance-none" %>
+        </div>
+
+        <div>
+          <%= f.label :payment_date, class: label_class %>
+          <%= f.date_field :payment_date, class: input_class %>
+        </div>
+
+        <div>
+          <%= f.label :price, class: label_class %>
+          <%= f.number_field :price, step: "0.01", min: "0", class: input_class %>
+        </div>
+
+        <div>
+          <%= f.label :currency, class: label_class %>
+          <%= f.select :currency, Subscription::CURRENCIES, { include_blank: false },
+                class: "#{input_class} appearance-none" %>
+        </div>
+
+        <div>
+          <%= f.label :category, class: label_class %>
+          <%= f.select :category, Subscription::CATEGORIES, { include_blank: "Select a category" },
+                class: "#{input_class} appearance-none" %>
+        </div>
       </div>
+
       <div class="flex items-center gap-3 mt-6">
-        <%= f.button :submit, "Update subscription", class: "px-5 py-2 bg-indigo-600 text-white text-sm font-medium rounded-xl hover:bg-indigo-700 transition" %>
+        <%= f.submit "Update subscription", class: "px-5 py-2 bg-indigo-600 text-white text-sm font-medium rounded-xl hover:bg-indigo-700 transition cursor-pointer" %>
         <%= link_to "Cancel", subscriptions_path,
               data: { turbo_frame: "subscription_form" },
               class: "text-sm text-zinc-500 hover:text-zinc-700" %>
